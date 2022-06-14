@@ -38,12 +38,12 @@ const Navbar = () => {
           menuOpen ? 'bg-white dark:bg-primary' : ''
         }`}
       >
-        <div className="flex flex-col h-full justify-between w-full items-center">
+        <div className="flex lg:flex-col h-full justify-between w-full items-center">
           <div className="flex w-full">
-            <div className="w-3/12"></div>
-            <div className="w-6/12 flex justify-center">
+            <div className="hidden lg:flex lg:w-3/12"></div>
+            <div className="w-2/3 lg:w-6/12 flex justify-start lg:justify-center">
               <Link href="/" passHref>
-                <div className="relative h-40 w-60 cursor-pointer">
+                <div className="relative h-20 w-28 lg:h-40 lg:w-60 cursor-pointer">
                   <Image
                     src={logo}
                     layout="fill"
@@ -53,7 +53,7 @@ const Navbar = () => {
                 </div>
               </Link>
             </div>
-            <div className="w-3/12 flex flex-col space-y-2 items-center justify-center">
+            <div className="hidden lg:w-3/12 lg:flex flex-col space-y-2 items-center justify-center">
               <div className="font-bold">Speak to Senior Dietitian Now</div>
               <a
                 className="text-primary font-semibold"
@@ -64,7 +64,7 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          <div className="flex w-full lg:hidden justify-center items-center">
+          <div className="flex w-1/3 lg:hidden justify-end items-center">
             <button onClick={onLinkClick} aria-label="Menu Button">
               <FontAwesomeIcon
                 size="2x"
@@ -73,15 +73,15 @@ const Navbar = () => {
               />
             </button>
           </div>
-          <div className="hidden w-full lg:flex justify-center font-body text-xl font-normal flex-col lg:flex-row items-center space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-full">
+          <div className="hidden w-full lg:flex justify-center font-body text-xl font-normal flex-col lg:flex-row items-end space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-10">
             {NAVBAR_LINKS.map((link, index) => (
               <Link key={index} href={link.href}>
                 <a
                   className={`${
                     router.pathname === link.href
-                      ? 'border-primary text-primary'
+                      ? 'border-primary border-b-2 text-primary'
                       : 'text-black border-white'
-                  }  px-3 py-1 transition hover:border-primary border-b-2`}
+                  }  px-3 py-1 h-10 transition hover:border-primary hover:border-b-2`}
                 >
                   {link.name}
                 </a>
