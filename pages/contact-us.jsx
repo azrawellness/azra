@@ -8,7 +8,7 @@ const ContactUs = () => {
     <div className="bg-gray text-black">
       <Header title="Contact Us" />
       <div className="container mx-auto py-10">
-        <div className="flex flex-col lg:flex-row w-full px-4 lg:px-0 space-y-4 lg:space-x-10 text-gray">
+        <div className="flex flex-col lg:flex-row w-full px-4 lg:px-0 space-y-4 lg:space-y-0 lg:space-x-10 text-gray">
           <div className="bg-primary px-10 pt-10 py-16 shadow w-full">
             <div className="text-2xl font-title mb-4 pb-1 border-b border-white inline-flex">
               Main Branch
@@ -35,7 +35,7 @@ const ContactUs = () => {
           We work with health-seeking clients like you, across the world. Some
           of our offices are at:
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 px-4 lg:px-0">
           <div className="bg-gray p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
