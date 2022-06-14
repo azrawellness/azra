@@ -57,7 +57,11 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className=" bg-black-alternate text-gray">
         <div className="container mx-auto flex justify-center items-center h-full py-4">
-          <div>Copyright {currentYear} &#169; Azra. All Rights Reserved </div>
+          <div>
+            <span>Copyright {currentYear} &#169;</span>
+            <span className="text-primary"> Azra.</span>
+            <span> All Rights Reserved.</span>
+          </div>
         </div>
       </div>
     </div>

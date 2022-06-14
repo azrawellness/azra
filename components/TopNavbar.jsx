@@ -5,7 +5,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 const TopNavbar = () => {
   return (
-    <div className="bg-secondary h-12 flex items-center justify-center text-gray">
+    <div className="bg-secondary h-12 hidden lg:flex items-center justify-center text-gray">
       <div className="container mx-auto flex justify-between">
         <div>
           <FontAwesomeIcon icon={faLocationDot} className="text-primary mr-2" />
