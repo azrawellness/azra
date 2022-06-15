@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>Azra - Multi-Speciality Wellness Expert</title>
         <meta name="description" content="Azra Website" />
-        <link rel="icon" href="/favicon-96x96.png" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <div className="scroll-smooth">

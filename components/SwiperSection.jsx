@@ -6,7 +6,7 @@ import Image from 'next/image'
 import sliderOne from '../public/slider/slider-1.jpg'
 import sliderTwo from '../public/slider/slider-2.jpg'
 import sliderThree from '../public/slider/slider-3.jpg'
-import { Dash } from '../components'
+import { Dash, WhatsAppButton } from '../components'
 
 const SwiperSection = () => {
   return (
@@ -19,13 +19,13 @@ const SwiperSection = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        className="h-72 lg:h-128 z-10"
+        className="h-full lg:h-128 z-10"
         slidesPerView={1}
       >
         <SwiperSlide>
           <div className="relative z-10">
             <div className="absolute p-12 lg:p-24 z-30 lg:top-10">
-              <div className="text-primary text-xl mb-4 flex items-center lg:space-x-2">
+              <div className="text-primary text-lg lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
                 <Dash />
                 <div>Health is in your hands</div>
               </div>
@@ -34,12 +34,10 @@ const SwiperSection = () => {
                 <br />
                 Healthy clients
               </div>
-              <div className="text-xl text-gray-dark mb-4">
+              <div className="text-lg lg:text-xl text-gray-dark mb-4">
                 Personal Nutritionist for every need
               </div>
-              <button className="bg-primary text-white rounded-3xl px-4 py-2">
-                WhatsApp Senior Dietician Now
-              </button>
+              <WhatsAppButton />
             </div>
             <Image src={sliderOne} alt="Slide One" />
           </div>
