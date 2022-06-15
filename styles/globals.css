@@ -18,3 +18,9 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .shadow-custom {
+    box-shadow: 1.8rem -1.8rem #99c300;
+  }
+}
