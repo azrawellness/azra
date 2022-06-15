@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon-96x96.png" />
       </Head>
 
-      <div>
+      <div className="scroll-smooth">
         <TopNavbar />
         <Navbar />
         <div className="w-full scroll-smooth font-body text-black h-full">
