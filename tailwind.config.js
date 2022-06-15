@@ -12,29 +12,24 @@ module.exports = {
       'black-alternate': '#0d0b09',
       gray: '#F7f9fb',
       'gray-dark': '#86898c',
-      white: '#F7f9fb',
+      white: '#ffffff',
     },
     screens: {
       sm: '640px',
-      // => @media (min-width: 640px) { ... }
-
       md: '768px',
-      // => @media (min-width: 768px) { ... }
-
       lg: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       xl: '1280px',
-      // => @media (min-width: 1280px) { ... }
-
       '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
     },
     fontFamily: {
       title: ['Prata', 'sans-serif'],
       body: ['Lato', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      height: {
+        128: '40rem',
+      },
+    },
   },
   plugins: [],
 }
