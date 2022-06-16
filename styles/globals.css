@@ -23,6 +23,10 @@ a {
   .shadow-custom {
     box-shadow: 1.8rem -1.8rem #99c300;
   }
+
+  .shdaow-custom-why-choose-us {
+    box-shadow: 30.8rem 4rem #99c300;
+  }
 }
 
 .swiper-button-prev,

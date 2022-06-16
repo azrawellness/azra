@@ -68,7 +68,7 @@ export const whatWeOffer = [
   {
     title: 'Weight Loss Nutrition',
     link: '/services/weight-loss-nutrition',
-    icon: 'fa-solid fa-person-simple',
+    icon: 'fa-solid fa-person',
     description:
       'Now target your weight loss goals, with easy to follow diet plans. Let our experts help you lose those extra kilos.',
   },
