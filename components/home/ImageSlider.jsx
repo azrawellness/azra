@@ -52,7 +52,7 @@ const Services = ({ images }) => {
           {images &&
             images.map((image, index) => (
               <SwiperSlide key={index} className="relative">
-                <Image src={image.link} alt={`Client ${index}`} />
+                <Image src={image.link} priority alt={`Client ${index}`} />
               </SwiperSlide>
             ))}
         </div>
