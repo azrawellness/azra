@@ -1,3 +1,13 @@
+import ClientReviews1 from '../public/images/client-reviews/client_reviews_1.jpeg'
+import ClientReviews2 from '../public/images/client-reviews/client_reviews_2.jpeg'
+import ClientReviews3 from '../public/images/client-reviews/client_reviews_3.jpeg'
+import ClientReviews4 from '../public/images/client-reviews/client_reviews_4.jpeg'
+import ClientReviews5 from '../public/images/client-reviews/client_reviews_5.jpeg'
+import ClientReviews6 from '../public/images/client-reviews/client_reviews_6.jpeg'
+import ClientReviews7 from '../public/images/client-reviews/client_reviews_7.jpeg'
+import ClientReviews8 from '../public/images/client-reviews/client_reviews_8.jpeg'
+import ClientReviews9 from '../public/images/client-reviews/client_reviews_9.jpeg'
+
 export const whatWeOffer = [
   {
     title: 'Sports Nutrition',
@@ -61,5 +71,26 @@ export const whatWeOffer = [
     icon: 'fa-solid fa-person-simple',
     description:
       'Now target your weight loss goals, with easy to follow diet plans. Let our experts help you lose those extra kilos.',
+  },
+]
+
+export const featuredClients = [
+  {
+    link: ClientReviews1,
+  },
+  {
+    link: ClientReviews2,
+  },
+  {
+    link: ClientReviews3,
+  },
+  {
+    link: ClientReviews4,
+  },
+  {
+    link: ClientReviews5,
+  },
+  {
+    link: ClientReviews6,
   },
 ]

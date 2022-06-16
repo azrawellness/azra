@@ -7,9 +7,10 @@ import {
   SwiperSection,
   WhatsAppButton,
   AboutAzra,
+  ImageSlider,
 } from '../components'
 import ctaImage from '../public/images/home/home-cta.jpeg'
-import { whatWeOffer } from '../utils/data'
+import { whatWeOffer, featuredClients } from '../utils/data'
 
 const Home = () => {
   return (
@@ -28,6 +29,14 @@ const Home = () => {
             unique. We work to design unique diet plans specifically for:
           </div>
           <Services services={whatWeOffer} />
+        </div>
+      </div>
+      <div className="bg-white py-28">
+        <div className="container mx-auto">
+          <div className="text-center font-title text-4xl mb-16">
+            Real Clients, Real Transformations
+          </div>
+          <ImageSlider images={featuredClients} />
         </div>
       </div>
       {/* CTA section */}

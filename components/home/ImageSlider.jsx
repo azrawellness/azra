@@ -3,23 +3,24 @@ import {
   faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Image from 'next/image'
 import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const Services = ({ services }) => {
+const Services = ({ images }) => {
   return (
-    <div className="h-96 w-full flex lg:space-x-4 items-center px-4 lg:px-0">
-      <div className="prev-services hidden lg:flex hover:scale-125 transition text-black">
+    <div className="h-full w-full flex lg:space-x-4 items-center px-4 lg:px-0">
+      <div className="prev-image-slider hidden lg:flex hover:scale-125 transition text-black">
         <FontAwesomeIcon size="3x" icon={faChevronCircleLeft} />
       </div>
       <Swiper
         modules={[Navigation, Autoplay]}
         loop={true}
         navigation={{
-          prevEl: '.prev-services',
-          nextEl: '.next-services',
+          prevEl: '.prev-image-slider',
+          nextEl: '.next-image-slider',
         }}
         autoplay={{
           delay: 3000,
@@ -48,26 +49,15 @@ const Services = ({ services }) => {
         }}
       >
         <div className="px-6">
-          {services &&
-            services.map((service, index) => (
-              <SwiperSlide key={index} className="relative mt-20">
-                <FontAwesomeIcon
-                  icon={service.icon}
-                  size="2x"
-                  fixedWidth
-                  className="bg-primary shadow text-white px-3 py-4 rounded-full z-50 absolute -top-8 right-8"
-                />
-                <div className="bg-white h-72 shadow rounded p-8">
-                  <div className="font-title text-2xl mb-4">
-                    {service.title}
-                  </div>
-                  <div className="h-36">{service.description}</div>
-                </div>
+          {images &&
+            images.map((image, index) => (
+              <SwiperSlide key={index} className="relative">
+                <Image src={image.link} alt={`Client ${index}`} />
               </SwiperSlide>
             ))}
         </div>
       </Swiper>
-      <div className="next-services hidden lg:flex hover:scale-125 transition text-black">
+      <div className="next-image-slider hidden lg:flex hover:scale-125 transition text-black">
         <FontAwesomeIcon size="3x" icon={faChevronCircleRight} />
       </div>
     </div>
