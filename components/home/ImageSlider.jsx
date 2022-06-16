@@ -9,22 +9,24 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const Services = ({ images }) => {
+const Services = ({ images, classId = 'image-slider' }) => {
   return (
     <div className="h-full w-full flex lg:space-x-4 items-center px-4 lg:px-0">
-      <div className="prev-image-slider hidden lg:flex hover:scale-125 transition text-black">
+      <div
+        className={`prev-${classId} cursor-pointer hidden lg:flex hover:scale-125 transition text-black`}
+      >
         <FontAwesomeIcon size="3x" icon={faChevronCircleLeft} />
       </div>
       <Swiper
         modules={[Navigation, Autoplay]}
         loop={true}
         navigation={{
-          prevEl: '.prev-image-slider',
-          nextEl: '.next-image-slider',
+          prevEl: `.prev-${classId}`,
+          nextEl: `.next-${classId}`,
         }}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
         className="h-full z-10 flex items-center"
         spaceBetween={10}
@@ -57,7 +59,9 @@ const Services = ({ images }) => {
             ))}
         </div>
       </Swiper>
-      <div className="next-image-slider hidden lg:flex hover:scale-125 transition text-black">
+      <div
+        className={`next-${classId} cursor-pointer hidden lg:flex hover:scale-125 transition text-black`}
+      >
         <FontAwesomeIcon size="3x" icon={faChevronCircleRight} />
       </div>
     </div>
