@@ -1,14 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
-import { useRef } from 'react'
-import { Autoplay, Navigation } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import {
   faChevronCircleLeft,
   faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
+import { Autoplay, Navigation } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const Services = ({ services }) => {
   return (
@@ -28,7 +27,7 @@ const Services = ({ services }) => {
           disableOnInteraction: true,
         }}
         className="h-full z-10 flex items-center"
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView="auto"
         breakpoints={{
           320: {
@@ -51,19 +50,19 @@ const Services = ({ services }) => {
       >
         <div className="px-6">
           {services &&
-            services.map((service) => (
-              <SwiperSlide key={service.id} className="relative mt-20">
-                {/* <FontAwesomeIcon
+            services.map((service, index) => (
+              <SwiperSlide key={index} className="relative mt-20">
+                <FontAwesomeIcon
                   icon={service.icon}
                   size="2x"
                   fixedWidth
-                  className="bg-primary text-white px-3 py-4 rounded-full z-50 absolute -top-8 right-8"
-                /> */}
-                <div className="bg-white  rounded p-8 h-full">
-                  <div className="font-title text-2xl mb-4">
+                  className="bg-primary shadow text-white px-3 py-4 rounded-full z-50 absolute -top-8 right-8"
+                />
+                <div className="bg-white shadow rounded p-8 h-full">
+                  <div className="font-title text-2xl mb-4 h-16">
                     {service.title}
                   </div>
-                  <div className="mb-4 h-32">{service.description}</div>
+                  <div className="mb-4 h-36">{service.description}</div>
                   <Link href={service.link} passHref>
                     <div className="inline-flex cursor-pointer px-2 py-1 bg-primary rounded shadow hover:-translate-y-2 transition">
                       Read More
