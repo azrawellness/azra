@@ -8,6 +8,14 @@ import ClientReviews7 from '../public/images/client-reviews/client_reviews_7.jpe
 import ClientReviews8 from '../public/images/client-reviews/client_reviews_8.jpeg'
 import ClientReviews9 from '../public/images/client-reviews/client_reviews_9.jpeg'
 
+import OurResults1 from '../public/images/our-results/our-results_1.jpeg'
+import OurResults2 from '../public/images/our-results/our-results_2.jpeg'
+import OurResults3 from '../public/images/our-results/our-results_3.jpeg'
+import OurResults4 from '../public/images/our-results/our-results_4.jpeg'
+import OurResults5 from '../public/images/our-results/our-results_5.jpeg'
+import OurResults6 from '../public/images/our-results/our-results_6.jpeg'
+import OurResults7 from '../public/images/our-results/our-results_7.jpeg'
+
 export const whatWeOffer = [
   {
     title: 'Sports Nutrition',
@@ -92,5 +100,26 @@ export const featuredClients = [
   },
   {
     link: ClientReviews6,
+  },
+]
+
+export const featuredOurResults = [
+  {
+    link: OurResults1,
+  },
+  {
+    link: OurResults2,
+  },
+  {
+    link: OurResults3,
+  },
+  {
+    link: OurResults4,
+  },
+  {
+    link: OurResults5,
+  },
+  {
+    link: OurResults6,
   },
 ]
