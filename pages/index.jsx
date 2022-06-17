@@ -10,6 +10,7 @@ import {
   WhatsAppButton,
   WhyChoseUs,
   PricingAndPlans,
+  Calendly,
 } from '../components'
 import ctaImage from '../public/images/home/home-cta.jpeg'
 import { featuredClients, whatWeOffer, featuredOurResults } from '../utils/data'
@@ -52,6 +53,9 @@ const Home = () => {
 
       {/* Why Choose Us Section */}
       <WhyChoseUs />
+
+      {/* Calendly Section */}
+      <Calendly />
 
       {/* Our Results Speak - When They can, so can You ! */}
       <div className="bg-gray py-28">

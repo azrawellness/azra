@@ -1,4 +1,4 @@
-import { Header, ServiceCard } from '../../components'
+import { Calendly, Header, ServiceCard } from '../../components'
 import serviceOne from '../../public/services/services_1.jpeg'
 import serviceTwo from '../../public/services/services_2.jpeg'
 import serviceThree from '../../public/services/services_3.jpeg'
@@ -16,7 +16,7 @@ const Services = () => {
     <div className="bg-gray text-black">
       <Header title="Services" />
       <div className="container mx-auto py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full px-4 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full px-4 lg:px-0 mb-10">
           <ServiceCard
             imageSrc={serviceOne}
             title="Weight Management"
@@ -25,6 +25,7 @@ const Services = () => {
           />
         </div>
       </div>
+      <Calendly />
     </div>
   )
 }
