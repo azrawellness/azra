@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../components'
+import { Header, Layout } from '../components'
 import ClientReviews1 from '../public/images/client-reviews/client_reviews_1.jpeg'
 import ClientReviews2 from '../public/images/client-reviews/client_reviews_2.jpeg'
 import ClientReviews3 from '../public/images/client-reviews/client_reviews_3.jpeg'

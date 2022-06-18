@@ -6,7 +6,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
   return (
     <div className="bg-primary">
       <div className="container mx-auto">
@@ -32,38 +32,28 @@ const Testimonials = () => {
             <div>
               <div className="h-auto w-full">
                 <Swiper
-                  modules={[Pagination]}
+                  modules={[Pagination, Autoplay]}
                   loop={true}
                   pagination={{
                     el: '.swiper-pagination',
                     clickable: true,
                   }}
-                  //   autoplay={{
-                  //     delay: 5000,
-                  //     disableOnInteraction: false,
-                  //   }}
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                  }}
                   className="h-full lg:h-128 z-10"
                   slidesPerView={1}
                 >
-                  <SwiperSlide>
-                    <div className="bg-black/30 p-10 text-xl italic relative">
-                      <blockquote className="relative">
-                        Story of Manish Goyal from New Delhi / Professional in
-                        UAE His Goals: Controlling Early Diabetes “My main goal
-                        while taking the diet from Azra was weight loss and
-                        controlling early diabetes. I have a family history of
-                        diabetes for three generations. I did not want to start
-                        any medication. The help I got from Azra’s team was
-                        phenomenal. They planned meals as per my taste. I did
-                        not struggle with any changes I wanted, because their
-                        support team is very helpful. I have been monitoring my
-                        fasting sugar since late 2019, which is now 135 from
-                        earlier 220 average. I recommend Azra because their
-                        approach is holistic. They dont just focus on the
-                        problem but the source.”
-                      </blockquote>
-                    </div>
-                  </SwiperSlide>
+                  {testimonials.map((testimonial, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="bg-black/30 p-10 text-xl italic relative">
+                        <blockquote className="relative">
+                          {testimonial.description}
+                        </blockquote>
+                      </div>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
                 <div className="swiper-pagination"></div>
               </div>

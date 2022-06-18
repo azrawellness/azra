@@ -30,3 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Firebase Admin Secret JSON. DO NOT COMMIT THIS FILE.
+secret.json
