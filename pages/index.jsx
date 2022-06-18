@@ -1,6 +1,5 @@
 import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
 import {
   AboutAzra,
   FeatureSection,
@@ -11,6 +10,8 @@ import {
   WhyChoseUs,
   PricingAndPlans,
   Calendly,
+  Image,
+  Testimonials,
 } from '../components'
 import ctaImage from '../public/images/home/home-cta.jpeg'
 import { featuredClients, whatWeOffer, featuredOurResults } from '../utils/data'
@@ -69,6 +70,9 @@ const Home = () => {
 
       {/* Pricing and Plans */}
       <PricingAndPlans />
+
+      {/* Testtimonials Section */}
+      <Testimonials />
 
       {/* CTA section */}
       <div className="relative h-72 lg:h-128 w-full">

@@ -4,8 +4,7 @@ import {
   faPerson,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import { Dash } from '../../components'
+import { Dash, Image } from '../../components'
 import aboutAzraImage from '../../public/images/home/about-azra-section-image.jpg'
 
 const AboutAzra = () => {

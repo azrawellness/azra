@@ -2,11 +2,10 @@ import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from 'next/image'
 import sliderOne from '../public/slider/slider-1.jpg'
 import sliderTwo from '../public/slider/slider-2.jpg'
 import sliderThree from '../public/slider/slider-3.jpg'
-import { Dash, WhatsAppButton } from '../components'
+import { Dash, WhatsAppButton, Image } from '../components'
 
 const SwiperSection = () => {
   return (

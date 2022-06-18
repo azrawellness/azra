@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -19,7 +21,7 @@ const Footer = () => {
             <Link href="/contact-us">Contact Us</Link>
           </div>
         </div>
-        <div className="w-1/3 flex flex-col">
+        <div className="w-2/3 flex flex-col">
           <div className="text-xl font-semibold border-b inline-flex pb-2 mb-4 uppercase">
             More Information
           </div>
@@ -29,27 +31,16 @@ const Footer = () => {
           </div>
           <div className="flex flex-col">
             <div>
-              <a href="tel:+91-9899-1919-36">+91-9899-1919-36</a>
+              <a href="tel:+91-9899-1919-36">
+                <FontAwesomeIcon icon={faPhone} className="mr-2" />
+                <span>+91-9899-1919-36</span>
+              </a>
             </div>
             <div>
-              <a href="mailto:info@azra.in">info@azra.in</a>
-            </div>
-          </div>
-        </div>
-        <div className="w-1/3 flex flex-col">
-          <div className="text-xl font-semibold border-b inline-flex pb-2 mb-4 uppercase">
-            Follow Us
-          </div>
-          <div className="my-4">
-            India, USA, UK, Canada, UAE, Qatar, Saudi Arabia, New Zealand,
-            Australia, South Africa, Kenya, Singapore
-          </div>
-          <div className="flex flex-col">
-            <div>
-              <a href="tel:+91-9899-1919-36">+91-9899-1919-36</a>
-            </div>
-            <div>
-              <a href="mailto:info@azra.in">info@azra.in</a>
+              <a href="mailto:info@azra.in">
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+                <span>info@azra.in</span>
+              </a>
             </div>
           </div>
         </div>

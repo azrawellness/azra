@@ -2,19 +2,19 @@ import {
   faBookMedical,
   faClock,
   faPerson,
-  faPersonDress,
+  faCirclePlay,
   faHandHoldingHeart,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import { Dash } from '..'
-import whyChooseUs from '../../public/images/home/why-choose-us.jpeg'
+import pricingAndPlans from '../../public/images/home/pricing-and-plans.jpeg'
 
 const PricingAndPlans = () => {
   return (
-    <div className="w-full bg-white py-20">
-      <div className="container mx-auto">
-        <div className="w-full lg:w-1/2 h-full">
+    <div className="w-full bg-white py-20 px-28">
+      <div className="container mx-auto flex space-x-28">
+        <div className="w-full h-full">
           <div className="flex items-center capitalize text-primary font-semibold space-x-2 mb-4">
             <Dash border="border" hidden={false} />
             <div>You Are Only Going To Get Healthier Now!</div>
@@ -105,6 +105,26 @@ const PricingAndPlans = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full h-full relative">
+          <a
+            href="https://www.youtube.com/watch?v=XMcab1MFaLc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute cursor-pointer transition top-1/2 left-1/2 z-30 text-primary -translate-y-1/2 -translate-x-1/2 bg-white rounded-full shadow-3xl"
+          >
+            <FontAwesomeIcon size="4x" icon={faCirclePlay} />
+          </a>
+          <Image src={pricingAndPlans} priority alt="Pricing and Plans" />
+          {/* <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/XMcab1MFaLc"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe> */}
         </div>
       </div>
     </div>

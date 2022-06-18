@@ -5,8 +5,7 @@ import {
   faPersonChalkboard,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import { Dash } from '../../components'
+import { Dash, Image } from '../../components'
 import whyChooseUs from '../../public/images/home/why-choose-us.jpeg'
 
 const WhyChoseUs = () => {
