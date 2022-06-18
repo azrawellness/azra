@@ -1,12 +1,12 @@
 import { faBars, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 // import { useAuth } from '../context/AuthContext'
 import logo from '../public/logo.png'
 import { NAVBAR_LINKS } from '../utils/constants'
+import { Image } from '../components'
 
 const Navbar = () => {
   // const { user } = useAuth()

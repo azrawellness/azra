@@ -36,3 +36,13 @@ a {
   color: #fff !important;
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+blockquote:before {
+  font-family: 'Prata';
+  position: absolute;
+  content: '\201C';
+  font-size: 4em;
+  color: #ffffff;
+  margin-left: -0.6em;
+  margin-top: 0.2em;
+}

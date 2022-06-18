@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { Header } from '../components'
+import { Calendly, Header } from '../components'
 
 const ContactUs = () => {
   return (
@@ -31,6 +31,7 @@ const ContactUs = () => {
             </a>
           </div>
         </div>
+        <Calendly />
         <div className="text-black font-title text-xl lg:text-2xl max-w-3xl mx-auto font-semibold px-4 lg:px-0 lg:text-center my-10">
           We work with health-seeking clients like you, across the world. Some
           of our offices are at:
