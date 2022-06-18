@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { Calendly, Header } from '../components'
+import { Calendly, Header, Layout } from '../components'
 
 const ContactUs = () => {
   return (

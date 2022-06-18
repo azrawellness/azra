@@ -1,3 +1,5 @@
+export const TESTIMONIALS = 'testimonials'
+
 export const NAVBAR_LINKS = [
   {
     href: '/',

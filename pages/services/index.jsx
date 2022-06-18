@@ -1,4 +1,4 @@
-import { Calendly, Header, ServiceCard } from '../../components'
+import { Calendly, Header, ServiceCard, Layout } from '../../components'
 import serviceOne from '../../public/services/services_1.jpeg'
 import serviceTwo from '../../public/services/services_2.jpeg'
 import serviceThree from '../../public/services/services_3.jpeg'

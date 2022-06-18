@@ -1,22 +1,25 @@
 import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { collection, getDocs, query } from 'firebase/firestore'
 import {
   AboutAzra,
+  Calendly,
   FeatureSection,
+  Image,
   ImageSlider,
+  PricingAndPlans,
   Services,
   SwiperSection,
+  Testimonials,
   WhatsAppButton,
   WhyChoseUs,
-  PricingAndPlans,
-  Calendly,
-  Image,
-  Testimonials,
 } from '../components'
+import { db } from '../firebase-config'
 import ctaImage from '../public/images/home/home-cta.jpeg'
-import { featuredClients, whatWeOffer, featuredOurResults } from '../utils/data'
+import { TESTIMONIALS } from '../utils/constants'
+import { featuredClients, featuredOurResults, whatWeOffer } from '../utils/data'
 
-const Home = () => {
+const Home = ({ testimonials }) => {
   return (
     <div className="h-full bg-white w-full pb-10">
       {/* Main Slider Section */}
@@ -72,7 +75,7 @@ const Home = () => {
       <PricingAndPlans />
 
       {/* Testtimonials Section */}
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
 
       {/* CTA section */}
       <div className="relative h-72 lg:h-128 w-full">
@@ -99,6 +102,26 @@ const Home = () => {
       </div>
     </div>
   )
+}
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+
+  const featuredWorkRef = collection(db, TESTIMONIALS)
+  const q = query(featuredWorkRef)
+
+  const querySnapshot = await getDocs(q)
+  let testimonials = []
+  querySnapshot.forEach((doc) => {
+    testimonials.push({
+      id: doc.id,
+      ...doc.data(),
+    })
+  })
+
+  // Pass data to the page via props
+  return { props: { testimonials: JSON.parse(JSON.stringify(testimonials)) } }
 }
 
 export default Home
