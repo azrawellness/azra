@@ -5,7 +5,7 @@ const Dashboardlayout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Azra - Dashbaord</title>
+        <title>Azra - Dashboard</title>
         <meta name="description" content="Azra Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
