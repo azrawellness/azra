@@ -1,9 +1,8 @@
 import { useState, useRef } from 'react'
-import { Image } from '../../components'
-import AuthLayout from '../../components/auth-layout'
-import Logo from '../../public/logo.png'
+import { Image } from '../components'
+import Logo from '../public/logo.png'
 import Link from 'next/link'
-import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../context/AuthContext'
 import { useRouter } from 'next/router'
 
 const Login = () => {
@@ -105,10 +104,6 @@ const Login = () => {
       </div>
     </div>
   )
-}
-
-Login.getLayout = (page) => {
-  return <AuthLayout>{page}</AuthLayout>
 }
 
 export default Login

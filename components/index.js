@@ -1,5 +1,7 @@
 export { default as Footer } from './Footer'
 export { default as Layout } from './layout'
+export { default as DashboardLayout } from './dashboard-layout'
+export { default as AuthLayout } from './auth-layout'
 export { default as TopNavbar } from './TopNavbar'
 export { default as Navbar } from './Navbar'
 export { default as Header } from './Header'
@@ -17,3 +19,6 @@ export { default as ImageSlider } from './home/ImageSlider'
 export { default as WhyChoseUs } from './home/WhyChoseUs'
 export { default as PricingAndPlans } from './home/PricingAndPlans'
 export { default as Testimonials } from './home/Testimonials'
+
+// Dashboard Components
+export { default as Sidebar } from './dashboard/Sidebar'

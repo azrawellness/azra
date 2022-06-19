@@ -12,6 +12,7 @@ module.exports = {
       'black-alternate': '#0d0b09',
       gray: '#F7f9fb',
       'gray-dark': '#86898c',
+      'gray-dashboard': '#f4f3f6',
       white: '#ffffff',
     },
     screens: {

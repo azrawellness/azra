@@ -1,8 +1,6 @@
 import Link from 'next/link'
-import React from 'react'
-import { Image } from '../../components'
-import AuthLayout from '../../components/auth-layout'
-import Logo from '../../public/logo.png'
+import { Image } from '../components'
+import Logo from '../public/logo.png'
 
 const Register = () => {
   const currentYear = new Date().getFullYear()
@@ -81,10 +79,6 @@ const Register = () => {
       </div>
     </div>
   )
-}
-
-Register.getLayout = (page) => {
-  return <AuthLayout>{page}</AuthLayout>
 }
 
 export default Register
