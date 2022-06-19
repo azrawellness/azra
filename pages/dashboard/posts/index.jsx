@@ -1,19 +1,59 @@
 import {
   collection,
-  doc,
-  getDoc,
   getDocs,
   orderBy,
   query,
-  serverTimestamp,
-  updateDoc,
-  where,
+  startAfter,
+  limit,
 } from 'firebase/firestore'
-import { POSTS } from '../../../utils/constants'
-import { db } from '../../../firebase-config'
 import Link from 'next/link'
+import { db } from '../../../firebase-config'
+import { POSTS } from '../../../utils/constants'
+import { useEffect, useState } from 'react'
 
-const Posts = ({ posts }) => {
+const Posts = () => {
+  const [posts, setPosts] = useState([])
+  const [beginAfter, setBeginAfter] = useState(0)
+  const [totalPostsCount, setTotalPostCounts] = useState(0)
+
+  const getPostsCount = async () => {
+    const q = query(collection(db, POSTS))
+    const querySnapshot = await getDocs(q)
+    setTotalPostCounts(querySnapshot.docs.length)
+  }
+
+  const getInitialPosts = async () => {
+    const q = query(
+      collection(db, POSTS),
+      orderBy('publishedDate'),
+      startAfter(beginAfter),
+      limit(10)
+    )
+    const querySnapshot = await getDocs(q)
+
+    const data = []
+    querySnapshot.forEach((doc) => {
+      console.log(doc)
+      data.push({
+        ...doc.data(),
+        id: doc.id,
+        publishedDate: JSON.parse(
+          JSON.stringify(doc.data().publishedDate.toDate())
+        ),
+        modifiedDate: JSON.parse(
+          JSON.stringify(doc.data().modifiedDate.toDate())
+        ),
+      })
+    })
+
+    setPosts(data)
+  }
+
+  useEffect(() => {
+    getPostsCount()
+    getInitialPosts()
+  }, [])
+
   return (
     <div>
       <div className="flex justify-between mb-4">
@@ -48,12 +88,6 @@ const Posts = ({ posts }) => {
                   <th scope="col" className="px-6 py-3">
                     Date
                   </th>
-                  <th scope="col" className="px-6 py-3">
-                    Status
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <span className="sr-only">Actions</span>
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -62,15 +96,16 @@ const Posts = ({ posts }) => {
                     key={post.id}
                     className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                   >
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-                    >
-                      Apple MacBook Pro 17
-                    </th>
-                    <td className="px-6 py-4">Sliver</td>
-                    <td className="px-6 py-4">Laptop</td>
-                    <td className="px-6 py-4">$2999</td>
+                    <td className="px-6 py-4">{post.title}</td>
+                    <td className="px-6 py-4"></td>
+                    {/* <td className="px-6 py-4">{post.authorId}</td> */}
+                    {/* <td className="px-6 py-4">{post.categories}</td> */}
+                    {/* <td className="px-6 py-4">{post.tags}</td> */}
+                    <td className="px-6 py-4">
+                      <div></div>
+                      {post.publishedDate}
+                    </td>
+                    <td className="px-6 py-4">{post.status}</td>
                     <td className="px-6 py-4 text-right">
                       <a
                         href="#"
@@ -96,22 +131,26 @@ const Posts = ({ posts }) => {
   )
 }
 
-export const getServerSideProps = async () => {
-  const q = query(collection(db, POSTS), orderBy('order', 'desc'))
+// export const getServerSideProps = async () => {
+//   const q = query(collection(db, 'posts'))
 
-  const querySnapshot = await getDocs(q)
-  const data = []
-  querySnapshot.forEach((doc) => {
-    data.push({
-      ...doc.data(),
-      id: doc.id,
-      lastUpdatedMessage: `Last updated ${new Date(
-        doc.data().timestamp.seconds * 1000
-      ).toLocaleDateString()}`,
-    })
-  })
+//   const querySnapshot = await getDocs(q)
+//   const data = []
+//   querySnapshot.forEach((doc) => {
+//     console.log(doc)
+//     data.push({
+//       ...doc.data(),
+//       id: doc.id,
+//       publishedDate: JSON.parse(
+//         JSON.stringify(doc.data().publishedDate.toDate())
+//       ),
+//       modifiedDate: JSON.parse(
+//         JSON.stringify(doc.data().modifiedDate.toDate())
+//       ),
+//     })
+//   })
 
-  return { props: { posts: data } }
-}
+//   return { props: { posts: data } }
+// }
 
 export default Posts
