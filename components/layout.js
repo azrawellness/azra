@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       <div className="scroll-smooth">
         <TopNavbar />
         <Navbar />
-        <div className="w-full scroll-smooth font-body text-black h-full">
+        <div className="w-full scroll-smooth font-body text-black h-full bg-gray">
           {children}
         </div>
         <Footer />
