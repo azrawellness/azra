@@ -156,7 +156,7 @@ const NewPost = () => {
               className="border p-2 border-gray-dark w-full"
               name="excerpt"
               id="excerpt"
-              rows="10"
+              rows="4"
             ></textarea>
           </div>
           {/* Featured Image */}
