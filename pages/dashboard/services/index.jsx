@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ClientReviews = () => {
+const Services = () => {
   return (
     <div>
-      <div className="text-2xl mb-4">Client Reviews</div>
+      <div className="text-2xl mb-4">Services</div>
       <div className="bg-white rounded shadow container mx-auto p-2">
         <div className="relative overflow-x-auto sm:rounded-lg">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -92,4 +92,4 @@ const ClientReviews = () => {
   )
 }
 
-export default ClientReviews
+export default Services

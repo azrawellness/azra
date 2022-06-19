@@ -1,32 +1,44 @@
-import React from 'react'
-import { Header, Layout } from '../components'
-import ClientReviews1 from '../public/images/client-reviews/client_reviews_1.jpeg'
-import ClientReviews2 from '../public/images/client-reviews/client_reviews_2.jpeg'
-import ClientReviews3 from '../public/images/client-reviews/client_reviews_3.jpeg'
-import ClientReviews4 from '../public/images/client-reviews/client_reviews_4.jpeg'
-import ClientReviews5 from '../public/images/client-reviews/client_reviews_5.jpeg'
-import ClientReviews6 from '../public/images/client-reviews/client_reviews_6.jpeg'
-import ClientReviews7 from '../public/images/client-reviews/client_reviews_7.jpeg'
-import ClientReviews8 from '../public/images/client-reviews/client_reviews_8.jpeg'
-import ClientReviews9 from '../public/images/client-reviews/client_reviews_9.jpeg'
-import Image from 'next/image'
+import { getDownloadURL, listAll, ref } from 'firebase/storage'
+import { Header, Image } from '../components'
+import { storage } from '../firebase-config'
 
-const ClientReviews = () => {
+const ClientReviews = ({ clientReviews }) => {
   return (
     <div className="bg-gray text-black">
       <Header title="Client Reviews" />
       <div className="container mx-auto py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full px-4 lg:px-0">
-          <Image src={ClientReviews1} width={500} height={500} alt="CR" />
-          <Image src={ClientReviews2} width={500} height={500} alt="CR" />
-          <Image src={ClientReviews3} width={500} height={500} alt="CR" />
-          <Image src={ClientReviews4} width={500} height={500} alt="CR" />
-          <Image src={ClientReviews5} width={500} height={500} alt="CR" />
-          <Image src={ClientReviews6} width={500} height={500} alt="CR" />
+        <div className="grid grid-cols-1 relative lg:grid-cols-3 gap-4 w-full px-4 lg:px-0">
+          {clientReviews &&
+            clientReviews.map((clientReview, index) => (
+              <Image
+                key={index}
+                width={500}
+                imageClass="bg-white p-10"
+                height={500}
+                src={clientReview}
+                alt={`Client Review image`}
+              />
+            ))}
         </div>
       </div>
     </div>
   )
+}
+
+export const getServerSideProps = async () => {
+  const storageRef = ref(storage, 'client-reviews')
+  let clientReviews = []
+
+  await listAll(storageRef)
+    .then((result) => {
+      return Promise.all(
+        result.items.map((imageRef) => getDownloadURL(imageRef))
+      )
+    })
+    .then((res) => {
+      clientReviews = res
+    })
+  return { props: { clientReviews } }
 }
 
 export default ClientReviews

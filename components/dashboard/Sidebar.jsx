@@ -8,6 +8,7 @@ import {
   faComment,
   faArrowRightFromBracket,
   faStar,
+  faListCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import Logo from '../../public/logo.png'
 import { useAuth } from '../../context/AuthContext'
@@ -20,7 +21,7 @@ const Sidebar = () => {
   const logoutUser = async () => {
     await logout()
 
-    router.push('/dashboard/login')
+    router.push('/')
   }
 
   return (
@@ -37,6 +38,12 @@ const Sidebar = () => {
         <Link href="/dashboard/posts">
           <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
             <FontAwesomeIcon fixedWidth icon={faNewspaper} /> <span>Posts</span>
+          </a>
+        </Link>
+        <Link href="/dashboard/services">
+          <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
+            <FontAwesomeIcon fixedWidth icon={faListCheck} />
+            <span>Services</span>
           </a>
         </Link>
         <Link href="/dashboard/client-reviews">
