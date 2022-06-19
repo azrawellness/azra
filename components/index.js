@@ -22,3 +22,4 @@ export { default as Testimonials } from './home/Testimonials'
 
 // Dashboard Components
 export { default as Sidebar } from './dashboard/Sidebar'
+export { default as MyEditor } from './dashboard/Editor'

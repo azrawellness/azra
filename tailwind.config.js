@@ -15,6 +15,7 @@ module.exports = {
       'gray-dark': '#86898c',
       'gray-dashboard': '#f4f3f6',
       white: '#ffffff',
+      red: '#aa0000',
     },
     screens: {
       sm: '640px',

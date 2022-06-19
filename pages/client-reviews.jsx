@@ -7,17 +7,18 @@ const ClientReviews = ({ clientReviews }) => {
     <div className="bg-gray text-black">
       <Header title="Client Reviews" />
       <div className="container mx-auto py-16">
-        <div className="grid grid-cols-1 relative lg:grid-cols-3 gap-4 w-full px-4 lg:px-0">
+        <div className="grid grid-cols-1 relative lg:grid-cols-3 gap-8 w-full px-4 lg:px-0">
           {clientReviews &&
             clientReviews.map((clientReview, index) => (
-              <Image
-                key={index}
-                width={500}
-                imageClass="bg-white p-10"
-                height={500}
-                src={clientReview}
-                alt={`Client Review image`}
-              />
+              <div key={index} className="relative shadow">
+                <Image
+                  width={500}
+                  layout="responsive"
+                  height={500}
+                  src={clientReview}
+                  alt={`Client Review image`}
+                />
+              </div>
             ))}
         </div>
       </div>

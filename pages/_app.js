@@ -4,6 +4,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import '../styles/globals.css'
 import { AuthContextProvider } from '../context/AuthContext'
 import { Layout, DashboardLayout, AuthLayout } from '../components'
+import NextNProgress from 'nextjs-progressbar'
 
 config.autoAddCss = false
 library.add(fas)
@@ -13,14 +14,20 @@ function MyApp({ Component, pageProps, router }) {
     return (
       <AuthContextProvider>
         <DashboardLayout>
+          <NextNProgress color="#99c300" />
           <Component {...pageProps} />
         </DashboardLayout>
       </AuthContextProvider>
     )
-  } else if (router.pathname === '/login' || router.pathname === '/register') {
+  } else if (
+    router.pathname === '/login' ||
+    router.pathname === '/register' ||
+    router.pathname === '/forgot-password'
+  ) {
     return (
       <AuthContextProvider>
         <AuthLayout>
+          <NextNProgress color="#99c300" />
           <Component {...pageProps} />
         </AuthLayout>
       </AuthContextProvider>
@@ -29,6 +36,7 @@ function MyApp({ Component, pageProps, router }) {
     return (
       <AuthContextProvider>
         <Layout>
+          <NextNProgress color="#99c300" />
           <Component {...pageProps} />
         </Layout>
       </AuthContextProvider>
