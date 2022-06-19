@@ -85,9 +85,9 @@ const Posts = ({ posts }) => {
             </table>
           ) : (
             <div className="bg-white h-32 text-3xl flex justify-center items-center dark:bg-gray-800 dark:border-gray-700">
-              <td className="px-6 py-4" colSpan="6">
+              <div className="px-6 py-4" colSpan="6">
                 No Posts added.
-              </td>
+              </div>
             </div>
           )}
         </div>

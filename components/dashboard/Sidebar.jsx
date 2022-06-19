@@ -1,18 +1,20 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
-import Image from 'next/image'
-import React from 'react'
 import {
-  faHome,
-  faNewspaper,
-  faComment,
   faArrowRightFromBracket,
-  faStar,
+  faComment,
+  faFolderTree,
+  faHashtag,
+  faHome,
   faListCheck,
+  faNewspaper,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons'
-import Logo from '../../public/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useAuth } from '../../context/AuthContext'
-import Router, { useRouter } from 'next/router'
+import Logo from '../../public/logo.png'
+import { SIDEBAR_LINKS } from '../../utils/constants'
 
 const Sidebar = () => {
   const { logout } = useAuth()
@@ -30,38 +32,28 @@ const Sidebar = () => {
         <Image src={Logo} alt="Azra" layout="fill" objectFit="contain" />
       </div>
       <div className="flex flex-col space-y-4">
-        <Link href="/dashboard">
-          <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
-            <FontAwesomeIcon fixedWidth icon={faHome} /> <span>Home</span>
-          </a>
-        </Link>
-        <Link href="/dashboard/posts">
-          <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
-            <FontAwesomeIcon fixedWidth icon={faNewspaper} /> <span>Posts</span>
-          </a>
-        </Link>
-        <Link href="/dashboard/services">
-          <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
-            <FontAwesomeIcon fixedWidth icon={faListCheck} />
-            <span>Services</span>
-          </a>
-        </Link>
-        <Link href="/dashboard/client-reviews">
-          <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
-            <FontAwesomeIcon fixedWidth icon={faStar} />
-            <span>Client Reviews</span>
-          </a>
-        </Link>
-        <Link href="/dashboard/testimonials">
-          <a className="flex w-full space-x-2 bg-gray-dashboard p-2 cursor-pointer rounded-xl items-center">
-            <FontAwesomeIcon fixedWidth icon={faComment} />
-            <span>Testimonials</span>
-          </a>
-        </Link>
+        {SIDEBAR_LINKS.map((link, index) => (
+          <Link href={link.href} key={index}>
+            <a
+              className={`flex w-full space-x-2 ${
+                link.nested
+                  ? router.pathname.match(link.href)
+                    ? 'bg-black text-white'
+                    : 'bg-gray-dashboard'
+                  : router.pathname === link.href
+                  ? 'bg-black text-white'
+                  : 'bg-gray-dashboard'
+              } p-2 cursor-pointer rounded-xl items-center hover:bg-black hover:text-white transition`}
+            >
+              <FontAwesomeIcon fixedWidth icon={link.icon} />
+              <span>{link.name}</span>
+            </a>
+          </Link>
+        ))}
 
         <button
           onClick={logoutUser}
-          className="flex w-full space-x-2 bg-gray-dashboard p-2 rounded-xl items-center"
+          className="flex w-full space-x-2 bg-gray-dashboard p-2 rounded-xl items-center hover:bg-black hover:text-white transition"
         >
           <FontAwesomeIcon fixedWidth icon={faArrowRightFromBracket} />
           <span>Logout</span>
