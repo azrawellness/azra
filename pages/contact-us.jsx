@@ -31,13 +31,15 @@ const ContactUs = () => {
             </a>
           </div>
         </div>
-        <Calendly />
-        <div className="text-black font-title text-xl lg:text-2xl max-w-3xl mx-auto font-semibold px-4 lg:px-0 lg:text-center my-10">
+      </div>
+      <Calendly />
+      <div className="container mx-auto py-10">
+        <div className="text-black font-title text-xl lg:text-4xl max-w-4xl mx-auto px-4 lg:px-0 lg:text-center my-10">
           We work with health-seeking clients like you, across the world. Some
           of our offices are at:
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 px-4 lg:px-0">
-          <div className="bg-gray p-6 rounded shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-4 px-4 lg:px-0">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Bengaluru Regional Office
@@ -47,7 +49,7 @@ const ContactUs = () => {
               Bengaluru 560001
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Chennai Regional Office
@@ -57,7 +59,7 @@ const ContactUs = () => {
               Block 31, Egmore Village, Chennai, 600008
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Hyderabad Regional Office
@@ -67,7 +69,7 @@ const ContactUs = () => {
               500081
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Kolkata Regional Office
@@ -77,7 +79,7 @@ const ContactUs = () => {
               700091
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Mumbai Regional Office
@@ -86,7 +88,7 @@ const ContactUs = () => {
               Boston House, Andheri East, Mumbai, Maharashtra 400093
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Dehradun Regional Office
@@ -95,7 +97,7 @@ const ContactUs = () => {
               Plot #22, IT Park, Sahastradhara Rd, Dehradun, Uttarakhand 248001
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Lucknow Regional Office
@@ -105,7 +107,7 @@ const ContactUs = () => {
               Nagar, Lucknow, Uttar Pradesh 226010
             </div>
           </div>
-          <div className="bg-gray p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow">
             <div className="text-primary font-title text-xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               International

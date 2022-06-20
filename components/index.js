@@ -22,6 +22,7 @@ export { default as ImageSlider } from './home/ImageSlider'
 export { default as WhyChoseUs } from './home/WhyChoseUs'
 export { default as PricingAndPlans } from './home/PricingAndPlans'
 export { default as Testimonials } from './home/Testimonials'
+export { default as PostSlider } from './home/PostSlider'
 
 // Dashboard Components
 export { default as Sidebar } from './dashboard/Sidebar'

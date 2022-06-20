@@ -26,63 +26,64 @@ const SwiperSection = () => {
             <div className="absolute p-12 lg:p-24 z-30 lg:top-10">
               <div className="text-primary text-lg lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
                 <Dash />
-                <div>Health is in your hands</div>
+                <div>Welcome to Azra - Your Personal Dietitian</div>
               </div>
               <div className="text-xl lg:text-7xl font-title w-full mb-4">
-                15000+ <span className="text-primary px-2">Satisfied</span>
-                <br />
-                Healthy clients
+                Easy to Follow <br /> Diet Plans from Rs 1730
               </div>
               <div className="text-lg lg:text-xl text-gray-dark mb-4">
-                Personal Nutritionist for every need
+                Weight Loss | Weight Gain | Hypertension | Pregnancy <br />|
+                PCOS | Diabetes | Renal | Thyroid | Child-Nutrition | Sports
+                Nutrition
               </div>
               <WhatsAppButton />
             </div>
             <Image src={sliderOne} alt="Slide One" />
           </div>
         </SwiperSlide>
-        {/* <SwiperSlide>
-            <div className="relative">
-              <div className="absolute p-24 z-50 top-10">
-                <div className="text-primary text-xl mb-4">
-                  Health is in your hands
-                </div>
-                <div className="text-7xl font-title w-full mb-4">
-                  15000+ <span className="text-primary px-2">Satisfied</span>
-                  <br />
-                  Healthy clients
-                </div>
-                <div className="text-xl text-gray-dark mb-4">
-                  Personal Nutritionist for every need
-                </div>
-                <button className="bg-primary text-white rounded-3xl px-4 py-2">
-                  WhatsApp Senior Dietitian Now
-                </button>
+        <SwiperSlide>
+          <div className="relative">
+            <div className="absolute p-24 z-50 top-10">
+              <div className="text-primary text-lg lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
+                <Dash />
+                Start Your Heath Journey Now
               </div>
-              <Image src={sliderTwo} alt="Slide One" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="relative">
-              <div className="absolute p-24 z-50 top-10">
-                <div className="text-primary text-xl mb-4">
-                  Health is in your hands
-                </div>
-                <div className="text-7xl font-title w-full mb-4">
-                  15000+ <span className="text-primary px-2">Satisfied</span>
-                  <br />
-                  Healthy clients
-                </div>
-                <div className="text-xl text-gray-dark mb-4">
-                  Personal Nutritionist for every need
-                </div>
-                <button className="bg-primary text-white rounded-3xl px-4 py-2">
-                  WhatsApp Senior Dietitian Now
-                </button>
+              <div className="text-7xl font-title w-full mb-4">
+                Eat <span className="text-primary">Right</span> <br />
+                Stay Bright
               </div>
-              <Image src={sliderThree} alt="Slide One" />
+              <div className="text-xl text-gray-dark mb-4">
+                Simple Diet Plans - That Work Wonders!
+              </div>
+              <button className="bg-primary text-white rounded-3xl px-4 py-2">
+                WhatsApp Senior Dietitian Now
+              </button>
             </div>
-          </SwiperSlide> */}
+            <Image src={sliderTwo} alt="Slide One" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <div className="absolute p-24 z-50 top-10">
+              <div className="text-primary text-lg lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
+                <Dash />
+                Health is in your hands
+              </div>
+              <div className="text-7xl font-title w-full mb-4">
+                15000+ <span className="text-primary px-2">Satisfied</span>
+                <br />
+                Healthy clients
+              </div>
+              <div className="text-xl text-gray-dark mb-4">
+                Personal Nutritionist for every need
+              </div>
+              <button className="bg-primary text-white rounded-3xl px-4 py-2">
+                WhatsApp Senior Dietitian Now
+              </button>
+            </div>
+            <Image src={sliderThree} alt="Slide One" />
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   )
