@@ -14,6 +14,9 @@ export { default as Calendly } from './Calendly'
 export { default as WhatsAppButton } from './WhatsAppButton'
 export { default as Services } from './Services/Services'
 export { default as FeatureSection } from './FeatureSection'
+export { default as PostCard } from './PostCard'
+
+// Home Components
 export { default as AboutAzra } from './home/AboutAzra'
 export { default as ImageSlider } from './home/ImageSlider'
 export { default as WhyChoseUs } from './home/WhyChoseUs'

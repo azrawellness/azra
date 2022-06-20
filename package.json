@@ -17,6 +17,7 @@
     "@tinymce/tinymce-react": "^4.1.0",
     "firebase": "^9.8.3",
     "firebase-admin": "^11.0.0",
+    "moment": "^2.29.3",
     "next": "12.1.6",
     "nextjs-progressbar": "^0.0.14",
     "nookies": "^2.5.2",

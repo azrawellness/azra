@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import postsData from '../../utils/blog.json'
-import tagsData from '../../utils/tags.json'
 import media from '../../utils/media.json'
+import tagsData from '../../utils/tags.json'
 import {
   collection,
   addDoc,
@@ -11,26 +11,46 @@ import {
   updateDoc,
   limit,
   startAfter,
+  orderBy,
+  query,
+  where,
+  Timestamp,
 } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 import { db, storage } from '../../firebase-config.js'
 import { POSTS } from '../../utils/constants'
-import { orderBy } from 'cypress/types/lodash'
 
 const ImportPost = () => {
   const [posts, setPosts] = useState([])
+  const docIds = []
   const [currentPost, setCurrentPost] = useState(null)
-  const [lastVisibleDocument, setLastVisibleDocument] = useState(null)
+  const [lastVisibleDocument, setLastVisibleDocument] = useState(0)
+  const [totalPostCounts, setTotalPostCounts] = useState(0)
   const [loading, setLoading] = useState(false)
+  const [finished, setFinished] = useState(false)
+  const [uploading, setUploading] = useState(false)
+
+  const getPostsCount = async () => {
+    const q = query(
+      collection(db, POSTS),
+      where('featuredImage', '==', null),
+      orderBy('publishedDate')
+    )
+    const querySnapshot = await getDocs(q)
+    setTotalPostCounts(querySnapshot.docs.length)
+  }
 
   const getInitialPosts = async () => {
     const data = []
-    const q = query(collection(db, POSTS), orderBy('publishedDate'), limit(10))
-    const querySnapshot = await getDocs(q)
-    setLastVisibleDocument(
-      documentSnapshots.docs[documentSnapshots.docs.length - 1]
+    const q = query(
+      collection(db, POSTS),
+      where('featuredImage', '==', null),
+      orderBy('publishedDate'),
+      limit(10)
     )
+    const querySnapshot = await getDocs(q)
+    setLastVisibleDocument(querySnapshot.docs.length - 1)
 
     querySnapshot.forEach((doc) => {
       data.push({
@@ -51,6 +71,7 @@ const ImportPost = () => {
     const data = []
     const q = query(
       collection(db, POSTS),
+      where('featuredImage', '==', null),
       orderBy('publishedDate'),
       startAfter(lastVisibleDocument),
       limit(10)
@@ -73,6 +94,7 @@ const ImportPost = () => {
   }
 
   useEffect(() => {
+    getPostsCount()
     getInitialPosts()
   }, [])
 
@@ -89,7 +111,9 @@ const ImportPost = () => {
         })
         .then((blob) => {
           const fileName =
-            mediaData.post_mime_type === 'image/jpeg'
+            mediaData.post_mimi_type === 'image/webp'
+              ? `${mediaData.post_name}.webp`
+              : mediaData.post_mime_type === 'image/jpeg'
               ? `${mediaData.post_name}.jpg`
               : `${mediaData.post_name}.png`
           const storageRef = ref(storage, `posts/${fileName}`)
@@ -100,7 +124,7 @@ const ImportPost = () => {
               const postRef = doc(db, 'posts', postId)
               // Set the "capital" field of the city 'DC'
               await updateDoc(postRef, {
-                featuredImage: url,
+                featuredImage: { url, fileName },
               })
             })
             setLoading(false)
@@ -111,75 +135,59 @@ const ImportPost = () => {
     }
   }
 
-  // const uploadPosts = async () => {
-  //   setUploading(true)
-  //   const storageRef = ref(storage, 'posts')
-  //   setTimeout(() => {
-  //     posts.forEach(async (post) => {
-  //       const tags = []
-  //       let imageUrl = null
+  const uploadPosts = async () => {
+    setUploading(true)
+    // const storageRef = ref(storage, 'posts')
 
-  //       const mediaUrl = media.find(
-  //         (m) => parseInt(m.ID) === post.featured_media
-  //       )
-  //       console.log(mediaUrl, 24)
-  //       if (mediaUrl) {
-  //         fetch(mediaUrl)
-  //           .then((res) => {
-  //             return res.blob()
-  //           })
-  //           .then((blob) => {
-  //             uploadBytes(storageRef, blob).then((snapshot) => {
-  //               console.log(snapshot, 32)
-  //               imageUrl = snapshot
-  //             })
-  //           })
-  //       }
+    postsData.forEach(async (post) => {
+      const tags = []
 
-  //       post.tags.forEach((tagValue) => {
-  //         // console.log(tagValue, 18)
-  //         const tag = tagsData.find((t) => parseInt(t.term_id) === tagValue)
-  //         // console.log(tag, 19)
-  //         tags.push({
-  //           name: tag.name,
-  //           slug: tag.slug,
-  //         })
-  //       })
+      post.tags.forEach((tagValue) => {
+        // console.log(tagValue, 18)
+        const tag = tagsData.find((t) => parseInt(t.term_id) === tagValue)
+        // console.log(tag, 19)
+        tags.push({
+          name: tag.name,
+          slug: tag.slug,
+        })
+      })
 
-  //       // console.log(tags, 28)
-  //       const docRef = await addDoc(collection(db, 'posts'), {
-  //         title: post.title.rendered,
-  //         content: post.content.rendered,
-  //         excerpt: post.excerpt.rendered,
-  //         publishedDate: serverTimestamp(Date.parse(post.date)),
-  //         modifiedDate: serverTimestamp(Date.parse(post.modified)),
-  //         slug: post.slug,
-  //         status: post.status,
-  //         categories: [
-  //           {
-  //             name: 'Health Management',
-  //             slug: 'health-management',
-  //           },
-  //         ],
-  //         author: [
-  //           {
-  //             uid: 'e8YbKaz3MIWA49FQ322e4OGPRsC2',
-  //             name: 'Azra',
-  //             displayName: 'Azra',
-  //           },
-  //         ],
-  //         tags: tags,
-  //         featuredImage: imageUrl,
-  //       })
-  //       docIds.push(docRef.id)
-  //       setUploading(false)
-  //       setFinished(true)
-  //     })
-  //   }, 5000)
-  // }
+      // console.log(Timestamp.fromMillis(Date.parse(post.date)), 28)
+
+      const docRef = await addDoc(collection(db, 'posts'), {
+        title: post.title.rendered,
+        content: post.content.rendered,
+        excerpt: post.excerpt.rendered,
+        publishedDate: Timestamp.fromMillis(Date.parse(post.date)),
+        modifiedDate: Timestamp.fromMillis(Date.parse(post.modified)),
+        slug: post.slug,
+        status: post.status,
+        categories: [
+          {
+            name: 'Health Management',
+            slug: 'health-management',
+          },
+        ],
+        author: {
+          uid: 'e8YbKaz3MIWA49FQ322e4OGPRsC2',
+          name: 'Azra',
+          displayName: 'Azra',
+        },
+        tags: tags,
+        featuredImage: null,
+      })
+      docIds.push(docRef.id)
+      setUploading(false)
+      setFinished(true)
+    })
+  }
 
   return (
     <div className="bg-white p-2 rounded shadow">
+      <div>
+        Total Posts Count:
+        {totalPostCounts}
+      </div>
       {posts && posts.length > 0 ? (
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
