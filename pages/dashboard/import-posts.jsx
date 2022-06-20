@@ -9,21 +9,54 @@ import {
   getDocs,
   doc,
   updateDoc,
+  limit,
+  startAfter,
 } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 import { db, storage } from '../../firebase-config.js'
 import { POSTS } from '../../utils/constants'
+import { orderBy } from 'cypress/types/lodash'
 
 const ImportPost = () => {
   const [posts, setPosts] = useState([])
   const [currentPost, setCurrentPost] = useState(null)
+  const [lastVisibleDocument, setLastVisibleDocument] = useState(null)
   const [loading, setLoading] = useState(false)
+
+  const getInitialPosts = async () => {
+    const data = []
+    const q = query(collection(db, POSTS), orderBy('publishedDate'), limit(10))
+    const querySnapshot = await getDocs(q)
+    setLastVisibleDocument(
+      documentSnapshots.docs[documentSnapshots.docs.length - 1]
+    )
+
+    querySnapshot.forEach((doc) => {
+      data.push({
+        ...doc.data(),
+        id: doc.id,
+        publishedDate: JSON.parse(
+          JSON.stringify(doc.data().publishedDate.toDate())
+        ),
+        modifiedDate: JSON.parse(
+          JSON.stringify(doc.data().modifiedDate.toDate())
+        ),
+      })
+      setPosts(data)
+    })
+  }
 
   const getPosts = async () => {
     const data = []
-    const q = collection(db, POSTS)
+    const q = query(
+      collection(db, POSTS),
+      orderBy('publishedDate'),
+      startAfter(lastVisibleDocument),
+      limit(10)
+    )
     const querySnapshot = await getDocs(q)
+
     querySnapshot.forEach((doc) => {
       data.push({
         ...doc.data(),
@@ -40,7 +73,7 @@ const ImportPost = () => {
   }
 
   useEffect(() => {
-    getPosts()
+    getInitialPosts()
   }, [])
 
   const uploadImage = async (slug, postId) => {

@@ -12,8 +12,8 @@ import pricingAndPlans from '../../public/images/home/pricing-and-plans.jpeg'
 
 const PricingAndPlans = () => {
   return (
-    <div className="w-full bg-white py-20 px-28">
-      <div className="container mx-auto flex space-x-28">
+    <div className="w-full bg-white lg:py-20 lg:px-28 px-4">
+      <div className="container mx-auto flex flex-col lg:flex-row space-y-6 lg:space-x-28">
         <div className="w-full h-full">
           <div className="flex items-center capitalize text-primary font-semibold space-x-2 mb-4">
             <Dash border="border" hidden={false} />
