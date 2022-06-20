@@ -51,7 +51,7 @@ const SwiperSection = () => {
             <div className="absolute bottom-0  p-6 lg:p-24 z-50 top-0 left-0 right-0">
               <div className="text-primary text-sm lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
                 <Dash />
-                Start Your Heath Journey Now
+                <div>Start Your Heath Journey Now</div>
               </div>
               <div className="text-xl lg:text-7xl font-title w-full mb-2 lg:mb-4">
                 Eat <span className="text-primary">Right</span> <br />
@@ -75,7 +75,7 @@ const SwiperSection = () => {
             <div className="absolute bottom-0 bg-gradient-to-r from-white/90 to-transparent p-6 lg:p-24 z-50 top-0 left-0 right-0">
               <div className="text-primary text-sm lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
                 <Dash />
-                Health is in your hands
+                <div>Health is in your hands</div>
               </div>
               <div className="text-xl lg:text-7xl font-title w-full mb-2 lg:mb-4">
                 15000+ <span className="text-primary px-2">Satisfied</span>
