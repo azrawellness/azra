@@ -17,7 +17,6 @@ const Image = ({ src, alt, imageClass, ...props }) => {
         isReady ? 'scale-100 bg-white blur-0' : 'scale-120 blur-2xl'
       }`}
       onLoadingComplete={onLoadCallback}
-      priority
     />
   )
 }
