@@ -70,7 +70,7 @@ const PostSlider = ({ posts, classId = 'post-slider' }) => {
                   </div>
                   <div className="col-span-2 p-4">
                     <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-                      <a className="font-body text-lg h-24 font-semibold hover:text-primary cursor-pointer transition hover:underline">
+                      <a className="font-body text-lg h-24 hover:text-primary cursor-pointer transition hover:underline">
                         {post.title}
                       </a>
                     </Link>

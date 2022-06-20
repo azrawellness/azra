@@ -25,8 +25,8 @@ module.exports = {
       '2xl': '1536px',
     },
     fontFamily: {
-      title: ['Prata', 'sans-serif'],
-      body: ['Lato', 'sans-serif'],
+      title: ['Crimson Text', 'sans-serif'],
+      body: ['Montserrat', 'sans-serif'],
     },
     extend: {
       height: {
