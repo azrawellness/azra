@@ -119,10 +119,14 @@ const Home = ({ testimonials, posts }) => {
 }
 
 export async function getServerSideProps() {
-  const featuredWorkRef = collection(db, TESTIMONIALS)
-  const latestPosts = collection(db, POSTS)
-  const q = query(featuredWorkRef)
-  const qPosts = query(latestPosts, orderBy('publishedDate', 'desc'), limit(10))
+  const testimonialsRef = collection(db, TESTIMONIALS)
+  const latestPostsRef = collection(db, POSTS)
+  const q = query(testimonialsRef)
+  const qPosts = query(
+    latestPostsRef,
+    orderBy('publishedDate', 'desc'),
+    limit(10)
+  )
 
   const querySnapshot = await getDocs(q)
   const queryPostsSnapshot = await getDocs(qPosts)

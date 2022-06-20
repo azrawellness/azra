@@ -8,7 +8,7 @@ import logo from '../public/logo.png'
 import { NAVBAR_LINKS } from '../utils/constants'
 import { Image } from '../components'
 
-const Navbar = () => {
+const Navbar = ({ toggleMenu }) => {
   // const { user } = useAuth()
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -17,6 +17,18 @@ const Navbar = () => {
   const onLinkClick = () => {
     setMenuOpen((prev) => !prev)
   }
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    }
+
+    toggleMenu(menuOpen)
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [menuOpen, toggleMenu])
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -107,7 +119,7 @@ const Navbar = () => {
       <div
         className={`${
           menuOpen ? 'scale-y-100' : 'scale-y-0'
-        } justify-between z-50 absolute top-0 left-0 right-0 bottom-0 border-primary duration-300 origin-top transform-gpu bg-white dark:bg-primary w-full transition content-center items-center py-4`}
+        } justify-between z-50 absolute top-0 left-0 h-screen overflow-hidden right-0 bottom-0 border-primary duration-300 origin-top transform-gpu bg-white dark:bg-primary w-full transition content-center items-center py-4`}
       >
         <button
           onClick={() => setMenuOpen(false)}
