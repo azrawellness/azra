@@ -40,7 +40,7 @@ const ContactUs = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-4 px-4 lg:px-0">
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Bengaluru Regional Office
             </div>
@@ -50,7 +50,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Chennai Regional Office
             </div>
@@ -60,7 +60,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Hyderabad Regional Office
             </div>
@@ -70,7 +70,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Kolkata Regional Office
             </div>
@@ -80,7 +80,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Mumbai Regional Office
             </div>
@@ -89,7 +89,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Dehradun Regional Office
             </div>
@@ -98,7 +98,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Lucknow Regional Office
             </div>
@@ -108,7 +108,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-xl">
+            <div className="text-primary font-title text-2xl">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               International
             </div>
