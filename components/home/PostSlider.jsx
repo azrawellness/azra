@@ -82,7 +82,9 @@ const PostSlider = ({ posts, classId = 'post-slider' }) => {
                           className="text-primary"
                         />
                         <span>
-                          {moment(post.publishedDate).format('Do MMM YYYY')}
+                          {moment
+                            .unix(post.publishedDate.seconds)
+                            .format('Do MMM YYYY')}
                         </span>
                       </div>
                       <div>&bull;</div>

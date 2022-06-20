@@ -1,39 +1,16 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { query, collection, getDocs, where } from 'firebase/firestore'
+import { faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import moment from 'moment'
+import { Image } from '../../components'
 import { db } from '../../firebase-config'
 import { POSTS } from '../../utils/constants'
-import { Image } from '../../components'
-import moment from 'moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons'
 
-const Post = () => {
-  const router = useRouter()
-  const { slug } = router.query
-  const [post, setPost] = useState(null)
-  const [loading, setLoading] = useState(false)
-
-  const fetchPost = async () => {
-    setLoading(true)
-    const q = query(collection(db, POSTS), where('slug', '==', slug))
-    const querySnapshot = await getDocs(q)
-    const data = querySnapshot.docs[0].data()
-    setPost(data)
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    if (slug) {
-      fetchPost()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug])
-
+const Post = ({ post }) => {
   return (
     <div className="bg-gray text-black py-16 px-4 lg:px-0">
       <div className="container mx-auto">
-        {!loading && post && (
+        {post && (
           <div className="bg-white rounded shadow w-full max-w-5xl mx-auto mb-4">
             {post.featuredImage?.url && (
               <div className="relative rounded-t w-full h-48 lg:h-128">
@@ -46,7 +23,7 @@ const Post = () => {
                 />
               </div>
             )}
-            <div className="p-4">
+            <div className="p-8">
               {/* Post Details */}
               <div className="text-2xl lg:text-4xl font-title mb-4">
                 {post.title}
@@ -59,7 +36,9 @@ const Post = () => {
                     className="text-primary"
                   />
                   <span>
-                    {moment(post.publishedDate.toDate()).format('Do MMM YYYY')}
+                    {moment
+                      .unix(post.publishedDate.seconds)
+                      .format('Do MMM YYYY')}
                   </span>
                 </div>
                 <div>
@@ -94,6 +73,16 @@ const Post = () => {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps = async (context) => {
+  const { params } = context
+  let post = null
+  const q = query(collection(db, POSTS), where('slug', '==', params.slug))
+  const querySnapshot = await getDocs(q)
+  post = querySnapshot.docs[0].data()
+
+  return { props: { post: JSON.parse(JSON.stringify(post)) } }
 }
 
 export default Post
