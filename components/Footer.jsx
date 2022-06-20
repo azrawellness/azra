@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <div className="bg-secondary text-gray">
       {/* Top Footer */}
-      <div className="flex container mx-auto py-10">
-        <div className="w-1/3">
+      <div className="flex flex-col lg:flex-row container mx-auto py-10 px-4 lg:px-0 space-y-6 lg:space-y-0">
+        <div className="w-full lg:w-1/3">
           <div className="text-xl font-semibold border-b inline-flex pb-2 mb-4 uppercase">
             Links
           </div>
@@ -21,7 +21,7 @@ const Footer = () => {
             <Link href="/contact-us">Contact Us</Link>
           </div>
         </div>
-        <div className="w-2/3 flex flex-col">
+        <div className="w-full lg:w-2/3 flex flex-col">
           <div className="text-xl font-semibold border-b inline-flex pb-2 mb-4 uppercase">
             More Information
           </div>

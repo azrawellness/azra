@@ -10,7 +10,7 @@ import whyChooseUs from '../../public/images/home/why-choose-us.jpeg'
 
 const WhyChoseUs = () => {
   return (
-    <div className="w-full bg-white flex-col lg:flex-row flex pb-48">
+    <div className="w-full bg-white flex-col lg:flex-row flex lg:pb-48">
       <div className="relative h-60 lg:h-auto w-full lg:w-1/2 shadow-custom-why-choose-us">
         <Image
           src={whyChooseUs}
