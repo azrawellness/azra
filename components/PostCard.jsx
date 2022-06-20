@@ -25,7 +25,7 @@ const PostCard = ({ post }) => {
           </a>
         </Link>
         <div className="flex space-x-2 text-sm mt-2 mb-4">
-          <div>
+          <div className="flex space-x-1 items-center">
             <FontAwesomeIcon
               icon={faCalendarDays}
               fixedWidth
@@ -34,7 +34,7 @@ const PostCard = ({ post }) => {
             <span>{moment(post.publishedDate).format('Do MMM YYYY')}</span>
           </div>
           <div>&bull;</div>
-          <div>
+          <div className="flex space-x-1 items-center">
             <FontAwesomeIcon
               icon={faUser}
               fixedWidth
