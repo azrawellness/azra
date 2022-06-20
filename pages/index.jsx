@@ -80,7 +80,7 @@ const Home = ({ testimonials, posts }) => {
 
       {/* Latest Posts Section */}
 
-      <div className="py-16">
+      <div className="py-16 px-4 lg:px-0">
         <div className="text-center font-title text-4xl mb-4">
           Our Latest News
         </div>

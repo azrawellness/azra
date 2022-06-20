@@ -1,5 +1,6 @@
 export const TESTIMONIALS = 'testimonials'
 export const POSTS = 'posts'
+export const SERVICES = 'services'
 
 export const NAVBAR_LINKS = [
   {
