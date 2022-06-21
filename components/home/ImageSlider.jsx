@@ -7,7 +7,7 @@ import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image  from 'next/image'
+import Image from 'next/image'
 
 const Services = ({ images, classId = 'image-slider' }) => {
   return (
@@ -54,7 +54,7 @@ const Services = ({ images, classId = 'image-slider' }) => {
           {images &&
             images.map((image, index) => (
               <SwiperSlide key={index} className="relative">
-                <Image src={image.link} priority alt={`Client ${index}`} />
+                <Image src={image.link} alt={`Client ${index}`} />
               </SwiperSlide>
             ))}
         </div>

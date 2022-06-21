@@ -115,7 +115,7 @@ const PricingAndPlans = () => {
           >
             <FontAwesomeIcon size="4x" icon={faCirclePlay} />
           </a>
-          <Image src={pricingAndPlans} priority alt="Pricing and Plans" />
+          <Image src={pricingAndPlans} alt="Pricing and Plans" />
           {/* <iframe
             width="100%"
             height="100%"
