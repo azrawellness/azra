@@ -16,9 +16,22 @@ class MyDocument extends Document {
             crossOrigin="true"
           />
           <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=optional"
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@100;200;300;400;500;600&display=swap"
           />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@100;200;300;400;500;600&display=swap"
+            media="print"
+            onLoad="this.media='all'"
+          />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@100;200;300;400;500;600&display=swap"
+            />
+          </noscript>
         </Head>
         <body>
           <Main />
