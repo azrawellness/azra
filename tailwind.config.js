@@ -24,11 +24,11 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
+    fontFamily: {
+      title: ['"Crimson Text"'],
+      primary: ['Raleway'],
+    },
     extend: {
-      fontFamily: {
-        title: ['"Crimson Text"', 'monospace'],
-        primary: ['Raleway', 'serif'],
-      },
       height: {
         128: '40rem',
         160: '50rem',
@@ -39,5 +39,4 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 }
