@@ -24,11 +24,11 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    fontFamily: {
-      title: ['"Crimson Text"'],
-      body: ['Montserrat'],
-    },
     extend: {
+      fontFamily: {
+        title: ['"Crimson Text"'],
+        body: ['"Montserrat"'],
+      },
       height: {
         128: '40rem',
         160: '50rem',
