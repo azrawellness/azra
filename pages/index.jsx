@@ -21,7 +21,9 @@ import { TESTIMONIALS, POSTS } from '../utils/constants'
 import { featuredClients, featuredOurResults, whatWeOffer } from '../utils/data'
 
 const Home = ({ testimonials, posts }) => {
-  return (
+  return !testimonials && !posts ? (
+    <div>Loading</div>
+  ) : (
     <div className="h-full bg-white w-full">
       {/* Main Slider Section */}
       <SwiperSection />
