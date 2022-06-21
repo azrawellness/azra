@@ -17,11 +17,10 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Script
-        async
-        defer
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
-      <Script id="google-analytics-tag" async defer>
+      <Script id="google-analytics-tag" strategy="afterInteractive">
         {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
@@ -31,7 +30,10 @@ const Layout = ({ children }) => {
                     });
                 `}
       </Script>
-      {/* <Script src="//code.tidio.co/d9gzmro8azj6easjo5fpeqxmror6mxmc.js" async /> */}
+      <Script
+        src="//code.tidio.co/d9gzmro8azj6easjo5fpeqxmror6mxmc.js"
+        strategy="lazyOnload"
+      />
 
       <div className="scroll-smooth relative">
         <TopNavbar />

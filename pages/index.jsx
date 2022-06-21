@@ -120,7 +120,12 @@ const Home = ({ testimonials, posts }) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req, res }) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
   const testimonialsRef = collection(db, TESTIMONIALS)
   const latestPostsRef = collection(db, POSTS)
   const q = query(testimonialsRef)

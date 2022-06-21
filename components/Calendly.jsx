@@ -3,10 +3,9 @@ import Script from 'next/script'
 const Calendly = () => {
   return (
     <>
-      {/* <Script
+      <Script
         src="https://assets.calendly.com/assets/external/widget.js"
-        async
-        defer
+        strategy="lazyOnload"
       />
       <div className="bg-white py-10 lg:py-28 px-4 lg:px-0">
         <div className="container mx-auto">
@@ -18,7 +17,7 @@ const Calendly = () => {
             data-url="https://calendly.com/azrawellnessexpert/30min?&hide_gdpr_banner=1"
           ></div>
         </div>
-      </div> */}
+      </div>
     </>
   )
 }

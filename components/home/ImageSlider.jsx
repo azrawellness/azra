@@ -7,7 +7,7 @@ import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from 'next/image'
+import { Image } from '../../components'
 
 const Services = ({ images, classId = 'image-slider' }) => {
   return (

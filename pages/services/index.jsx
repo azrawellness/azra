@@ -32,7 +32,12 @@ const Services = ({ services }) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req, res }) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
   const servicesRef = collection(db, SERVICES)
   const q = query(servicesRef)
   const querySnapshot = await getDocs(q)

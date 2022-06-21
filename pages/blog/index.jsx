@@ -22,7 +22,12 @@ const Blogs = ({ posts }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req, res }) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
   const posts = []
   const q = query(
     collection(db, POSTS),
