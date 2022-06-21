@@ -13,7 +13,7 @@ const WhatsAppButton = ({
       rel="noreferrer"
     >
       <FontAwesomeIcon size="2x" icon={faWhatsapp} fixedWidth />
-      <div>{text}</div>
+      <div className="hidden lg:flex">{text}</div>
     </a>
   )
 }
