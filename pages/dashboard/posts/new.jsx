@@ -1,12 +1,6 @@
 import { useRef, useState } from 'react'
 import { Image, MyEditor } from '../../../components'
-import {
-  ref,
-  getDownloadURL,
-  uploadBytesResumable,
-  collection,
-  setDoc,
-} from 'firebase/storage'
+import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { storage, db } from '../../../firebase-config'
 import { POSTS } from '../../../utils/constants'
 
@@ -21,13 +15,13 @@ const NewPost = () => {
 
   const removeImage = () => {}
 
-  const addPost = async () => {
-    await setDoc(doc(db, POSTS), {
-      name: 'Los Angeles',
-      state: 'CA',
-      country: 'USA',
-    })
-  }
+  // const addPost = async () => {
+  //   await setDoc(doc(db, POSTS), {
+  //     name: 'Los Angeles',
+  //     state: 'CA',
+  //     country: 'USA',
+  //   })
+  // }
 
   const handleUpload = async (e) => {
     const file = e.target?.files[0]
