@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Image from 'next/image'
+import NextImage from 'next/image'
 
-const NImage = ({ src, alt, imageClass, ...props }) => {
+const Image = ({ src, alt, imageClass, ...props }) => {
   const [isReady, setIsReady] = useState(false)
 
   const onLoadCallback = () => {
@@ -9,7 +9,7 @@ const NImage = ({ src, alt, imageClass, ...props }) => {
   }
 
   return (
-    <Image
+    <NextImage
       src={src}
       alt={alt}
       {...props}
@@ -17,8 +17,9 @@ const NImage = ({ src, alt, imageClass, ...props }) => {
         isReady ? 'scale-100 bg-white blur-0' : 'scale-120 blur-2xl'
       }`}
       onLoadingComplete={onLoadCallback}
+      priority
     />
   )
 }
 
-export default NImage
+export default Image
