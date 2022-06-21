@@ -19,10 +19,13 @@ import { db } from '../firebase-config'
 import ctaImage from '../public/images/home/home-cta.jpeg'
 import { TESTIMONIALS, POSTS } from '../utils/constants'
 import { featuredClients, featuredOurResults, whatWeOffer } from '../utils/data'
+import { faGear } from '@fortawesome/free-solid-svg-icons'
 
 const Home = ({ testimonials, posts }) => {
   return !testimonials && !posts ? (
-    <div>Loading</div>
+    <div className="w-full h-96 flex items-center justify-center">
+      <FontAwesomeIcon spin size="4x" icon={faGear} />
+    </div>
   ) : (
     <div className="h-full bg-white w-full">
       {/* Main Slider Section */}
