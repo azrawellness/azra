@@ -26,8 +26,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        title: ['"Crimson Text"'],
-        body: ['Raleway'],
+        title: ['"Crimson Text"', 'monospace'],
+        primary: ['Raleway', 'serif'],
       },
       height: {
         128: '40rem',

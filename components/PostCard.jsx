@@ -21,7 +21,7 @@ const PostCard = ({ post }) => {
             />
           </div>
           <div className="col-span-2 p-4">
-            <div className="font-body text-3xl font-semibold hover:text-primary cursor-pointer transition hover:underline">
+            <div className="font-primary text-3xl font-semibold hover:text-primary cursor-pointer transition hover:underline">
               {post.title}
             </div>
             <div className="flex space-x-2 text-sm mt-2 mb-4">

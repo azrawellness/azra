@@ -118,7 +118,7 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <div className="font-body font-semibold text-sm mt-4 mb-16 px-4 lg:px-0">
+        <div className="font-primary font-semibold text-sm mt-4 mb-16 px-4 lg:px-0">
           *For more information here we provide separate department contact
           person details, please contact them.
         </div>

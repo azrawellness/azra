@@ -85,7 +85,7 @@ const Navbar = ({ toggleMenu }) => {
               />
             </button>
           </div>
-          <div className="hidden w-full lg:flex justify-center font-body text-xl font-normal flex-col lg:flex-row items-end space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-10">
+          <div className="hidden w-full lg:flex justify-center font-primary text-xl font-normal flex-col lg:flex-row items-end space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-10">
             {NAVBAR_LINKS.map((link, index) => (
               <Link key={index} href={link.href}>
                 <a
