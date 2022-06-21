@@ -9,7 +9,7 @@ const AuthLayout = ({ children }) => {
         <meta name="description" content="Azra Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
@@ -22,7 +22,7 @@ const AuthLayout = ({ children }) => {
                     page_path: window.location.pathname,
                     });
                 `}
-      </Script>
+      </Script> */}
 
       <div className="scroll-smooth min-h-screen h-full flex items-center justify-center">
         {children}
