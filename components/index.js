@@ -1,29 +1,27 @@
-export { default as Footer } from './Footer'
-export { default as Layout } from './layout'
-export { default as DashboardLayout } from './dashboard-layout'
-export { default as AuthLayout } from './auth-layout'
-export { default as TopNavbar } from './TopNavbar'
-export { default as Navbar } from './Navbar'
-export { default as Header } from './Header'
-export { default as Image } from './Image'
-export { default as ServiceCard } from './ServiceCard'
-export { default as FeatureCard } from './FeatureCard'
-export { default as SwiperSection } from './SwiperSection'
-export { default as Dash } from './Dash'
-export { default as Calendly } from './Calendly'
-export { default as WhatsAppButton } from './WhatsAppButton'
-export { default as Services } from './Services/Services'
-export { default as FeatureSection } from './FeatureSection'
-export { default as PostCard } from './PostCard'
+import dynamic from 'next/dynamic'
 
-// Home Components
-export { default as AboutAzra } from './home/AboutAzra'
-export { default as ImageSlider } from './home/ImageSlider'
-export { default as WhyChoseUs } from './home/WhyChoseUs'
-export { default as PricingAndPlans } from './home/PricingAndPlans'
-export { default as Testimonials } from './home/Testimonials'
-export { default as PostSlider } from './home/PostSlider'
+export const Footer = dynamic(() => import('./Footer'))
+export const Layout = dynamic(() => import('./layout'))
+export const DashboardLayout = dynamic(() => import('./dashboard-layout'))
+export const AuthLayout = dynamic(() => import('./auth-layout'))
+export const TopNavbar = dynamic(() => import('./TopNavbar'))
+export const Navbar = dynamic(() => import('./Navbar'))
+export const Header = dynamic(() => import('./Header'))
+export const Image = dynamic(() => import('./Image'))
+export const ServiceCard = dynamic(() => import('./ServiceCard'))
+export const FeatureCard = dynamic(() => import('./FeatureCard'))
+export const SwiperSection = dynamic(() => import('./SwiperSection'))
+export const Dash = dynamic(() => import('./Dash'))
+export const Calendly = dynamic(() => import('./Calendly'))
+export const WhatsAppButton = dynamic(() => import('./WhatsAppButton'))
+export const Services = dynamic(() => import('./Services/Services'))
+export const FeatureSection = dynamic(() => import('./FeatureSection'))
+export const PostCard = dynamic(() => import('./PostCard'))
 
-// Dashboard Components
-export { default as Sidebar } from './dashboard/Sidebar'
-export { default as MyEditor } from './dashboard/Editor'
+// Home s
+export const AboutAzra = dynamic(() => import('./home/AboutAzra'))
+export const ImageSlider = dynamic(() => import('./home/ImageSlider'))
+export const WhyChoseUs = dynamic(() => import('./home/WhyChoseUs'))
+export const PricingAndPlans = dynamic(() => import('./home/PricingAndPlans'))
+export const Testimonials = dynamic(() => import('./home/Testimonials'))
+export const PostSlider = dynamic(() => import('./home/PostSlider'))
