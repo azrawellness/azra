@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
         <meta name="description" content="Azra Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      {/* <Script
+      <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
@@ -32,8 +32,8 @@ const Layout = ({ children }) => {
       </Script>
       <Script
         src="//code.tidio.co/d9gzmro8azj6easjo5fpeqxmror6mxmc.js"
-        strategy="lazyOnload"
-      /> */}
+        strategy="afterInteractive"
+      />
 
       <div className="scroll-smooth relative">
         <TopNavbar />
