@@ -31,6 +31,8 @@ module.exports = {
     extend: {
       height: {
         128: '40rem',
+        160: '50rem',
+        188: '70rem',
       },
       boxShadow: {
         custom: '0 35px 60px -15px rgba(0, 0, 0, 0.3)',

@@ -29,6 +29,13 @@ a {
   }
 }
 
+@media (max-width: 480px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
 .swiper-button-prev,
 .swiper-button-next {
   border-radius: 100%;
