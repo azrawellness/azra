@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import NextImage from 'next/image'
+import Image from 'next/image'
 
-const Image = ({ src, alt, imageClass, ...props }) => {
+const NImage = ({ src, alt, imageClass, ...props }) => {
   const [isReady, setIsReady] = useState(false)
 
   const onLoadCallback = () => {
@@ -9,7 +9,7 @@ const Image = ({ src, alt, imageClass, ...props }) => {
   }
 
   return (
-    <NextImage
+    <Image
       src={src}
       alt={alt}
       {...props}
@@ -21,4 +21,4 @@ const Image = ({ src, alt, imageClass, ...props }) => {
   )
 }
 
-export default Image
+export default NImage
