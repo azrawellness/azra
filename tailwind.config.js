@@ -27,7 +27,7 @@ module.exports = {
     extend: {
       fontFamily: {
         title: ['"Crimson Text"'],
-        body: ['"Montserrat"'],
+        body: ['Montserrat'],
       },
       height: {
         128: '40rem',
