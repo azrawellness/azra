@@ -35,6 +35,6 @@ yarn-error.log*
 secret.json
 
 # Utilities
-/utils/blog.json
-/utils/media.json
-/utils/tags.json
+utils/blog.json
+utils/media.json
+utils/tags.json
