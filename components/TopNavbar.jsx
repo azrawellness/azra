@@ -23,7 +23,11 @@ const TopNavbar = () => {
             </a>
           </div>
           <div className="flex px-2 space-x-2 text-primary">
-            <a href="/" target="_blank" rel="noreferrer">
+            <a
+              href="http://www.instagram.com/azrawellnessexpert"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a href="/" target="_blank" rel="noreferrer">

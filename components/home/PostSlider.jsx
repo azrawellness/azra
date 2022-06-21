@@ -59,7 +59,7 @@ const PostSlider = ({ posts, classId = 'post-slider' }) => {
             posts.map((post, index) => (
               <SwiperSlide key={index} className="relative">
                 <div className="bg-white shadow h-80 rounded grid grid-cols-1">
-                  <div className="col-span-1 relative h-48 w-full">
+                  <div className="col-span-1 relative h-36 w-full">
                     <Image
                       src={post.featuredImage.url}
                       layout="fill"
@@ -70,7 +70,7 @@ const PostSlider = ({ posts, classId = 'post-slider' }) => {
                   </div>
                   <div className="col-span-2 p-4">
                     <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-                      <a className="font-body text-lg h-24 hover:text-primary cursor-pointer transition hover:underline">
+                      <a className="font-body text-lg hover:text-primary cursor-pointer transition hover:underline">
                         {post.title}
                       </a>
                     </Link>

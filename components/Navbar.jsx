@@ -72,7 +72,7 @@ const Navbar = ({ toggleMenu }) => {
                 href="tel:+91-9899191936"
               >
                 <FontAwesomeIcon bounce icon={faPhone} className="mr-2" />
-                +919899-19191-36
+                +919899-1919-36
               </a>
             </div>
           </div>

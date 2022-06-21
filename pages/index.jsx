@@ -84,11 +84,13 @@ const Home = ({ testimonials, posts }) => {
         <div className="text-center font-title text-4xl mb-4">
           Our Latest News
         </div>
-        <div className="w-full mx-auto text-center max-w-2xl">
-          Top stories featured on Health & Medicine, Mind & Brain, and Living
-          Well sections. Your source for the latest research news.
+        <div className="container mx-auto">
+          <div className="w-full mx-auto text-center max-w-2xl">
+            Top stories featured on Health & Medicine, Mind & Brain, and Living
+            Well sections. Your source for the latest research news.
+          </div>
+          <PostSlider posts={posts} />
         </div>
-        <PostSlider posts={posts} />
       </div>
 
       {/* CTA section */}
