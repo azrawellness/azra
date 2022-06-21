@@ -22,11 +22,7 @@ import { featuredClients, featuredOurResults, whatWeOffer } from '../utils/data'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 
 const Home = ({ testimonials, posts }) => {
-  return !testimonials && !posts ? (
-    <div className="w-full h-96 flex items-center justify-center">
-      <FontAwesomeIcon spin size="4x" icon={faGear} />
-    </div>
-  ) : (
+  return (
     <div className="h-full bg-white w-full">
       {/* Main Slider Section */}
       <SwiperSection />
