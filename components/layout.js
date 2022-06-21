@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
         strategy="afterInteractive"
       />
 
-      <div className="scroll-smooth font-primary font-light relative">
+      <div className="scroll-smooth font-primary font-normal relative">
         <TopNavbar />
         <Navbar toggleMenu={toggleMenu} />
         <div className="w-full scroll-smooth font-primary text-black h-full bg-gray">
