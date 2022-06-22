@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Dash } from '../../components'
+import { Image, Dash, Splash } from '../../components'
 import testimonialImage from '../../public/images/home/testimonials.jpg'
 import { Autoplay, Pagination } from 'swiper'
 import 'swiper/css'
@@ -7,7 +7,12 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 const Testimonials = ({ testimonials }) => {
-  return (
+  const [loading, setLoading] = useState(false)
+  // const [testimonials, setTestimonials] = useState([])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <div className="bg-primary">
       <div className="container mx-auto px-4 lg:px-0 py-10 lg:py-0">
         <div className="flex flex-col lg:flex-row lg:space-x-20">
