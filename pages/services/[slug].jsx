@@ -18,7 +18,7 @@ const Service = () => {
 
     const q = query(
       collection(db, SERVICES),
-      where('slug', '==', router.params.slug)
+      where('slug', '==', router.query.slug)
     )
     const querySnapshot = await getDocs(q)
     setService(querySnapshot.docs[0].data())

@@ -17,7 +17,7 @@ const Post = () => {
     setLoading(true)
     const q = query(
       collection(db, POSTS),
-      where('slug', '==', router.params.slug)
+      where('slug', '==', router.query.slug)
     )
     const querySnapshot = await getDocs(q)
     setPost(querySnapshot.docs[0].data())
