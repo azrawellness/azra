@@ -6,16 +6,19 @@ import { Image, Splash } from '../../components'
 import { db } from '../../firebase-config'
 import { POSTS } from '../../utils/constants'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const Post = () => {
   const [post, setPost] = useState(null)
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const getPost = async () => {
     setLoading(true)
-    const { params } = context
-    let post = null
-    const q = query(collection(db, POSTS), where('slug', '==', params.slug))
+    const q = query(
+      collection(db, POSTS),
+      where('slug', '==', router.params.slug)
+    )
     const querySnapshot = await getDocs(q)
     setPost(querySnapshot.docs[0].data())
     setLoading(false)
