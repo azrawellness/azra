@@ -1,13 +1,42 @@
-import React from 'react'
-import { Image, Dash } from '../../components'
-import testimonialImage from '../../public/images/home/testimonials.jpg'
+import { collection, getDocs, query } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
 import { Autoplay, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Dash, Image, Splash } from '../../components'
+import testimonialImage from '../../public/images/home/testimonials.jpg'
+import { TESTIMONIALS } from '../../utils/constants'
+import { db } from '../../firebase-config.js'
 
-const Testimonials = ({ testimonials }) => {
-  return (
+const Testimonials = () => {
+  const [loading, setLoading] = useState(false)
+  const [testimonials, setTestimonials] = useState([])
+
+  const getTestimonials = async () => {
+    setLoading(true)
+    const testimonialsRef = collection(db, TESTIMONIALS)
+    const q = query(testimonialsRef)
+    let data = []
+    const querySnapshot = await getDocs(q)
+    querySnapshot.forEach((doc) => {
+      data.push({
+        id: doc.id,
+        ...doc.data(),
+      })
+    })
+    setTestimonials(data)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getTestimonials()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <div className="bg-primary">
       <div className="container mx-auto px-4 lg:px-0 py-10 lg:py-0">
         <div className="flex flex-col lg:flex-row lg:space-x-20">

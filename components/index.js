@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 
+export const Splash = dynamic(() => import('./Splash'))
 export const Footer = dynamic(() => import('./Footer'))
 export const Layout = dynamic(() => import('./layout'))
 export const DashboardLayout = dynamic(() => import('./dashboard-layout'))
@@ -20,12 +21,13 @@ export const Services = dynamic(() => import('./Services/Services'))
 export const FeatureSection = dynamic(() => import('./FeatureSection'))
 export const PostCard = dynamic(() => import('./PostCard'))
 
-// Home s
+// Home components
 export const AboutAzra = dynamic(() => import('./home/AboutAzra'))
 export const ImageSlider = dynamic(() => import('./home/ImageSlider'))
 export const WhyChoseUs = dynamic(() => import('./home/WhyChoseUs'))
 export const PricingAndPlans = dynamic(() => import('./home/PricingAndPlans'))
 export const Testimonials = dynamic(() => import('./home/Testimonials'))
 export const PostSlider = dynamic(() => import('./home/PostSlider'))
+export const PostsSection = dynamic(() => import('./home/PostsSection'))
 export const Sidebar = dynamic(() => import('./dashboard/Sidebar'))
 export const MyEditor = dynamic(() => import('./dashboard/Editor'))
