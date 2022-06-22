@@ -90,7 +90,11 @@ const Navbar = ({ toggleMenu }) => {
               <Link key={index} href={link.href}>
                 <a
                   className={`${
-                    router.pathname === link.href
+                    (
+                      link.match
+                        ? router.pathname.match(link.href)
+                        : router.pathname === link.href
+                    )
                       ? 'border-primary border-b-2 text-primary'
                       : 'text-black border-white'
                   }  px-3 py-1 h-10 transition hover:border-primary hover:border-b-2`}
@@ -133,7 +137,11 @@ const Navbar = ({ toggleMenu }) => {
             <Link key={index} href={link.href}>
               <a
                 className={`${
-                  router.pathname === link.href
+                  (
+                    link.match
+                      ? router.pathname.match(link.href)
+                      : router.pathname === link.href
+                  )
                     ? 'bg-primary dark:bg-white text-white dark:text-primary '
                     : 'text-primary dark:text-white'
                 } rounded-3xl px-3 py-1 transition hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white`}

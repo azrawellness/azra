@@ -6,22 +6,27 @@ export const NAVBAR_LINKS = [
   {
     href: '/',
     name: 'Home',
+    match: false,
   },
   {
     href: '/services',
     name: 'Services',
+    match: true,
   },
   {
     href: '/blog',
     name: 'Blog',
+    match: true,
   },
   {
     href: '/client-reviews',
     name: 'Client Reviews',
+    match: false,
   },
   {
     href: '/contact-us',
     name: 'Contact Us',
+    match: false,
   },
 ]
 
