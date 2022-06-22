@@ -1,9 +1,35 @@
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
-import { Header, Image } from '../components'
+import { Header, Image, Splash } from '../components'
 import { storage } from '../firebase-config'
+import { useState, useEffect } from 'react'
 
-const ClientReviews = ({ clientReviews }) => {
-  return (
+const ClientReviews = () => {
+  const [clientReviews, setClientReviews] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const getClientReviews = async () => {
+    setLoading(true)
+    const storageRef = ref(storage, 'client-reviews')
+
+    await listAll(storageRef)
+      .then((result) => {
+        return Promise.all(
+          result.items.map((imageRef) => getDownloadURL(imageRef))
+        )
+      })
+      .then((res) => {
+        setClientReviews(res)
+        setLoading(false)
+      })
+  }
+
+  useEffect(() => {
+    getClientReviews()
+  }, [])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <div className="bg-gray text-black">
       <Header title="Client Reviews" />
       <div className="container mx-auto py-16">
@@ -24,27 +50,6 @@ const ClientReviews = ({ clientReviews }) => {
       </div>
     </div>
   )
-}
-
-export const getServerSideProps = async ({ req, res }) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
-  const storageRef = ref(storage, 'client-reviews')
-  let clientReviews = []
-
-  await listAll(storageRef)
-    .then((result) => {
-      return Promise.all(
-        result.items.map((imageRef) => getDownloadURL(imageRef))
-      )
-    })
-    .then((res) => {
-      clientReviews = res
-    })
-  return { props: { clientReviews } }
 }
 
 export default ClientReviews

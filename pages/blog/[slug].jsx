@@ -2,12 +2,32 @@ import { faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import moment from 'moment'
-import { Image } from '../../components'
+import { Image, Splash } from '../../components'
 import { db } from '../../firebase-config'
 import { POSTS } from '../../utils/constants'
+import { useState, useEffect } from 'react'
 
-const Post = ({ post }) => {
-  return (
+const Post = () => {
+  const [post, setPost] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const getPost = async () => {
+    setLoading(true)
+    const { params } = context
+    let post = null
+    const q = query(collection(db, POSTS), where('slug', '==', params.slug))
+    const querySnapshot = await getDocs(q)
+    setPost(querySnapshot.docs[0].data())
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getPost()
+  }, [])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <div className="bg-gray text-black py-16 px-4 lg:px-0">
       <div className="container mx-auto">
         {post && (
@@ -73,16 +93,6 @@ const Post = ({ post }) => {
       </div>
     </div>
   )
-}
-
-export const getServerSideProps = async (context) => {
-  const { params } = context
-  let post = null
-  const q = query(collection(db, POSTS), where('slug', '==', params.slug))
-  const querySnapshot = await getDocs(q)
-  post = querySnapshot.docs[0].data()
-
-  return { props: { post: JSON.parse(JSON.stringify(post)) } }
 }
 
 export default Post

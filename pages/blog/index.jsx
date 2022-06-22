@@ -1,11 +1,46 @@
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
 import Head from 'next/head'
-import { Header, PostCard } from '../../components'
+import { useState, useEffect } from 'react'
+import { Header, PostCard, Splash } from '../../components'
 import { db } from '../../firebase-config.js'
 import { POSTS } from '../../utils/constants'
 
-const Blogs = ({ posts }) => {
-  return (
+const Blogs = () => {
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const getPosts = async () => {
+    setLoading(true)
+    const q = query(
+      collection(db, POSTS),
+      orderBy('publishedDate', 'desc'),
+      limit(10)
+    )
+    const querySnapshot = await getDocs(q)
+    const data = []
+    querySnapshot.forEach((doc) => {
+      data.push({
+        ...doc.data(),
+        id: doc.id,
+        publishedDate: JSON.parse(
+          JSON.stringify(doc.data().publishedDate.toDate())
+        ),
+        modifiedDate: JSON.parse(
+          JSON.stringify(doc.data().modifiedDate.toDate())
+        ),
+      })
+    })
+    setPosts(data)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getPosts()
+  }, [])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <>
       <Head>
         <title>Blog - Azra</title>
@@ -20,35 +55,6 @@ const Blogs = ({ posts }) => {
       </div>
     </>
   )
-}
-
-export const getServerSideProps = async ({ req, res }) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
-  const posts = []
-  const q = query(
-    collection(db, POSTS),
-    orderBy('publishedDate', 'desc'),
-    limit(10)
-  )
-  const querySnapshot = await getDocs(q)
-
-  querySnapshot.forEach((doc) => {
-    posts.push({
-      ...doc.data(),
-      id: doc.id,
-      publishedDate: JSON.parse(
-        JSON.stringify(doc.data().publishedDate.toDate())
-      ),
-      modifiedDate: JSON.parse(
-        JSON.stringify(doc.data().modifiedDate.toDate())
-      ),
-    })
-  })
-  return { props: { posts } }
 }
 
 export default Blogs

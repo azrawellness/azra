@@ -2,12 +2,30 @@ import { faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import moment from 'moment'
-import { Image } from '../../components'
+import { useEffect, useState } from 'react'
+import { Image, Splash } from '../../components'
 import { db } from '../../firebase-config'
 import { SERVICES } from '../../utils/constants'
 
-const Service = ({ service }) => {
-  return (
+const Service = () => {
+  const [service, setService] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const getService = async () => {
+    setLoading(true)
+    const q = query(collection(db, SERVICES), where('slug', '==', params.slug))
+    const querySnapshot = await getDocs(q)
+    setService(querySnapshot.docs[0].data())
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getService()
+  }, [])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <div className="bg-gray text-black py-16 px-4 lg:px-0">
       <div className="container mx-auto">
         {service && (
@@ -40,16 +58,6 @@ const Service = ({ service }) => {
       </div>
     </div>
   )
-}
-
-export const getServerSideProps = async (context) => {
-  const { params } = context
-  let service = null
-  const q = query(collection(db, SERVICES), where('slug', '==', params.slug))
-  const querySnapshot = await getDocs(q)
-  service = querySnapshot.docs[0].data()
-
-  return { props: { service: JSON.parse(JSON.stringify(service)) } }
 }
 
 export default Service

@@ -1,11 +1,38 @@
 import { collection, getDocs, query } from 'firebase/firestore'
 import Head from 'next/head'
-import { Calendly, Header, ServiceCard } from '../../components'
+import { Calendly, Header, ServiceCard, Splash } from '../../components'
 import { SERVICES } from '../../utils/constants'
 import { db } from '../../firebase-config'
+import { useEffect, useState } from 'react'
 
-const Services = ({ services }) => {
-  return (
+const Services = () => {
+  const [services, setServices] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const getServices = async () => {
+    setLoading(true)
+    const servicesRef = collection(db, SERVICES)
+    const q = query(servicesRef)
+    const querySnapshot = await getDocs(q)
+    let data = []
+    querySnapshot.forEach((doc) => {
+      data.push({
+        id: doc.id,
+        ...doc.data(),
+      })
+    })
+
+    setServices(data)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getServices()
+  }, [])
+
+  return loading ? (
+    <Splash />
+  ) : (
     <>
       <Head>
         <title>Services - Azra</title>
@@ -30,30 +57,6 @@ const Services = ({ services }) => {
       </div>
     </>
   )
-}
-
-export async function getServerSideProps({ req, res }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
-  const servicesRef = collection(db, SERVICES)
-  const q = query(servicesRef)
-  const querySnapshot = await getDocs(q)
-  let services = []
-  querySnapshot.forEach((doc) => {
-    services.push({
-      id: doc.id,
-      ...doc.data(),
-    })
-  })
-
-  return {
-    props: {
-      services: JSON.parse(JSON.stringify(services)),
-    },
-  }
 }
 
 export default Services
