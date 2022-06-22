@@ -4,7 +4,7 @@ if (!firebaseAdmin.apps.length) {
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert({
       privateKey: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY
-        ? process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY.replace(/\n/gm, '\n')
+        ? JSON.parse(process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY)
         : undefined,
       clientEmail: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL,
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,

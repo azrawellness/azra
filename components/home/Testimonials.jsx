@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { Image, Dash, Splash } from '../../components'
 import testimonialImage from '../../public/images/home/testimonials.jpg'
 import { Autoplay, Pagination } from 'swiper'
