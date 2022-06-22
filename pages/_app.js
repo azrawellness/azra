@@ -34,12 +34,10 @@ function MyApp({ Component, pageProps, router }) {
     )
   } else {
     return (
-      <AuthContextProvider>
-        <Layout>
-          <NextNProgress color="#99c300" />
-          <Component {...pageProps} />
-        </Layout>
-      </AuthContextProvider>
+      <Layout>
+        <NextNProgress color="#99c300" />
+        <Component {...pageProps} />
+      </Layout>
     )
   }
 }
