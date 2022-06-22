@@ -10,7 +10,8 @@ const Calendly = () => {
         <div className="flex items-center justify-center">
           <Link href="/schedule-consultation">
             <a className="bg-primary px-4 text-center py-2 rounded shadow text-xl text-white">
-              Book Consultation
+              Also pls change button to Book My Free Consultation with a Senior
+              Nutritionist
             </a>
           </Link>
         </div>
