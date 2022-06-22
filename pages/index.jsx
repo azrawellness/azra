@@ -1,13 +1,12 @@
 import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { collection, getDocs, limit, query, orderBy } from 'firebase/firestore'
 import {
   AboutAzra,
   Calendly,
   FeatureSection,
   Image,
   ImageSlider,
-  PostSlider,
+  PostsSection,
   PricingAndPlans,
   Services,
   SwiperSection,
@@ -15,13 +14,10 @@ import {
   WhatsAppButton,
   WhyChoseUs,
 } from '../components'
-import { db } from '../firebase-config'
 import ctaImage from '../public/images/home/home-cta.jpeg'
-import { TESTIMONIALS, POSTS } from '../utils/constants'
 import { featuredClients, featuredOurResults, whatWeOffer } from '../utils/data'
-import { faGear } from '@fortawesome/free-solid-svg-icons'
 
-const Home = ({ testimonials, posts }) => {
+const Home = () => {
   return (
     <div className="h-full bg-white w-full">
       {/* Main Slider Section */}
@@ -77,22 +73,10 @@ const Home = ({ testimonials, posts }) => {
       <PricingAndPlans />
 
       {/* Testtimonials Section */}
-      <Testimonials testimonials={testimonials} />
+      <Testimonials />
 
       {/* Latest Posts Section */}
-
-      <div className="py-16 px-4 lg:px-0">
-        <div className="text-center font-title text-4xl mb-4">
-          Our Latest News
-        </div>
-        <div className="container mx-auto">
-          <div className="w-full mx-auto text-center max-w-2xl">
-            Top stories featured on Health & Medicine, Mind & Brain, and Living
-            Well sections. Your source for the latest research news.
-          </div>
-          <PostSlider posts={posts} />
-        </div>
-      </div>
+      <PostsSection />
 
       {/* CTA section */}
       <div className="relative h-72 lg:h-128 w-full">
@@ -119,48 +103,6 @@ const Home = ({ testimonials, posts }) => {
       </div>
     </div>
   )
-}
-
-export async function getServerSideProps({ req, res }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
-  const testimonialsRef = collection(db, TESTIMONIALS)
-  const latestPostsRef = collection(db, POSTS)
-  const q = query(testimonialsRef)
-  const qPosts = query(
-    latestPostsRef,
-    orderBy('publishedDate', 'desc'),
-    limit(10)
-  )
-
-  const querySnapshot = await getDocs(q)
-  const queryPostsSnapshot = await getDocs(qPosts)
-  let testimonials = []
-  let posts = []
-  querySnapshot.forEach((doc) => {
-    testimonials.push({
-      id: doc.id,
-      ...doc.data(),
-    })
-  })
-
-  queryPostsSnapshot.forEach((doc) => {
-    posts.push({
-      id: doc.id,
-      ...doc.data(),
-    })
-  })
-
-  // Pass data to the page via props
-  return {
-    props: {
-      testimonials: JSON.parse(JSON.stringify(testimonials)),
-      posts: JSON.parse(JSON.stringify(posts)),
-    },
-  }
 }
 
 export default Home

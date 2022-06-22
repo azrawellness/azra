@@ -10,7 +10,7 @@ const WhatsAppButton = ({
     <a
       href="https://api.whatsapp.com/send/?phone=919899191936&text=Hello&app_absent=0"
       target="_blank"
-      className={classes}
+      className={`${classes} ${hideOnMobile ? 'border-2 border-white' : ''}`}
       rel="noreferrer"
     >
       <FontAwesomeIcon size="2x" icon={faWhatsapp} fixedWidth />
