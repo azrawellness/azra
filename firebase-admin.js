@@ -1,10 +1,9 @@
 import * as firebaseAdmin from 'firebase-admin'
-const { privateKey } = JSON.parse(process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY)
 
 if (!firebaseAdmin.apps.length) {
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert({
-      privateKey,
+      privateKey: process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY,
       clientEmail: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL,
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     }),
