@@ -9,7 +9,11 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 
-const Services = ({ images, classId = 'image-slider' }) => {
+const Services = ({
+  images,
+  classId = 'image-slider',
+  lazyBoundary = '200px',
+}) => {
   return (
     <div className="h-full w-full flex lg:space-x-4 items-center px-4 lg:px-0">
       <div
@@ -54,7 +58,11 @@ const Services = ({ images, classId = 'image-slider' }) => {
           {images &&
             images.map((image, index) => (
               <SwiperSlide key={index} className="relative">
-                <Image src={image.link} alt={`Client ${index}`} />
+                <Image
+                  src={image.link}
+                  lazyBoundary={lazyBoundary}
+                  alt={`Client ${index}`}
+                />
               </SwiperSlide>
             ))}
         </div>

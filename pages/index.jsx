@@ -48,7 +48,11 @@ const Home = () => {
           <div className="text-center font-title text-4xl mb-16">
             Real Clients, Real Transformations
           </div>
-          <ImageSlider classId="real-clients" images={featuredClients} />
+          <ImageSlider
+            lazyBoundary="500px"
+            classId="real-clients"
+            images={featuredClients}
+          />
         </div>
       </div>
 
@@ -61,7 +65,11 @@ const Home = () => {
           <div className="text-center font-title text-4xl mb-16">
             Our Results Speak - When They can, so can You !
           </div>
-          <ImageSlider classId="our-results" images={featuredOurResults} />
+          <ImageSlider
+            lazyBoundary="800px"
+            classId="our-results"
+            images={featuredOurResults}
+          />
         </div>
       </div>
 

@@ -72,7 +72,12 @@ const AboutAzra = () => {
           <div className="text-xl lg:text-3xl font-title">15 Years</div>
           <div>Experience</div>
         </div>
-        <Image src={aboutAzraImage} layout="responsive" alt="About Azra" />
+        <Image
+          src={aboutAzraImage}
+          lazyBoundary="800px"
+          layout="responsive"
+          alt="About Azra"
+        />
       </div>
     </div>
   )

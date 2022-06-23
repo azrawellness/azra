@@ -45,6 +45,7 @@ const Testimonials = () => {
               width={400}
               height={500}
               layout="responsive"
+              lazyBoundary="1000px"
               objectFit="cover"
               src={testimonialImage}
               alt="Testimonials Image"
@@ -84,6 +85,7 @@ const Testimonials = () => {
                           <div className="relative w-10 h-10 lg:h-20 lg:w-20 rounded-full border-2 border-white">
                             <Image
                               layout="fill"
+                              lazyBoundary={'1000px'}
                               imageClass="rounded-full border-2 border-white"
                               objectFit="cover"
                               src={testimonial?.featuredImage?.url}
