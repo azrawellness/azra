@@ -33,7 +33,7 @@ const Service = () => {
   ) : (
     <>
       <Head>
-        <title>{service.title} - Azra</title>
+        <title>{service && service.title} - Azra</title>
         <meta name="description" content="Azra Website" />
       </Head>
       <div className="bg-gray text-black py-16 px-4 lg:px-0">

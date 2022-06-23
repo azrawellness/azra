@@ -35,7 +35,7 @@ const Post = () => {
   ) : (
     <>
       <Head>
-        <title>{post.title} - Azra</title>
+        <title>{post && post.title} - Azra</title>
         <meta name="description" content="Azra Website" />
       </Head>
       <div className="bg-gray text-black py-16 px-4 lg:px-0">
