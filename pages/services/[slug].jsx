@@ -9,22 +9,23 @@ const Service = () => {
   const [service, setService] = useState(null)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const { slug } = router.query
 
   const getService = async () => {
     setLoading(true)
 
-    const q = query(
-      collection(db, SERVICES),
-      where('slug', '==', router.query.slug)
-    )
+    const q = query(collection(db, SERVICES), where('slug', '==', slug))
     const querySnapshot = await getDocs(q)
     setService(querySnapshot.docs[0].data())
     setLoading(false)
   }
 
   useEffect(() => {
-    getService()
-  }, [])
+    if (slug) {
+      getService()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug])
 
   return loading ? (
     <Splash />
