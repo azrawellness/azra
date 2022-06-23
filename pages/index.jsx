@@ -68,7 +68,7 @@ const Home = () => {
       {/* Pricing and Plans */}
       <PricingAndPlans />
 
-      {/* Testtimonials Section */}
+      {/* Testimonials Section */}
       <Testimonials />
 
       {/* Latest Posts Section */}

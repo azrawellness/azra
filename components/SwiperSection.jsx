@@ -5,7 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import sliderOne from '../public/slider/slider-1.jpg'
 import sliderTwo from '../public/slider/slider-2.jpg'
 import sliderThree from '../public/slider/slider-3.jpg'
-import { Dash, WhatsAppButton, Image } from '../components'
+import { Dash, WhatsAppButton } from '../components'
+import Image from './Image'
 
 const SwiperSection = () => {
   return (
