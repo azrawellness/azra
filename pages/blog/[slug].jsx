@@ -7,6 +7,7 @@ import { db } from '../../firebase-config'
 import { POSTS } from '../../utils/constants'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 const Post = () => {
   const [post, setPost] = useState(null)
@@ -32,70 +33,76 @@ const Post = () => {
   return loading ? (
     <Splash />
   ) : (
-    <div className="bg-gray text-black py-16 px-4 lg:px-0">
-      <div className="container mx-auto">
-        {post && (
-          <div className="bg-white rounded shadow w-full max-w-5xl mx-auto mb-4">
-            {post.featuredImage?.url && (
-              <div className="relative rounded-t w-full h-48 lg:h-128">
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  imageClass="rounded-t"
-                  src={post?.featuredImage?.url}
-                  alt={post.title}
-                />
-              </div>
-            )}
-            <div className="p-8">
-              {/* Post Details */}
-              <div className="text-2xl lg:text-4xl font-title mb-4">
-                {post.title}
-              </div>
-              <div className="flex flex-col space-y-2 lg:space-y-0 lg:flex-row lg:space-x-3 mb-10">
-                <div>
-                  <FontAwesomeIcon
-                    icon={faCalendarDays}
-                    fixedWidth
-                    className="text-primary"
+    <>
+      <Head>
+        <title>{post.title} - Azra</title>
+        <meta name="description" content="Azra Website" />
+      </Head>
+      <div className="bg-gray text-black py-16 px-4 lg:px-0">
+        <div className="container mx-auto">
+          {post && (
+            <div className="bg-white rounded shadow w-full max-w-5xl mx-auto mb-4">
+              {post.featuredImage?.url && (
+                <div className="relative rounded-t w-full h-48 lg:h-128">
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    imageClass="rounded-t"
+                    src={post?.featuredImage?.url}
+                    alt={post.title}
                   />
-                  <span>
-                    {moment
-                      .unix(post.publishedDate.seconds)
-                      .format('Do MMM YYYY')}
-                  </span>
                 </div>
-                <div>
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    fixedWidth
-                    className="text-primary"
-                  />
-                  <span>{post.author?.displayName}</span>
+              )}
+              <div className="p-8">
+                {/* Post Details */}
+                <div className="text-2xl lg:text-4xl font-title mb-4">
+                  {post.title}
                 </div>
-                <div>
-                  {post.categories &&
-                    post.categories.map((category, index) => (
-                      <span
-                        key={index}
-                        className="bg-primary text-white px-2 py-1 rounded"
-                      >
-                        {category.name}
-                      </span>
-                    ))}
+                <div className="flex flex-col space-y-2 lg:space-y-0 lg:flex-row lg:space-x-3 mb-10">
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faCalendarDays}
+                      fixedWidth
+                      className="text-primary"
+                    />
+                    <span>
+                      {moment
+                        .unix(post.publishedDate.seconds)
+                        .format('Do MMM YYYY')}
+                    </span>
+                  </div>
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faUser}
+                      fixedWidth
+                      className="text-primary"
+                    />
+                    <span>{post.author?.displayName}</span>
+                  </div>
+                  <div>
+                    {post.categories &&
+                      post.categories.map((category, index) => (
+                        <span
+                          key={index}
+                          className="bg-primary text-white px-2 py-1 rounded"
+                        >
+                          {category.name}
+                        </span>
+                      ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Post Content */}
-              <div
-                className="lg:text-lg my-10"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              ></div>
+                {/* Post Content */}
+                <div
+                  className="lg:text-lg my-10"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                ></div>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
