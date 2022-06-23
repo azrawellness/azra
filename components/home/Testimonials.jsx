@@ -76,8 +76,8 @@ const Testimonials = () => {
                 >
                   {testimonials.map((testimonial, index) => (
                     <SwiperSlide key={index}>
-                      <div className="bg-black/30 p-6 lg:p-10 relative h-full">
-                        <blockquote className="relative mb-10 text-xl italic">
+                      <div className="bg-black/30 p-10 lg:p-10 relative h-full">
+                        <blockquote className="relative mb-10 text-lg  lg:text-xl italic">
                           {testimonial.description}
                         </blockquote>
                         <div className="flex items-center space-x-4">

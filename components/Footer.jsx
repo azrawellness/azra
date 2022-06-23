@@ -9,16 +9,36 @@ const Footer = () => {
     <div className="bg-secondary text-gray">
       {/* Top Footer */}
       <div className="flex flex-col lg:flex-row container mx-auto py-10 px-4 lg:px-0 space-y-6 lg:space-y-0">
-        <div className="w-full lg:w-1/3">
+        <div className="w-full flex flex-col lg:w-1/3">
           <div className="text-xl font-semibold border-b inline-flex pb-2 mb-4 uppercase">
             Links
           </div>
           <div className="flex flex-col">
-            <Link href="/">Home</Link>
-            <Link href="/services">Services</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/client-reviews">Client Reviews</Link>
-            <Link href="/contact-us">Contact Us</Link>
+            <Link href="/">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Home
+              </a>
+            </Link>
+            <Link href="/services">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Services
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Blog
+              </a>
+            </Link>
+            <Link href="/client-reviews">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Client Reviews
+              </a>
+            </Link>
+            <Link href="/contact-us">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Contact Us
+              </a>
+            </Link>
           </div>
         </div>
         <div className="w-full lg:w-2/3 flex flex-col">

@@ -15,8 +15,8 @@ const ServiceCard = ({ imageSrc, title, description, buttonLink }) => {
             alt={title}
           />
         </div>
-        <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full group-hover:scale-x-100 scale-x-0 transition duration-200">
-          <div className="flex flex-col space-y-2 bg-primary-light items-center justify-center w-full h-full">
+        <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full group-hover:scale-x-100 scale-x-0 transition duration-300 ease-in-out">
+          <div className="flex flex-col space-y-2 bg-primary-light rounded items-center justify-center w-full h-full">
             <div className="text-3xl font-title text-center w-full max-w-sm">
               {title}
             </div>
@@ -24,7 +24,7 @@ const ServiceCard = ({ imageSrc, title, description, buttonLink }) => {
               {description}
             </div>
             <Link href={buttonLink}>
-              <a className="cursor-pointer border-2 px-4 py-2 border-black rounded-3xl hover:bg-black hover:text-primary transition">
+              <a className="cursor-pointer border-2 px-4 py-2 border-black rounded-3xl hover:bg-black hover:text-white transition">
                 Read More
               </a>
             </Link>

@@ -9,11 +9,6 @@ export const NAVBAR_LINKS = [
     match: false,
   },
   {
-    href: '/schedule-consultation',
-    name: 'Schedule Free Consultation',
-    match: true,
-  },
-  {
     href: '/services',
     name: 'Services',
     match: true,

@@ -27,26 +27,28 @@ const ClientReviews = () => {
     getClientReviews()
   }, [])
 
-  return loading ? (
-    <Splash />
-  ) : (
+  return (
     <div className="bg-gray text-black">
       <Header title="Client Reviews" />
       <div className="container mx-auto py-16">
-        <div className="grid grid-cols-1 relative lg:grid-cols-3 gap-8 w-full px-4 lg:px-0">
-          {clientReviews &&
-            clientReviews.map((clientReview, index) => (
-              <div key={index} className="relative shadow">
-                <Image
-                  width={500}
-                  layout="responsive"
-                  height={500}
-                  src={clientReview}
-                  alt={`Client Review image`}
-                />
-              </div>
-            ))}
-        </div>
+        {loading ? (
+          <Splash />
+        ) : (
+          <div className="grid grid-cols-1 relative lg:grid-cols-3 gap-8 w-full px-4 lg:px-0">
+            {clientReviews &&
+              clientReviews.map((clientReview, index) => (
+                <div key={index} className="relative shadow">
+                  <Image
+                    width={500}
+                    layout="responsive"
+                    height={500}
+                    src={clientReview}
+                    alt={`Client Review image`}
+                  />
+                </div>
+              ))}
+          </div>
+        )}
       </div>
     </div>
   )

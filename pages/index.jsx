@@ -2,7 +2,6 @@ import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   AboutAzra,
-  Calendly,
   FeatureSection,
   Image,
   ImageSlider,
@@ -55,9 +54,6 @@ const Home = () => {
 
       {/* Why Choose Us Section */}
       <WhyChoseUs />
-
-      {/* Calendly Section */}
-      <Calendly />
 
       {/* Our Results Speak - When They can, so can You ! */}
       <div className="bg-gray py-28">

@@ -1,12 +1,9 @@
-import { faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { collection, getDocs, query, where } from 'firebase/firestore'
-import moment from 'moment'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Image, Splash } from '../../components'
 import { db } from '../../firebase-config'
 import { SERVICES } from '../../utils/constants'
-import { useRouter } from 'next/router'
 
 const Service = () => {
   const [service, setService] = useState(null)

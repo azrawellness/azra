@@ -13,9 +13,6 @@ export const ServiceCard = dynamic(() => import('./ServiceCard'))
 export const FeatureCard = dynamic(() => import('./FeatureCard'))
 export const SwiperSection = dynamic(() => import('./SwiperSection'))
 export const Dash = dynamic(() => import('./Dash'))
-export const Calendly = dynamic(() => import('./Calendly'), {
-  ssr: false,
-})
 export const WhatsAppButton = dynamic(() => import('./WhatsAppButton'))
 export const Services = dynamic(() => import('./Services/Services'))
 export const FeatureSection = dynamic(() => import('./FeatureSection'))
