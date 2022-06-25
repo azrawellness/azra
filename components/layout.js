@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
         <div
           className={`${
             isMenuOpen ? 'hidden' : 'flex'
-          } right-0 top-24 lg:top-1/2 z-30 fixed`}
+          } right-0 top-14 lg:top-1/2 z-30 fixed`}
         >
           <WhatsAppButton
             classes="bg-primary text-white rounded-l-3xl px-4 py-2 space-x-2 items-center inline-flex"
