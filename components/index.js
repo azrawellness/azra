@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 export const Splash = dynamic(() => import('./Splash'))
 export const Footer = dynamic(() => import('./Footer'))
 export const Layout = dynamic(() => import('./layout'))
+export const VideoModal = dynamic(() => import('./VideoModal'))
 export const DashboardLayout = dynamic(() => import('./dashboard-layout'))
 export const AuthLayout = dynamic(() => import('./auth-layout'))
 export const TopNavbar = dynamic(() => import('./TopNavbar'))

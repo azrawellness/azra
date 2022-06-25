@@ -8,7 +8,7 @@ import {
 const FeatureSection = () => {
   return (
     <div className="relative mt-4 lg:mt-0 lg:h-60 mx-auto">
-      <div className="lg:-mt-16 lg:absolute lg:z-50">
+      <div className="lg:-mt-16 lg:absolute lg:z-30">
         <div className="grid grid-cols-1 lg:grid-cols-3 px-4 gap-4 lg:gap-0 lg:px-28">
           <FeatureCard
             title="Customized Diet Plans"

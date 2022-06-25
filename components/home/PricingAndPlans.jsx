@@ -1,16 +1,17 @@
 import {
-  faBookMedical,
-  faClock,
-  faPerson,
   faCirclePlay,
   faHandHoldingHeart,
+  faPerson,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
-import { Dash } from '..'
+import { Dash, VideoModal } from '../../components'
 import pricingAndPlans from '../../public/images/home/pricing-and-plans.jpeg'
+import { useState } from 'react'
 
 const PricingAndPlans = () => {
+  const [showVideoModal, setShowVideoModal] = useState(false)
+
   return (
     <div className="w-full bg-white lg:py-20 lg:px-28 px-4">
       <div className="container mx-auto flex flex-col lg:flex-row space-y-6 lg:space-x-28">
@@ -107,14 +108,19 @@ const PricingAndPlans = () => {
           </div>
         </div>
         <div className="w-full h-full relative">
-          <a
+          <button
+            onClick={() => setShowVideoModal(true)}
             href="https://www.youtube.com/watch?v=XMcab1MFaLc"
             target="_blank"
             rel="noopener noreferrer"
             className="absolute cursor-pointer transition top-1/2 left-1/2 z-30 text-primary -translate-y-1/2 -translate-x-1/2 bg-white rounded-full shadow-3xl"
           >
             <FontAwesomeIcon size="4x" icon={faCirclePlay} />
-          </a>
+          </button>
+          <VideoModal
+            isOpen={showVideoModal}
+            closeDialog={() => setShowVideoModal(false)}
+          />
           <Image src={pricingAndPlans} alt="Pricing and Plans" />
           {/* <iframe
             width="100%"
