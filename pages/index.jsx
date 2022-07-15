@@ -79,9 +79,6 @@ const Home = () => {
       {/* Testimonials Section */}
       <Testimonials />
 
-      {/* Latest Posts Section */}
-      <PostsSection />
-
       {/* CTA section */}
       <div className="relative h-72 lg:h-128 w-full">
         <div className="absolute z-30 top-10 lg:top-28 left-5 lg:left-28">
