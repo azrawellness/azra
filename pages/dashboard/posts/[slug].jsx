@@ -1,12 +1,20 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { MyEditor, PostSidebar } from '../../../components'
 
-const NewPost = () => {
+const EditPost = () => {
   const [title, setTitle] = useState(null)
   const [content, setContent] = useState(null)
 
+  // const addPost = async () => {
+  //   await setDoc(doc(db, POSTS), {
+  //     name: 'Los Angeles',
+  //     state: 'CA',
+  //     country: 'USA',
+  //   })
+  // }
+
   return (
-    <>
+    <div className="md:h-screen">
       <div className="bg-white p-2 rounded shadow mb-4">
         <div className="w-full flex space-x-2">
           <input
@@ -27,16 +35,16 @@ const NewPost = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-9 bg-white p-2 rounded shadow">
+      <div className="h-full grid grid-cols-12 gap-4">
+        <div className="col-span-9 h-full bg-white p-2 rounded shadow">
           <MyEditor content={content} />
         </div>
         <div className="col-span-3 bg-white p-2 rounded shadow">
           <PostSidebar />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
-export default NewPost
+export default EditPost

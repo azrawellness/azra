@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import Script from 'next/script'
-import { Footer, TopNavbar, Navbar, WhatsAppButton } from '../components'
+import {
+  Footer,
+  TopNavbar,
+  Navbar,
+  WhatsAppButton,
+  ContactForm,
+} from '../components'
 import { useState } from 'react'
 
 const Layout = ({ children }) => {
@@ -41,6 +47,7 @@ const Layout = ({ children }) => {
         <div className="w-full scroll-smooth font-primary text-black h-full bg-gray">
           {children}
         </div>
+        <ContactForm />
         <Footer />
         <div
           className={`${

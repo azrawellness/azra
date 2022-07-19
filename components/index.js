@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 
 export const Splash = dynamic(() => import('./Splash'))
+export const ContactForm = dynamic(() => import('./ContactForm'))
 export const Footer = dynamic(() => import('./Footer'))
 export const Layout = dynamic(() => import('./layout'))
 export const VideoModal = dynamic(() => import('./VideoModal'))
@@ -29,3 +30,8 @@ export const PostSlider = dynamic(() => import('./home/PostSlider'))
 export const PostsSection = dynamic(() => import('./home/PostsSection'))
 export const Sidebar = dynamic(() => import('./dashboard/Sidebar'))
 export const MyEditor = dynamic(() => import('./dashboard/Editor'))
+
+// Dashboard Componetns
+export const PostSidebar = dynamic(() =>
+  import('./dashboard/posts/Sidebar.jsx')
+)
