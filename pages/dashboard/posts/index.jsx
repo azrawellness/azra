@@ -64,37 +64,37 @@ const Posts = () => {
   }, [])
 
   return (
-    <div>
-      <div className="flex justify-between mb-4">
+    <div className="my-10">
+      <div className="p-4 items-center flex justify-between mb-4">
         <div className="text-2xl">Posts</div>
         <Link href="/dashboard/posts/new">
-          <a className="bg-primary text-white px-8 py-1 rounded hover:shadow transition">
+          <a className="bg-primary text-white px-8 py-2 rounded hover:shadow transition">
             New
           </a>
         </Link>
       </div>
-      <div className="bg-white rounded shadow container mx-auto p-2">
+      <div className="bg-white rounded shadow container mx-auto">
         <div className="relative overflow-x-auto sm:rounded-lg">
           {posts && posts.length > 0 ? (
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-sm text-left">
+              <thead className="text-sm text-white uppercase bg-gray-dark">
                 <tr>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4">
                     Title
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4">
                     Featured Image
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4">
                     Author
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4">
                     Date
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4">
                     Status
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4">
                     Actions
                   </th>
                 </tr>
@@ -103,7 +103,7 @@ const Posts = () => {
                 {posts.map((post) => (
                   <tr
                     key={post.id}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                    className="bg-white hover:bg-primary hover:text-white transition"
                   >
                     <td className="px-6 py-4">{post.title}</td>
                     <td className="px-6 py-4">

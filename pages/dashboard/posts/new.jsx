@@ -7,7 +7,7 @@ const NewPost = () => {
 
   return (
     <>
-      <div className="bg-white p-2 rounded shadow mb-4">
+      <div className="bg-white p-2 my-10 rounded shadow mb-4">
         <div className="w-full flex space-x-2">
           <input
             type="text"

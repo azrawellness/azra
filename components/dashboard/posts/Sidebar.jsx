@@ -106,16 +106,16 @@ const Sidebar = () => {
                 open ? 'rounded-b-lg' : ''
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
-              <div className="p-2 border border-gray-dark w-full">
+              <div className="p-2 flex justify-between w-full">
                 <label htmlFor="categories" className="text-sm">
                   Health Management
-                  <input
-                    type="checkbox"
-                    name="categories"
-                    id="categories"
-                    className="ml-4 h-4 w-4"
-                  />
                 </label>
+                <input
+                  type="checkbox"
+                  name="categories"
+                  id="categories"
+                  className="ml-4 h-4 w-4"
+                />
               </div>
             </Disclosure.Panel>
           </>
@@ -137,16 +137,16 @@ const Sidebar = () => {
                 open ? 'rounded-b-lg' : ''
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
-              <div className="p-2 border border-gray-dark w-full">
+              <div className="p-2 flex justify-between w-full">
                 <label htmlFor="categories" className="text-sm">
                   Health Management
-                  <input
-                    type="checkbox"
-                    name="categories"
-                    id="categories"
-                    className="ml-4 h-4 w-4"
-                  />
                 </label>
+                <input
+                  type="checkbox"
+                  name="categories"
+                  id="categories"
+                  className="ml-4 h-4 w-4"
+                />
               </div>
             </Disclosure.Panel>
           </>
@@ -196,7 +196,7 @@ const Sidebar = () => {
                 open ? 'rounded-b-lg' : ''
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
-              <div className="form border border-gray-dark p-2">
+              <div className="form p-2">
                 {!imgUrl && (
                   <input
                     onInput={(e) => handleUpload(e)}

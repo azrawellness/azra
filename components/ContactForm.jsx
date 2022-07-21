@@ -105,7 +105,7 @@ const ContactForm = ({ rounded = false }) => {
               <button
                 disabled={loading}
                 type="submit"
-                className="disabled:opacity-50 bg-primary dark:bg-primary-dark text-white dark:text-white w-full md:w-auto px-4 py-2 font-primary rounded"
+                className="disabled:opacity-50 bg-primary text-black w-full md:w-auto px-4 py-2 font-primary rounded"
               >
                 {loading ? 'Submitting...' : 'Schedule my appointment'}
               </button>

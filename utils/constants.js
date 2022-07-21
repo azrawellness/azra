@@ -33,10 +33,11 @@ export const NAVBAR_LINKS = [
 export const SIDEBAR_LINKS = [
   {
     id: 1,
-    href: '/dashboard',
-    name: 'Dashboard',
-    icon: 'fa fa-home',
-    nested: false,
+    href: '/dashboard/posts/new',
+    name: 'New Post',
+    icon: 'fa fa-plus',
+    nested: true,
+    disabled: false,
   },
   {
     id: 2,
@@ -44,6 +45,7 @@ export const SIDEBAR_LINKS = [
     name: 'Posts',
     icon: 'fa fa-newspaper',
     nested: true,
+    disabled: false,
   },
   {
     id: 3,
@@ -51,6 +53,7 @@ export const SIDEBAR_LINKS = [
     name: 'Services',
     icon: 'fa fa-list-check',
     nested: true,
+    disabled: true,
   },
   {
     id: 4,
@@ -58,34 +61,39 @@ export const SIDEBAR_LINKS = [
     name: 'Client Reviews',
     icon: 'fa fa-star',
     nested: true,
+    disabled: true,
   },
   {
     id: 5,
     href: '/dashboard/categories',
     name: 'Categories',
     icon: 'fa fa-folder-tree',
-    nested: true,
+    nested: false,
+    disabled: true,
   },
   {
     id: 6,
     href: '/dashboard/tags',
     name: 'Tags',
     icon: 'fa fa-hashtag',
-    nested: true,
+    nested: false,
+    disabled: true,
   },
   {
     id: 7,
     href: '/dashboard/testimonials',
     name: 'Testimonials',
     icon: 'fa fa-comment',
-    nested: true,
+    nested: false,
+    disabled: true,
   },
   {
     id: 8,
     href: '/dashboard/users',
     name: 'Users',
     icon: 'fa fa-person',
-    nested: true,
+    nested: false,
+    disabled: true,
   },
   {
     id: 8,
@@ -93,5 +101,6 @@ export const SIDEBAR_LINKS = [
     name: 'Settings',
     icon: 'fa fa-gear',
     nested: false,
+    disabled: true,
   },
 ]
