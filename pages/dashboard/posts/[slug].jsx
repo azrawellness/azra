@@ -41,7 +41,7 @@ const EditPost = () => {
 
   return (
     <div className="min-h-screen h-full my-10">
-      {loading ? (
+      {loading && post === null ? (
         <Splash />
       ) : (
         <>
