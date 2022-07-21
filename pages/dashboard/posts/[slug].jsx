@@ -50,7 +50,7 @@ const EditPost = () => {
               <input
                 type="text"
                 name="title"
-                value={post.title}
+                value={post?.title}
                 onChange={(e) => setPost({ ...post, title: e.target.value })}
                 id="title"
                 placeholder="Title"
