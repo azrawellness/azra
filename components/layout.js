@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
         <div className="w-full scroll-smooth font-primary text-black h-full bg-gray">
           {children}
         </div>
-        <ContactForm />
+        {/* <ContactForm /> */}
         <Footer />
         <div
           className={`${

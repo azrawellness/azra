@@ -6,7 +6,7 @@ import { Image } from '../../../components'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { storage, db } from '../../../firebase-config'
 
-const Sidebar = () => {
+const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
   const [imgUrl, setImgUrl] = useState(null)
   const [author, setAuthor] = useState(null)
   const [excerpt, setExcerpt] = useState(null)
@@ -67,10 +67,16 @@ const Sidebar = () => {
                 <select
                   name="status"
                   id="status"
+                  value={post?.status}
+                  onChange={(e) => postUpdated(e)}
                   className="w-full bg-white border border-gray-dark rounded p-2"
                 >
-                  <option value="true">Published</option>
-                  <option value="false">Draft</option>
+                  <option data-value="publish" value="publish">
+                    Published
+                  </option>
+                  <option data-value="draft" value="draft">
+                    Draft
+                  </option>
                 </select>
               </div>
               {/* Author */}
@@ -81,9 +87,15 @@ const Sidebar = () => {
                 <select
                   name="author"
                   id="author"
+                  onChange={(e) => postUpdated(e)}
                   className="w-full bg-white border border-gray-dark rounded p-2"
                 >
-                  <option value="surpawan@gmail.com">Pawan Kumar</option>
+                  {users &&
+                    users.map((user, index) => (
+                      <option key={index} data-value={user} value={user.email}>
+                        {user.displayName}
+                      </option>
+                    ))}
                 </select>
               </div>
             </Disclosure.Panel>
@@ -169,8 +181,8 @@ const Sidebar = () => {
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
               <textarea
-                value={excerpt}
-                onChange={(e) => setExcerpt(e.target.value)}
+                value={post?.excerpt}
+                onChange={(e) => postUpdated(e)}
                 className="border p-2 border-gray-dark w-full"
                 name="excerpt"
                 id="excerpt"

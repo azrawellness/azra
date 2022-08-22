@@ -10,6 +10,7 @@ const EditPost = () => {
   const [post, setPost] = useState(null)
   const [categories, setCategories] = useState([])
   const [tags, setTags] = useState([])
+  const [users, setUsers] = useState([])
 
   const getPost = async () => {
     setLoading(true)
@@ -23,11 +24,40 @@ const EditPost = () => {
     setLoading(false)
   }
 
-  const getTags = async () => {}
+  const getTags = async () => {
+    let lTags = []
+    const querySnapshot = await getDocs(collection(db, 'tags'))
+    querySnapshot.forEach((doc) => {
+      lTags.push({ ...doc.data(), id: doc.id })
+    })
+    setTags(lTags)
+  }
 
-  const getCategories = async () => {}
+  const getCategories = async () => {
+    let lCategories = []
+    const querySnapshot = await getDocs(collection(db, 'categories'))
+    querySnapshot.forEach((doc) => {
+      lCategories.push({ ...doc.data(), id: doc.id })
+    })
+    setCategories(lCategories)
+  }
 
-  const getUsers = async () => {}
+  const getUsers = async () => {
+    let lUsers = []
+    const querySnapshot = await getDocs(collection(db, 'users'))
+    querySnapshot.forEach((doc) => {
+      lUsers.push({ ...doc.data(), id: doc.id })
+    })
+    setUsers(lUsers)
+  }
+
+  const postUpdated = (e) => {
+    console.log(e)
+    console.log(e)
+    setPost((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value }
+    })
+  }
 
   useEffect(() => {
     if (router.query.slug) {
@@ -39,9 +69,13 @@ const EditPost = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 
+  useEffect(() => {
+    console.log('Post is updated')
+  }, [post])
+
   return (
     <div className="min-h-screen h-full my-10">
-      {loading && post === null ? (
+      {loading && !post ? (
         <Splash />
       ) : (
         <>
@@ -67,10 +101,16 @@ const EditPost = () => {
           </div>
           <div className="h-full  grid grid-cols-12 gap-4">
             <div className="min-h-screen h-full col-span-9 bg-white p-2 rounded shadow">
-              <MyEditor content={post.content} />
+              <MyEditor content={post?.content} />
             </div>
             <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
-              <PostSidebar />
+              <PostSidebar
+                post={post}
+                tags={tags}
+                categories={categories}
+                users={users}
+                postUpdated={postUpdated}
+              />
             </div>
           </div>
         </>
