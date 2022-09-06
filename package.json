@@ -24,8 +24,10 @@
     "nookies": "^2.5.2",
     "react": "18.1.0",
     "react-calendly": "^4.0.1",
+    "react-data-table-component": "^7.5.3",
     "react-dom": "18.1.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "styled-components": "^5.3.5",
     "swiper": "^8.2.4"
   },
   "devDependencies": {

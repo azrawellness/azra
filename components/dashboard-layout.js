@@ -38,7 +38,7 @@ const Dashboardlayout = ({ children }) => {
             </div>
           </div>
         </nav>
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-10">
           <div className="w-full overflow-y-scroll">{children}</div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const WhatsAppButton = ({
   classes = 'bg-primary text-white rounded-3xl px-4 py-2 space-x-2 items-center inline-flex',
-  text = 'WhatsApp Senior Dietitian Now',
+  text = 'WhatsApp Senior Health Coach',
   hideOnMobile = false,
 }) => {
   return (

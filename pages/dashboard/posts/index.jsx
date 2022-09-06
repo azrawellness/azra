@@ -14,8 +14,67 @@ import moment from 'moment'
 import { db } from '../../../firebase-config'
 import { POSTS } from '../../../utils/constants'
 import { useEffect, useState } from 'react'
+import DataTable from 'react-data-table-component'
 
 const Posts = () => {
+  const columns = [
+    {
+      name: 'Title',
+      selector: (row) => row.title,
+    },
+    {
+      name: 'Featured Image',
+      selector: (row) => (
+        <Image
+          width={40}
+          height={40}
+          objectFit="cover"
+          src={row.featuredImage.url}
+          alt={row.title}
+        />
+      ),
+    },
+    {
+      name: 'Author',
+      selector: (row) => row.author.displayName,
+    },
+    {
+      name: 'Date',
+      selector: (row) => moment(row.publishedDate).format('DD/MM/YYYY'),
+    },
+    {
+      name: 'Status',
+      selector: (row) => row.status,
+      cell: (row) => (
+        <span
+          className={`${
+            row.status === 'publish' ? 'bg-green' : ''
+          } px-2 py-1 text-xs rounded-md text-white uppercase`}
+        >
+          {row.status === 'publish' ? 'Published' : 'Draft'}
+        </span>
+      ),
+    },
+    {
+      name: 'Actions',
+      cell: (row) => (
+        <>
+          <Link href={`/dashboard/posts/${row.slug}`}>
+            <a className="text-green hover:shadow-lg mr-2">
+              <FontAwesomeIcon icon={faPenToSquare} />
+            </a>
+          </Link>
+          <button
+            onClick={deletePost(row.id)}
+            className="text-red hover:shadow-lg"
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </>
+      ),
+    },
+  ]
+
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(false)
   const [beginAfter, setBeginAfter] = useState(0)
@@ -75,86 +134,12 @@ const Posts = () => {
       </div>
       <div className="bg-white rounded shadow container mx-auto">
         <div className="relative overflow-x-auto sm:rounded-lg">
-          {posts && posts.length > 0 ? (
-            <table className="w-full text-sm text-left">
-              <thead className="text-sm text-white uppercase bg-gray-dark">
-                <tr>
-                  <th scope="col" className="px-6 py-4">
-                    Title
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    Featured Image
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    Author
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    Date
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    Status
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {posts.map((post) => (
-                  <tr
-                    key={post.id}
-                    className="bg-white hover:bg-primary hover:text-white transition"
-                  >
-                    <td className="px-6 py-4">{post.title}</td>
-                    <td className="px-6 py-4">
-                      <Image
-                        width={50}
-                        height={50}
-                        objectFit="cover"
-                        src={post.featuredImage.url}
-                        alt={post.title}
-                      />
-                    </td>
-                    <td className="px-6 py-4">{post.author.displayName}</td>
-                    {/* <td className="px-6 py-4">{post.categories}</td> */}
-                    {/* <td className="px-6 py-4">{post.tags}</td> */}
-                    <td className="px-6 py-4">
-                      <div></div>
-                      {moment(post.publishedDate).format('DD/MM/YYYY')}
-                    </td>
-                    <td className="px-6 py-4">
-                      <span
-                        className={`${
-                          post.status === 'publish' ? 'bg-green' : ''
-                        } px-2 py-1 text-xs rounded-md text-white uppercase`}
-                      >
-                        {post.status === 'publish' ? 'Published' : 'Draft'}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <Link href={`/dashboard/posts/${post.slug}`}>
-                        <a className="text-green hover:shadow-lg mr-2">
-                          <FontAwesomeIcon size="2x" icon={faPenToSquare} />
-                        </a>
-                      </Link>
-                      <button
-                        onClick={deletePost(post.id)}
-                        className="text-red hover:shadow-lg"
-                      >
-                        <FontAwesomeIcon size="2x" icon={faTrash} />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <div className="bg-white h-32 text-3xl flex justify-center items-center dark:bg-gray-800 dark:border-gray-700">
-              <div className="px-6 py-4" colSpan="6">
-                {loading ? 'Loading' : 'No Posts added.'}
-              </div>
-            </div>
-          )}
+          <DataTable
+            columns={columns}
+            pagination
+            data={posts}
+            progressPending={loading}
+          />
         </div>
       </div>
     </div>

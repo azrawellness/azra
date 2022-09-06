@@ -58,7 +58,7 @@ export const SIDEBAR_LINKS = [
     name: 'Services',
     icon: 'fa fa-list-check',
     nested: true,
-    disabled: true,
+    disabled: false,
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ export const SIDEBAR_LINKS = [
     name: 'Client Reviews',
     icon: 'fa fa-star',
     nested: true,
-    disabled: true,
+    disabled: false,
   },
   {
     id: 5,
@@ -74,7 +74,7 @@ export const SIDEBAR_LINKS = [
     name: 'Categories',
     icon: 'fa fa-folder-tree',
     nested: false,
-    disabled: true,
+    disabled: false,
   },
   {
     id: 6,
@@ -82,7 +82,7 @@ export const SIDEBAR_LINKS = [
     name: 'Tags',
     icon: 'fa fa-hashtag',
     nested: false,
-    disabled: true,
+    disabled: false,
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ export const SIDEBAR_LINKS = [
     name: 'Testimonials',
     icon: 'fa fa-comment',
     nested: false,
-    disabled: true,
+    disabled: false,
   },
   {
     id: 8,
@@ -98,7 +98,7 @@ export const SIDEBAR_LINKS = [
     name: 'Users',
     icon: 'fa fa-person',
     nested: false,
-    disabled: true,
+    disabled: false,
   },
   {
     id: 8,
