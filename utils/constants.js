@@ -14,6 +14,11 @@ export const NAVBAR_LINKS = [
     match: true,
   },
   {
+    href: '/yoga',
+    name: 'Yoga',
+    match: true,
+  },
+  {
     href: '/services',
     name: 'Services',
     match: true,
