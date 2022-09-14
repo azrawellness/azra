@@ -17,6 +17,8 @@ module.exports = {
       white: '#ffffff',
       red: '#aa0000',
       green: '#00aa00',
+      yoga: '#47347c',
+      pink: '#ff568d',
     },
     screens: {
       sm: '640px',
