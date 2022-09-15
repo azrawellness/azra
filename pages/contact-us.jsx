@@ -4,6 +4,48 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Header } from '../components'
 
 const ContactUs = () => {
+  const regionalOfficeAddresses = [
+    {
+      name: 'Bengaluru Regional Office',
+      address:
+        'Level 14, Concorde Towers, UB City, 1 Vittal Mallya Road, Bengaluru 560001',
+    },
+    {
+      name: 'Chennai Regional Office',
+      address:
+        'Samson Towers, 8th Floor at Pantheon Road, and Casa Major Road, Block 31, Egmore Village, Chennai, 600008',
+    },
+    {
+      name: 'Hyderabad Regional Office',
+      address:
+        '18, ILabs Centre, Level 2, Oval Building, Hyderabad, Telangana 500081',
+    },
+    {
+      name: 'Kolkata Regional Office',
+      address:
+        'DP-5, DP Block, Sector V, Bidhannagar Godrej Waterside Kolkata 700091',
+    },
+    {
+      name: 'Mumbai Regional Office',
+      address: 'Boston House, Andheri East, Mumbai, Maharashtra 400093',
+    },
+    {
+      name: 'Dehradun Regional Office',
+      address:
+        'Plot #22, IT Park, Sahastradhara Rd, Dehradun, Uttarakhand 248001',
+    },
+    {
+      name: 'Lucknow Regional Office',
+      address:
+        'Cyber Heights, TC-212, 2nd Floor, Levana, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010',
+    },
+    {
+      name: 'International',
+      address:
+        'USA, Canada, Australia, UK, UAE, Saudi Arabia, Kuwait, Bahrain, Qatar, Singapore',
+    },
+  ]
+
   return (
     <div className="bg-gray text-black">
       <Header title="Contact Us" />
@@ -38,84 +80,18 @@ const ContactUs = () => {
           of our offices are at:
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-4 px-4 lg:px-0">
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Bengaluru Regional Office
+          {regionalOfficeAddresses.map((regionalAddress, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 lg:px-4 lg:pt-4 lg:pb-8 rounded shadow"
+            >
+              <div className="text-primary font-title text-2xl">
+                <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
+                {regionalAddress.name}
+              </div>
+              <div className="mt-2">{regionalAddress.address}</div>
             </div>
-            <div className="mt-2">
-              Level 14, Concorde Towers, UB City, 1 Vittal Mallya Road,
-              Bengaluru 560001
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Chennai Regional Office
-            </div>
-            <div className="mt-2">
-              Samson Towers, 8th Floor at Pantheon Road, and Casa Major Road,
-              Block 31, Egmore Village, Chennai, 600008
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Hyderabad Regional Office
-            </div>
-            <div className="mt-2">
-              18, ILabs Centre, Level 2, Oval Building, Hyderabad, Telangana
-              500081
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Kolkata Regional Office
-            </div>
-            <div className="mt-2">
-              DP-5, DP Block, Sector V, Bidhannagar Godrej Waterside Kolkata
-              700091
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Mumbai Regional Office
-            </div>
-            <div className="mt-2">
-              Boston House, Andheri East, Mumbai, Maharashtra 400093
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Dehradun Regional Office
-            </div>
-            <div className="mt-2">
-              Plot #22, IT Park, Sahastradhara Rd, Dehradun, Uttarakhand 248001
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              Lucknow Regional Office
-            </div>
-            <div className="mt-2">
-              Cyber Heights, TC-212, 2nd Floor, Levana, Vibhuti Khand, Gomti
-              Nagar, Lucknow, Uttar Pradesh 226010
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded shadow">
-            <div className="text-primary font-title text-2xl">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              International
-            </div>
-            <div className="mt-2">
-              USA, Canada, Australia, UK, UAE, Saudi Arabia, Kuwait, Bahrain,
-              Qatar, Singapore
-            </div>
-          </div>
+          ))}
         </div>
         <div className="font-primary font-semibold text-sm mt-4 mb-16 px-4 lg:px-0">
           *For more information here we provide separate department contact
