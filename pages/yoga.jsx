@@ -9,7 +9,7 @@ const Yoga = () => {
   const steps = [
     {
       title: 'Step 1 - Get Assessed',
-      body: 'Meet with your dedicated trainer for a FREE demo session where they&apos;ll assess your physical, mental, & spiritual health & explain how AZRA can help you!',
+      body: "Meet with your dedicated trainer for a FREE demo session where they'll assess your physical, mental, & spiritual health & explain how AZRA can help you!",
     },
     {
       title: 'Step 2 - Build Your Plan',
@@ -86,7 +86,7 @@ const Yoga = () => {
         </div>
         <div className="p-4 lg:p-24">
           <div className="text-yoga text-4xl lg:text-5xl font-black font-title lg:text-center lg:max-w-4xl lg:mx-auto">
-            What&apos;s It Cost To Change Your Life?
+            What it Cost To Change Your Life?
           </div>
           <div className="lg:max-w-5xl mx-auto mt-4 lg:mt-6 font-primary lg:text-center lg:text-xl">
             Transforming your mental, physical and spiritual health takes time

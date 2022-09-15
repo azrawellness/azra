@@ -15,7 +15,7 @@ export const NAVBAR_LINKS = [
   },
   {
     href: '/yoga',
-    name: 'Yoga',
+    name: 'Yoga Live Online Classes',
     match: true,
   },
   {

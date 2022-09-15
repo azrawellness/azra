@@ -8,8 +8,10 @@ import {
   ContactForm,
 } from '../components'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Layout = ({ children }) => {
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = (status) => {
@@ -51,7 +53,7 @@ const Layout = ({ children }) => {
         <Footer />
         <div
           className={`${
-            isMenuOpen ? 'hidden' : 'flex'
+            isMenuOpen || router.pathname == '/yoga' ? 'hidden' : 'flex'
           } right-0 top-14 lg:top-1/2 z-30 fixed`}
         >
           <WhatsAppButton

@@ -113,7 +113,6 @@ const Blogs = () => {
               posts.map((post, index) => <PostCard key={index} post={post} />)}
           </div>
         </InfiniteScroll>
-        \
       </div>
     </>
   )
