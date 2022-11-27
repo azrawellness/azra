@@ -1,17 +1,26 @@
-import { useRef, useState } from 'react'
-import { Disclosure } from '@headlessui/react'
-import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Disclosure } from '@headlessui/react'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { useRef, useState } from 'react'
 import { Image } from '../../../components'
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
-import { storage, db } from '../../../firebase-config'
+import { storage } from '../../../firebase-config'
 
-const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
+const Sidebar = ({
+  post,
+  tags,
+  categories,
+  users,
+  postUpdated,
+  featuredImage,
+  removeFeaturedImage,
+  updateFeaturedImage,
+}) => {
   const [imgUrl, setImgUrl] = useState(null)
   const [author, setAuthor] = useState(null)
   const [excerpt, setExcerpt] = useState(null)
   const fileRef = useRef(null)
-  const [progresspercent, setProgresspercent] = useState(0)
+  const [progressPercent, setProgressPercent] = useState(0)
 
   const removeImage = () => {}
 
@@ -27,13 +36,14 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         )
-        setProgresspercent(progress)
+        setProgressPercent(progress)
       },
       (error) => {
         alert(error)
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          updateFeaturedImage(file.name, downloadURL)
           setImgUrl(downloadURL)
           fileRef.current.value = null
         })
@@ -61,7 +71,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
             >
               {/* Status */}
               <div className="mb-4">
-                <label htmlFor="status" className="text-xs">
+                <label
+                  htmlFor="status"
+                  className="text-xs"
+                >
                   Status
                 </label>
                 <select
@@ -71,17 +84,26 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
                   onChange={(e) => postUpdated(e)}
                   className="w-full bg-white border border-gray-dark rounded p-2"
                 >
-                  <option data-value="publish" value="publish">
+                  <option
+                    data-value="publish"
+                    value="publish"
+                  >
                     Published
                   </option>
-                  <option data-value="draft" value="draft">
+                  <option
+                    data-value="draft"
+                    value="draft"
+                  >
                     Draft
                   </option>
                 </select>
               </div>
               {/* Author */}
               <div className="mb-4">
-                <label htmlFor="author" className="text-xs">
+                <label
+                  htmlFor="author"
+                  className="text-xs"
+                >
                   Author
                 </label>
                 <select
@@ -92,7 +114,11 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
                 >
                   {users &&
                     users.map((user, index) => (
-                      <option key={index} data-value={user} value={user.email}>
+                      <option
+                        key={index}
+                        data-value={user}
+                        value={user.email}
+                      >
                         {user.displayName}
                       </option>
                     ))}
@@ -102,7 +128,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
           </>
         )}
       </Disclosure>
-      <Disclosure as="div" className="mt-2">
+      <Disclosure
+        as="div"
+        className="mt-2"
+      >
         {({ open }) => (
           <>
             <Disclosure.Button
@@ -119,7 +148,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
               <div className="p-2 flex justify-between w-full">
-                <label htmlFor="categories" className="text-sm">
+                <label
+                  htmlFor="categories"
+                  className="text-sm"
+                >
                   Health Management
                 </label>
                 <input
@@ -133,7 +165,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
           </>
         )}
       </Disclosure>
-      <Disclosure as="div" className="mt-2">
+      <Disclosure
+        as="div"
+        className="mt-2"
+      >
         {({ open }) => (
           <>
             <Disclosure.Button
@@ -150,7 +185,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
               <div className="p-2 flex justify-between w-full">
-                <label htmlFor="categories" className="text-sm">
+                <label
+                  htmlFor="categories"
+                  className="text-sm"
+                >
                   Health Management
                 </label>
                 <input
@@ -164,7 +202,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
           </>
         )}
       </Disclosure>
-      <Disclosure as="div" className="mt-2">
+      <Disclosure
+        as="div"
+        className="mt-2"
+      >
         {({ open }) => (
           <>
             <Disclosure.Button
@@ -192,7 +233,10 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
           </>
         )}
       </Disclosure>
-      <Disclosure as="div" className="mt-2">
+      <Disclosure
+        as="div"
+        className="mt-2"
+      >
         {({ open }) => (
           <>
             <Disclosure.Button
@@ -208,40 +252,56 @@ const Sidebar = ({ post, tags, categories, users, postUpdated }) => {
                 open ? 'rounded-b-lg' : ''
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
-              <div className="form p-2">
-                {!imgUrl && (
-                  <input
-                    onInput={(e) => handleUpload(e)}
-                    type="file"
-                    ref={fileRef}
-                    className="mb-4"
-                    accept="image/*"
-                  />
-                )}
-                {!imgUrl && (
-                  <progress id="file" value={progresspercent} max="100">
-                    {progresspercent}%
-                  </progress>
-                )}
-                {imgUrl && (
-                  <>
-                    <div className="relative w-full">
-                      <Image
-                        src={imgUrl}
-                        alt="uploaded file"
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    <button
-                      onClick={removeImage}
-                      className="text-sm bg-red px-2 py-1 rounded shadow"
+              {featuredImage && featuredImage.fileName && (
+                <div>
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={featuredImage.url}
+                      alt={featuredImage.fileName}
+                      layout="fill"
+                    />
+                  </div>
+                  <button
+                    onClick={removeFeaturedImage}
+                    className="bg-primary px-4 py-2 rounded text-white mt-4 w-full"
+                  >
+                    Remove
+                  </button>
+                </div>
+              )}
+              {featuredImage?.fileName === null && (
+                <div className="form p-2">
+                  {!imgUrl && (
+                    <input
+                      onInput={(e) => handleUpload(e)}
+                      type="file"
+                      ref={fileRef}
+                      className="mb-4"
+                      accept="image/*"
+                    />
+                  )}
+                  {!imgUrl && (
+                    <progress
+                      id="file"
+                      value={progressPercent}
+                      max="100"
                     >
-                      Remove Image
-                    </button>
-                  </>
-                )}
-              </div>
+                      {progressPercent}%
+                    </progress>
+                  )}
+                  {imgUrl && (
+                    <>
+                      <div className="relative w-full">
+                        <Image
+                          src={imgUrl}
+                          alt="uploaded file"
+                          layout="fill"
+                        />
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
             </Disclosure.Panel>
           </>
         )}

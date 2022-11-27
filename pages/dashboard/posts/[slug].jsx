@@ -1,8 +1,17 @@
-import { useRef, useState, useEffect } from 'react'
-import { MyEditor, PostSidebar, Splash } from '../../../components'
-import { collection, query, where, getDocs } from 'firebase/firestore'
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  doc,
+  updateDoc,
+  setDoc,
+} from 'firebase/firestore'
+import { deleteObject, ref } from 'firebase/storage'
 import { useRouter } from 'next/router'
-import { db } from '../../../firebase-config'
+import { useEffect, useState } from 'react'
+import { MyEditor, PostSidebar, Splash } from '../../../components'
+import { storage, db } from '../../../firebase-config'
 
 const EditPost = () => {
   const router = useRouter()
@@ -19,9 +28,21 @@ const EditPost = () => {
 
     const querySnapshot = await getDocs(q)
     querySnapshot.forEach((doc) => {
-      setPost(doc.data())
+      setPost({ ...doc.data(), id: doc.id })
     })
     setLoading(false)
+  }
+
+  const updatePost = async () => {
+    const docRef = doc(db, 'posts', post.id)
+
+    await setDoc(docRef, post)
+      .then(() => {
+        console.log('Document Updated Successfully!!')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   const getTags = async () => {
@@ -52,11 +73,42 @@ const EditPost = () => {
   }
 
   const postUpdated = (e) => {
-    console.log(e)
-    console.log(e)
     setPost((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value }
     })
+  }
+
+  const updateFeaturedImage = async (fileName, url) => {
+    const postRef = doc(db, 'posts', post.id)
+    await updateDoc(postRef, {
+      featuredImage: {
+        fileName,
+        url,
+      },
+    })
+    await getPost()
+  }
+
+  const removeFeaturedImage = async () => {
+    const storageRef = await ref(
+      storage,
+      `posts/${post.featuredImage.fileName}`
+    )
+
+    await deleteObject(storageRef)
+      .then(async () => {
+        const postRef = doc(db, 'posts', post.id)
+        await updateDoc(postRef, {
+          featuredImage: {
+            fileName: null,
+            url: null,
+          },
+        })
+        await getPost()
+      })
+      .catch((error) => {
+        // Uh-oh, an error occurred!
+      })
   }
 
   useEffect(() => {
@@ -88,14 +140,14 @@ const EditPost = () => {
                 onChange={(e) => setPost({ ...post, title: e.target.value })}
                 id="title"
                 placeholder="Title"
-                className="w-10/12 font-title text-xl px-4 py-1 border-gray-dark border rounded"
+                className="w-11/12 font-title text-xl px-4 py-1 border-gray-dark border rounded"
               />
               {/* Buttons */}
-              <button className="w-1/12 px-2 py-1 rounded bg-primary text-white shadow">
-                Publish
-              </button>
-              <button className="w-1/12 px-2 py-1 rounded bg-black text-white shadow">
-                Save Draft
+              <button
+                onClick={updatePost}
+                className="w-1/12 px-2 py-1 rounded bg-primary text-white shadow"
+              >
+                Save
               </button>
             </div>
           </div>
@@ -110,6 +162,9 @@ const EditPost = () => {
                 categories={categories}
                 users={users}
                 postUpdated={postUpdated}
+                featuredImage={post?.featuredImage}
+                removeFeaturedImage={removeFeaturedImage}
+                updateFeaturedImage={updateFeaturedImage}
               />
             </div>
           </div>

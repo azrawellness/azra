@@ -20,7 +20,9 @@ const Posts = () => {
   const columns = [
     {
       name: 'Title',
-      selector: (row) => row.title,
+      selector: (row) => (
+        <Link href={`/dashboard/posts/${row.slug}`}>{row.title}</Link>
+      ),
     },
     {
       name: 'Featured Image',
@@ -77,7 +79,6 @@ const Posts = () => {
 
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(false)
-  const [beginAfter, setBeginAfter] = useState(0)
   const [totalPostsCount, setTotalPostCounts] = useState(0)
 
   const getPostsCount = async () => {
@@ -88,16 +89,14 @@ const Posts = () => {
 
   const deletePost = async (id) => {
     // TODO: Add Logic
+    console.log('called', 93)
   }
 
-  const getInitialPosts = async () => {
+  const getPosts = async () => {
     setLoading(true)
-    const q = query(
-      collection(db, POSTS),
-      orderBy('publishedDate'),
-      startAfter(beginAfter),
-      limit(10)
-    )
+
+    const q = query(collection(db, POSTS), orderBy('publishedDate', 'desc'))
+
     const querySnapshot = await getDocs(q)
 
     const data = []
@@ -119,7 +118,7 @@ const Posts = () => {
 
   useEffect(() => {
     getPostsCount()
-    getInitialPosts()
+    getPosts()
   }, [])
 
   return (
@@ -137,6 +136,7 @@ const Posts = () => {
           <DataTable
             columns={columns}
             pagination
+            paginationTotalRows={totalPostsCount}
             data={posts}
             progressPending={loading}
           />

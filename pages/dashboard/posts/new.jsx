@@ -6,8 +6,8 @@ const NewPost = () => {
   const [content, setContent] = useState(null)
 
   return (
-    <>
-      <div className="bg-white p-2 my-10 rounded shadow mb-4">
+    <div className='bg-white p-6 rounded shadow'>
+      <div className="p-2 mb-4">
         <div className="w-full flex space-x-2">
           <input
             type="text"
@@ -28,14 +28,14 @@ const NewPost = () => {
         </div>
       </div>
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-9 bg-white p-2 rounded shadow">
+        <div className="col-span-9 bg-white p-2 h-screen rounded shadow">
           <MyEditor content={content} />
         </div>
         <div className="col-span-3 bg-white p-2 rounded shadow">
           <PostSidebar />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
