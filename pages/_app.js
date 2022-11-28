@@ -1,10 +1,12 @@
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import '../styles/globals.css'
-import { AuthContextProvider } from '../context/AuthContext'
-import { Layout, DashboardLayout, AuthLayout } from '../components'
 import NextNProgress from 'nextjs-progressbar'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { AuthLayout, DashboardLayout, Layout } from '../components'
+import { AuthContextProvider } from '../context/AuthContext'
+import '../styles/globals.css'
 
 config.autoAddCss = false
 library.add(fas)
@@ -16,6 +18,7 @@ function MyApp({ Component, pageProps, router }) {
         <DashboardLayout>
           <NextNProgress color="#99c300" />
           <Component {...pageProps} />
+          <ToastContainer theme="colored" />
         </DashboardLayout>
       </AuthContextProvider>
     )

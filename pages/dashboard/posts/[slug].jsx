@@ -22,15 +22,19 @@ const EditPost = () => {
   const [users, setUsers] = useState([])
 
   const getPost = async () => {
-    setLoading(true)
-    const { slug } = router.query
-    const q = query(collection(db, 'posts'), where('slug', '==', slug))
+    try {
+      setLoading(true)
+      const { slug } = router.query
+      const q = query(collection(db, 'posts'), where('slug', '==', slug))
 
-    const querySnapshot = await getDocs(q)
-    querySnapshot.forEach((doc) => {
-      setPost({ ...doc.data(), id: doc.id })
-    })
-    setLoading(false)
+      const querySnapshot = await getDocs(q)
+      querySnapshot.forEach((doc) => {
+        setPost({ ...doc.data(), id: doc.id })
+      })
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
   }
 
   const updatePost = async () => {
@@ -127,7 +131,7 @@ const EditPost = () => {
 
   return (
     <div className="min-h-screen h-full my-10">
-      {loading && !post ? (
+      {post === null ? (
         <Splash />
       ) : (
         <>
@@ -153,7 +157,10 @@ const EditPost = () => {
           </div>
           <div className="h-full  grid grid-cols-12 gap-4">
             <div className="min-h-screen h-full col-span-9 bg-white p-2 rounded shadow">
-              <MyEditor content={post?.content} />
+              <MyEditor
+                content={post?.content}
+                setPost={setPost}
+              />
             </div>
             <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
               <PostSidebar
@@ -161,6 +168,7 @@ const EditPost = () => {
                 tags={tags}
                 categories={categories}
                 users={users}
+                setPost={setPost}
                 postUpdated={postUpdated}
                 featuredImage={post?.featuredImage}
                 removeFeaturedImage={removeFeaturedImage}

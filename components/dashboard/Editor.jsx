@@ -1,21 +1,15 @@
 import { Editor } from '@tinymce/tinymce-react'
-import { useRef } from 'react'
 
-const MyEditor = ({ content = '' }) => {
-  const editorRef = useRef(null)
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent())
-    }
-  }
-
+const MyEditor = ({ content, setPost }) => {
   return (
     <>
       <Editor
         id="tiny-editor"
         apiKey={process.env.NEXT_PUBLIC_TINY_MCE_KEY}
-        onInit={(evt, editor) => (editorRef.current = editor)}
-        initialValue={content}
+        value={content}
+        onEditorChange={(e) =>
+          setPost((prevState) => ({ ...prevState, content: e }))
+        }
         init={{
           height: '100%',
           menubar: false,

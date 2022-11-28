@@ -11,6 +11,7 @@ const Sidebar = ({
   tags,
   categories,
   users,
+  setPost,
   postUpdated,
   featuredImage,
   removeFeaturedImage,
@@ -51,9 +52,47 @@ const Sidebar = ({
     )
   }
 
+  const updateAuthor = (e) => {
+    const userIndex = users.findIndex((u) => u.email === e)
+
+    if (userIndex === -1) {
+      console.log('No User Found!!')
+      return
+    }
+
+    const name = `${users[userIndex].firstName} ${users[userIndex].lastName}`
+    setPost((prevState) => ({
+      ...prevState,
+      author: {
+        displayName: users[userIndex].displayName,
+        uid: users[userIndex].id,
+        name: name.trim(),
+      },
+    }))
+  }
+
+  const handleTagChange = (tag) => {
+    const isChecked = post.tags.some((t) => t.slug === tag.slug)
+
+    if (isChecked) {
+      setPost((prevState) => ({
+        ...prevState,
+        tags: prevState.tags.filter((t) => t.value !== tag.value),
+      }))
+    } else {
+      setPost((prevState) => ({
+        ...prevState,
+        tags: prevState.tags.push(tag),
+      }))
+    }
+  }
+
   return (
     <>
-      <Disclosure as="div">
+      <Disclosure
+        defaultOpen={true}
+        as="div"
+      >
         {({ open }) => (
           <>
             <Disclosure.Button
@@ -80,8 +119,13 @@ const Sidebar = ({
                 <select
                   name="status"
                   id="status"
-                  value={post?.status}
-                  onChange={(e) => postUpdated(e)}
+                  value={post.status}
+                  onChange={(e) =>
+                    setPost((prevState) => ({
+                      ...prevState,
+                      status: e.target.value,
+                    }))
+                  }
                   className="w-full bg-white border border-gray-dark rounded p-2"
                 >
                   <option
@@ -109,9 +153,11 @@ const Sidebar = ({
                 <select
                   name="author"
                   id="author"
-                  onChange={(e) => postUpdated(e)}
+                  value={post.author?.email}
+                  onChange={(e) => updateAuthor(e.target.value)}
                   className="w-full bg-white border border-gray-dark rounded p-2"
                 >
+                  <option value="">Select Author</option>
                   {users &&
                     users.map((user, index) => (
                       <option
@@ -147,19 +193,27 @@ const Sidebar = ({
                 open ? 'rounded-b-lg' : ''
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
-              <div className="p-2 flex justify-between w-full">
-                <label
-                  htmlFor="categories"
-                  className="text-sm"
-                >
-                  Health Management
-                </label>
-                <input
-                  type="checkbox"
-                  name="categories"
-                  id="categories"
-                  className="ml-4 h-4 w-4"
-                />
+              <div className="overflow-auto h-60">
+                {categories &&
+                  categories.map((cat, index) => (
+                    <div
+                      key={index}
+                      className="p-2 flex justify-between w-full"
+                    >
+                      <label
+                        htmlFor="categories"
+                        className="text-sm"
+                      >
+                        {cat.name}
+                      </label>
+                      <input
+                        type="checkbox"
+                        name="categories"
+                        id="categories"
+                        className="ml-4 h-4 w-4"
+                      />
+                    </div>
+                  ))}
               </div>
             </Disclosure.Panel>
           </>
@@ -184,19 +238,34 @@ const Sidebar = ({
                 open ? 'rounded-b-lg' : ''
               } px-4 pt-4 pb-2 text-sm bg-gray`}
             >
-              <div className="p-2 flex justify-between w-full">
-                <label
-                  htmlFor="categories"
-                  className="text-sm"
-                >
-                  Health Management
-                </label>
-                <input
-                  type="checkbox"
-                  name="categories"
-                  id="categories"
-                  className="ml-4 h-4 w-4"
-                />
+              <div className="overflow-auto h-60">
+                {tags &&
+                  tags.map((tag, index) => (
+                    <div
+                      key={index}
+                      className="p-2 flex justify-between w-full"
+                    >
+                      <label
+                        htmlFor="tags"
+                        className="text-sm"
+                      >
+                        {tag.name}
+                      </label>
+                      <input
+                        type="checkbox"
+                        name="tags"
+                        value={tag}
+                        checked={
+                          post?.tags?.some((t) => t.slug === tag.slug)
+                            ? true
+                            : false
+                        }
+                        id="tags"
+                        onChange={() => handleTagChange(tag)}
+                        className="ml-4 h-4 w-4"
+                      />
+                    </div>
+                  ))}
               </div>
             </Disclosure.Panel>
           </>
@@ -223,7 +292,12 @@ const Sidebar = ({
             >
               <textarea
                 value={post?.excerpt}
-                onChange={(e) => postUpdated(e)}
+                onChange={(e) =>
+                  setPost((prevState) => ({
+                    ...prevState,
+                    excerpt: e.target.value,
+                  }))
+                }
                 className="border p-2 border-gray-dark w-full"
                 name="excerpt"
                 id="excerpt"
@@ -288,17 +362,6 @@ const Sidebar = ({
                     >
                       {progressPercent}%
                     </progress>
-                  )}
-                  {imgUrl && (
-                    <>
-                      <div className="relative w-full">
-                        <Image
-                          src={imgUrl}
-                          alt="uploaded file"
-                          layout="fill"
-                        />
-                      </div>
-                    </>
                   )}
                 </div>
               )}
