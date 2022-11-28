@@ -1,17 +1,21 @@
 import {
   collection,
-  getDocs,
-  query,
-  where,
   doc,
+  getDoc,
+  getDocs,
   updateDoc,
   setDoc,
+  serverTimestamp,
 } from 'firebase/firestore'
 import { deleteObject, ref } from 'firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import { MyEditor, PostSidebar, Splash } from '../../../components'
-import { storage, db } from '../../../firebase-config'
+import { db, storage } from '../../../firebase-config'
+import slugify from 'slugify'
+import { faGear } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const EditPost = () => {
   const router = useRouter()
@@ -25,28 +29,20 @@ const EditPost = () => {
     try {
       setLoading(true)
       const { id } = router.query
-      const q = query(collection(db, 'posts', id))
+      const docRef = doc(db, 'posts', id)
 
-      const querySnapshot = await getDocs(q)
-      querySnapshot.forEach((doc) => {
-        setPost({ ...doc.data(), id: doc.id })
-      })
+      const docSnap = await getDoc(docRef)
       setLoading(false)
+
+      if (docSnap.exists()) {
+        setPost({ ...docSnap.data(), id: docSnap.id })
+      } else {
+        // doc.data() will be undefined in this case
+        console.log('No such document!')
+      }
     } catch (error) {
       setLoading(false)
     }
-  }
-
-  const updatePost = async () => {
-    const docRef = doc(db, 'posts', post.id)
-
-    await setDoc(docRef, post)
-      .then(() => {
-        console.log('Document Updated Successfully!!')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
   }
 
   const getTags = async () => {
@@ -84,7 +80,7 @@ const EditPost = () => {
 
   const updateFeaturedImage = async (fileName, url) => {
     const postRef = doc(db, 'posts', post.id)
-    await updateDoc(postRef, {
+    await updateDoc(po, setDocstRef, {
       featuredImage: {
         fileName,
         url,
@@ -102,7 +98,7 @@ const EditPost = () => {
     await deleteObject(storageRef)
       .then(async () => {
         const postRef = doc(db, 'posts', post.id)
-        await updateDoc(postRef, {
+        await updateDoc(po, setDocstRef, {
           featuredImage: {
             fileName: null,
             url: null,
@@ -115,8 +111,36 @@ const EditPost = () => {
       })
   }
 
+  const updatePost = async () => {
+    if (post.title.length === 0) {
+      toast.error('Title cannot be empty')
+      return
+    }
+
+    if (post.author === null) {
+      toast.error('Please select an Author')
+      return
+    }
+
+    const docRef = doc(db, 'posts', post.id)
+
+    post.slug = slugify(post.title, { lower: true })
+    post.modifiedDate = serverTimestamp()
+
+    setLoading(true)
+    await setDoc(docRef, post)
+      .then(() => {
+        toast.success('Post Updated Successfully')
+        setLoading(false)
+      })
+      .catch((err) => {
+        setLoading(false)
+        toast.error(err)
+      })
+  }
+
   useEffect(() => {
-    if (router.query.slug) {
+    if (router.query.id) {
       getPost()
       getTags()
       getCategories()
@@ -149,9 +173,17 @@ const EditPost = () => {
               {/* Buttons */}
               <button
                 onClick={updatePost}
+                disabled={loading}
                 className="w-1/12 px-2 py-1 rounded bg-primary text-white shadow"
               >
-                Save
+                {loading ? (
+                  <FontAwesomeIcon
+                    icon={faGear}
+                    spin
+                  />
+                ) : (
+                  'Update'
+                )}
               </button>
             </div>
           </div>

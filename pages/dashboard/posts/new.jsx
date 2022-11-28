@@ -1,20 +1,17 @@
 import {
+  addDoc,
   collection,
   getDocs,
-  query,
-  where,
-  doc,
-  addDoc,
-  setDoc,
   serverTimestamp,
 } from 'firebase/firestore'
-import { deleteObject, ref } from 'firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { MyEditor, PostSidebar } from '../../../components'
-import { storage, db } from '../../../firebase-config'
 import { toast } from 'react-toastify'
 import slugify from 'slugify'
+import { MyEditor, PostSidebar } from '../../../components'
+import { db } from '../../../firebase-config'
+import { faGear } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const NewPost = () => {
   const router = useRouter()
@@ -88,7 +85,7 @@ const NewPost = () => {
 
     try {
       setLoading(true)
-      post.slug = slugify(post.title)
+      post.slug = slugify(post.title, { lower: true })
       post.publishedDate = serverTimestamp()
       post.modifiedDate = serverTimestamp()
       const response = await addDoc(collection(db, 'posts'), post)
@@ -126,7 +123,14 @@ const NewPost = () => {
             disabled={loading}
             className="w-1/12 px-2 py-1 rounded bg-primary text-white shadow"
           >
-            Save
+            {loading ? (
+              <FontAwesomeIcon
+                icon={faGear}
+                spin
+              />
+            ) : (
+              'Save'
+            )}
           </button>
         </div>
       </div>

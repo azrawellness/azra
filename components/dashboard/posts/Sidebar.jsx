@@ -1,10 +1,11 @@
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faSquareCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Disclosure } from '@headlessui/react'
+import { Disclosure, Listbox, Transition } from '@headlessui/react'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { useRef, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import { Image } from '../../../components'
 import { storage } from '../../../firebase-config'
+import Select from 'react-select'
 
 const Sidebar = ({
   post,
@@ -18,10 +19,9 @@ const Sidebar = ({
   updateFeaturedImage,
 }) => {
   const [imgUrl, setImgUrl] = useState(null)
-  const [author, setAuthor] = useState(null)
-  const [excerpt, setExcerpt] = useState(null)
   const fileRef = useRef(null)
   const [progressPercent, setProgressPercent] = useState(0)
+  const [selectedCategories, setSelectedCategories] = useState([])
 
   const removeImage = () => {}
 
@@ -52,8 +52,12 @@ const Sidebar = ({
     )
   }
 
+  const handleCategories = (e) => {
+    console.log(e, 56)
+  }
+
   const updateAuthor = (e) => {
-    const userIndex = users.findIndex((u) => u.email === e)
+    const userIndex = users.findIndex((u) => u.id === e)
 
     if (userIndex === -1) {
       console.log('No User Found!!')
@@ -87,288 +91,206 @@ const Sidebar = ({
     }
   }
 
+  const handleCategoryChange = (category) => {
+    const isChecked = post.categories.some((t) => t.slug === category.slug)
+
+    if (isChecked) {
+      setPost((prevState) => ({
+        ...prevState,
+        categories: prevState.categories.filter(
+          (t) => t.value !== category.value
+        ),
+      }))
+    } else {
+      setPost((prevState) => ({
+        ...prevState,
+        categories: prevState.categories.push(category),
+      }))
+    }
+  }
+
   return (
     <>
-      <Disclosure
-        defaultOpen={true}
-        as="div"
-      >
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className={`flex items-center w-full justify-between ${
-                open ? 'rounded-t-lg' : 'rounded-lg'
-              } px-4 py-2 text-left text-sm font-medium bg-gray focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75`}
+      {/* Status */}
+      <div className="mb-4">
+        <label
+          htmlFor="status"
+          className="text-xs"
+        >
+          Status
+        </label>
+        <select
+          name="status"
+          id="status"
+          value={post.status}
+          onChange={(e) =>
+            setPost((prevState) => ({
+              ...prevState,
+              status: e.target.value,
+            }))
+          }
+          className="w-full bg-white border border-gray-dark rounded p-2"
+        >
+          <option
+            data-value="publish"
+            value="publish"
+          >
+            Published
+          </option>
+          <option
+            data-value="draft"
+            value="draft"
+          >
+            Draft
+          </option>
+        </select>
+      </div>
+      {/* Author */}
+      <div className="mb-4">
+        <label
+          htmlFor="author"
+          className="text-xs"
+        >
+          Author
+        </label>
+        <select
+          name="author"
+          id="author"
+          value={post.author.uid}
+          onChange={(e) => updateAuthor(e.target.value)}
+          className="w-full bg-white border border-gray-dark rounded p-2"
+        >
+          <option value="">Select Author</option>
+          {users &&
+            users.map((user, index) => (
+              <option
+                key={index}
+                data-value={user}
+                value={user.id}
+              >
+                {user.displayName}
+              </option>
+            ))}
+        </select>
+      </div>
+      {/* Categories */}
+      <div className="mb-4">
+        <label
+          htmlFor="categories"
+          className="text-xs"
+        >
+          Categories
+        </label>
+        <Select
+          className=""
+          isMulti
+          hideSelectedOptions={true}
+          classNamePrefix="select"
+          onChange={(e) =>
+            setPost((prevValue) => ({ ...prevValue, categories: e }))
+          }
+          value={post.categories}
+          isClearable
+          name="categories"
+          isSearchable
+          getOptionLabel={(option) => option.name}
+          getOptionValue={(option) => option}
+          options={categories}
+        />
+      </div>
+      {/* Categories */}
+      <div className="mb-4">
+        <label
+          htmlFor="categories"
+          className="text-xs"
+        >
+          Tags
+        </label>
+        <Select
+          className=""
+          isMulti
+          hideSelectedOptions={true}
+          classNamePrefix="select"
+          onChange={(e) => setPost((prevValue) => ({ ...prevValue, tags: e }))}
+          value={post.tags}
+          isClearable
+          name="tags"
+          isSearchable
+          getOptionLabel={(option) => option.name}
+          getOptionValue={(option) => option}
+          options={tags}
+        />
+      </div>
+      {/* Excerpt */}
+      <div className="mb-4">
+        <label
+          htmlFor="excerpt"
+          className="text-xs"
+        >
+          Excerpt
+        </label>
+        <textarea
+          value={post?.excerpt}
+          onChange={(e) =>
+            setPost((prevState) => ({
+              ...prevState,
+              excerpt: e.target.value,
+            }))
+          }
+          className="border p-2 border-gray-dark w-full"
+          name="excerpt"
+          id="excerpt"
+          rows="4"
+        ></textarea>
+      </div>
+      {/* Featured Image */}
+      <div className="mb-4">
+        <label
+          htmlFor="featuredImage"
+          className="text-xs"
+        >
+          Featured Image
+        </label>
+        {featuredImage && featuredImage.fileName && (
+          <div>
+            <div className="relative w-full h-48">
+              <Image
+                src={featuredImage.url}
+                alt={featuredImage.fileName}
+                layout="fill"
+              />
+            </div>
+            <button
+              onClick={removeFeaturedImage}
+              className="bg-primary px-4 py-2 rounded text-white mt-4 w-full"
             >
-              <span>Summary</span>
-              <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
-            </Disclosure.Button>
-            <Disclosure.Panel
-              className={`${
-                open ? 'rounded-b-lg' : ''
-              } px-4 pt-4 pb-2 text-sm bg-gray`}
-            >
-              {/* Status */}
-              <div className="mb-4">
-                <label
-                  htmlFor="status"
-                  className="text-xs"
-                >
-                  Status
-                </label>
-                <select
-                  name="status"
-                  id="status"
-                  value={post.status}
-                  onChange={(e) =>
-                    setPost((prevState) => ({
-                      ...prevState,
-                      status: e.target.value,
-                    }))
-                  }
-                  className="w-full bg-white border border-gray-dark rounded p-2"
-                >
-                  <option
-                    data-value="publish"
-                    value="publish"
-                  >
-                    Published
-                  </option>
-                  <option
-                    data-value="draft"
-                    value="draft"
-                  >
-                    Draft
-                  </option>
-                </select>
-              </div>
-              {/* Author */}
-              <div className="mb-4">
-                <label
-                  htmlFor="author"
-                  className="text-xs"
-                >
-                  Author
-                </label>
-                <select
-                  name="author"
-                  id="author"
-                  value={post.author?.email}
-                  onChange={(e) => updateAuthor(e.target.value)}
-                  className="w-full bg-white border border-gray-dark rounded p-2"
-                >
-                  <option value="">Select Author</option>
-                  {users &&
-                    users.map((user, index) => (
-                      <option
-                        key={index}
-                        data-value={user}
-                        value={user.email}
-                      >
-                        {user.displayName}
-                      </option>
-                    ))}
-                </select>
-              </div>
-            </Disclosure.Panel>
-          </>
+              Remove
+            </button>
+          </div>
         )}
-      </Disclosure>
-      <Disclosure
-        as="div"
-        className="mt-2"
-      >
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className={`flex items-center w-full justify-between ${
-                open ? 'rounded-t-lg' : 'rounded-lg'
-              } px-4 py-2 text-left text-sm font-medium bg-gray focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75`}
-            >
-              <span>Categories</span>
-              <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
-            </Disclosure.Button>
-            <Disclosure.Panel
-              className={`${
-                open ? 'rounded-b-lg' : ''
-              } px-4 pt-4 pb-2 text-sm bg-gray`}
-            >
-              <div className="overflow-auto h-60">
-                {categories &&
-                  categories.map((cat, index) => (
-                    <div
-                      key={index}
-                      className="p-2 flex justify-between w-full"
-                    >
-                      <label
-                        htmlFor="categories"
-                        className="text-sm"
-                      >
-                        {cat.name}
-                      </label>
-                      <input
-                        type="checkbox"
-                        name="categories"
-                        id="categories"
-                        className="ml-4 h-4 w-4"
-                      />
-                    </div>
-                  ))}
-              </div>
-            </Disclosure.Panel>
-          </>
+        {featuredImage?.fileName === null && (
+          <div className="form p-2">
+            {!imgUrl && (
+              <input
+                onInput={(e) => handleUpload(e)}
+                type="file"
+                ref={fileRef}
+                className="mb-4"
+                accept="image/*"
+              />
+            )}
+            {!imgUrl && (
+              <progress
+                id="file"
+                value={progressPercent}
+                max="100"
+              >
+                {progressPercent}%
+              </progress>
+            )}
+          </div>
         )}
-      </Disclosure>
-      <Disclosure
-        as="div"
-        className="mt-2"
-      >
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className={`flex items-center w-full justify-between ${
-                open ? 'rounded-t-lg' : 'rounded-lg'
-              } px-4 py-2 text-left text-sm font-medium bg-gray focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75`}
-            >
-              <span>Tags</span>
-              <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
-            </Disclosure.Button>
-            <Disclosure.Panel
-              className={`${
-                open ? 'rounded-b-lg' : ''
-              } px-4 pt-4 pb-2 text-sm bg-gray`}
-            >
-              <div className="overflow-auto h-60">
-                {tags &&
-                  tags.map((tag, index) => (
-                    <div
-                      key={index}
-                      className="p-2 flex justify-between w-full"
-                    >
-                      <label
-                        htmlFor="tags"
-                        className="text-sm"
-                      >
-                        {tag.name}
-                      </label>
-                      <input
-                        type="checkbox"
-                        name="tags"
-                        value={tag}
-                        checked={
-                          post?.tags?.some((t) => t.slug === tag.slug)
-                            ? true
-                            : false
-                        }
-                        id="tags"
-                        onChange={() => handleTagChange(tag)}
-                        className="ml-4 h-4 w-4"
-                      />
-                    </div>
-                  ))}
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-      <Disclosure
-        as="div"
-        className="mt-2"
-      >
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className={`flex items-center w-full justify-between ${
-                open ? 'rounded-t-lg' : 'rounded-lg'
-              } px-4 py-2 text-left text-sm font-medium bg-gray focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75`}
-            >
-              <span>Excerpt</span>
-              <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
-            </Disclosure.Button>
-            <Disclosure.Panel
-              className={`${
-                open ? 'rounded-b-lg' : ''
-              } px-4 pt-4 pb-2 text-sm bg-gray`}
-            >
-              <textarea
-                value={post?.excerpt}
-                onChange={(e) =>
-                  setPost((prevState) => ({
-                    ...prevState,
-                    excerpt: e.target.value,
-                  }))
-                }
-                className="border p-2 border-gray-dark w-full"
-                name="excerpt"
-                id="excerpt"
-                rows="4"
-              ></textarea>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-      <Disclosure
-        as="div"
-        className="mt-2"
-      >
-        {({ open }) => (
-          <>
-            <Disclosure.Button
-              className={`flex items-center w-full justify-between ${
-                open ? 'rounded-t-lg' : 'rounded-lg'
-              } px-4 py-2 text-left text-sm font-medium bg-gray focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75`}
-            >
-              <span>Featured Image</span>
-              <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
-            </Disclosure.Button>
-            <Disclosure.Panel
-              className={`${
-                open ? 'rounded-b-lg' : ''
-              } px-4 pt-4 pb-2 text-sm bg-gray`}
-            >
-              {featuredImage && featuredImage.fileName && (
-                <div>
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={featuredImage.url}
-                      alt={featuredImage.fileName}
-                      layout="fill"
-                    />
-                  </div>
-                  <button
-                    onClick={removeFeaturedImage}
-                    className="bg-primary px-4 py-2 rounded text-white mt-4 w-full"
-                  >
-                    Remove
-                  </button>
-                </div>
-              )}
-              {featuredImage?.fileName === null && (
-                <div className="form p-2">
-                  {!imgUrl && (
-                    <input
-                      onInput={(e) => handleUpload(e)}
-                      type="file"
-                      ref={fileRef}
-                      className="mb-4"
-                      accept="image/*"
-                    />
-                  )}
-                  {!imgUrl && (
-                    <progress
-                      id="file"
-                      value={progressPercent}
-                      max="100"
-                    >
-                      {progressPercent}%
-                    </progress>
-                  )}
-                </div>
-              )}
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
+      </div>
     </>
   )
 }

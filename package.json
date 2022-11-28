@@ -27,6 +27,7 @@
     "react-data-table-component": "^7.5.3",
     "react-dom": "18.1.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-select": "^5.6.1",
     "react-toastify": "^9.1.1",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.5",

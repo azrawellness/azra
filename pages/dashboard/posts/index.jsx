@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
+import { Splash } from '../../../components'
 
 const Posts = () => {
   const columns = [
@@ -21,15 +22,18 @@ const Posts = () => {
     },
     {
       name: 'Featured Image',
-      selector: (row) => (
-        <Image
-          width={40}
-          height={40}
-          objectFit="cover"
-          src={row.featuredImage.url}
-          alt={row.title}
-        />
-      ),
+      selector: (row) =>
+        row.featuredImage.url ? (
+          <Image
+            width={40}
+            height={40}
+            objectFit="cover"
+            src={row.featuredImage.url}
+            alt={row.title}
+          />
+        ) : (
+          ''
+        ),
     },
     {
       name: 'Author',
@@ -45,7 +49,7 @@ const Posts = () => {
       cell: (row) => (
         <span
           className={`${
-            row.status === 'publish' ? 'bg-green' : ''
+            row.status === 'publish' ? 'bg-green' : 'bg-red'
           } px-2 py-1 text-xs rounded-md text-white uppercase`}
         >
           {row.status === 'publish' ? 'Published' : 'Draft'}
@@ -62,7 +66,7 @@ const Posts = () => {
             </a>
           </Link>
           <button
-            onClick={deletePost(row.id)}
+            onClick={() => deletePost(row.id)}
             className="text-red hover:shadow-lg"
           >
             <FontAwesomeIcon icon={faTrash} />
@@ -90,12 +94,12 @@ const Posts = () => {
     )
 
     const querySnapshot = await getDocs(q)
-    const queryDraftSnapshot = await getDocs(qDraft)
-    const queryPublishedSnapshot = await getDocs(qPublished)
+    // const queryDraftSnapshot = await getDocs(qDraft)
+    // const queryPublishedSnapshot = await getDocs(qPublished)
 
     setTotalPostCounts(querySnapshot.docs.length)
-    setTotalPublishedPostCounts(queryDraftSnapshot.docs.length)
-    setTotalDraftPostCounts(queryPublishedSnapshot.docs.length)
+    // setTotalPublishedPostCounts(queryDraftSnapshot.docs.length)
+    // setTotalDraftPostCounts(queryPublishedSnapshot.docs.length)
   }
 
   const deletePost = async (id) => {
@@ -104,6 +108,10 @@ const Posts = () => {
   }
 
   const getPosts = async () => {
+    if (selectedIndex !== 0) {
+      return
+    }
+
     setLoading(true)
 
     const q = query(collection(db, POSTS), orderBy('publishedDate', 'desc'))
@@ -128,6 +136,10 @@ const Posts = () => {
   }
 
   const getPublishedPosts = async () => {
+    if (selectedIndex !== 1) {
+      return
+    }
+
     setLoading(true)
 
     const q = query(
@@ -156,6 +168,10 @@ const Posts = () => {
   }
 
   const getDraftPosts = async () => {
+    if (selectedIndex !== 2) {
+      return
+    }
+
     setLoading(true)
 
     const q = query(
@@ -186,108 +202,81 @@ const Posts = () => {
   useEffect(() => {
     getPostsCount()
     getPosts()
-    getPublishedPosts()
-    getDraftPosts()
   }, [])
 
-  return (
-    <div className="my-10">
-      <div className="items-center flex justify-between mb-4">
-        <div className="text-2xl">Posts</div>
-        <Link href="/dashboard/posts/new">
-          <a className="bg-primary text-white px-8 py-2 rounded hover:shadow transition">
-            New
-          </a>
-        </Link>
-      </div>
-      <div className="bg-white p-4 rounded shadow">
-        <Tab.Group
-          selectedIndex={selectedIndex}
-          onChange={setSelectedIndex}
-        >
-          <Tab.List className="max-w-2xl space-x-2 px-2">
-            <Tab as={Fragment}>
-              {({ selected }) => (
-                /* Use the `selected` state to conditionally style the selected tab. */
-                <button
-                  className={`
+  if (loading) return <Splash />
+
+  if (posts)
+    return (
+      <div className="my-10">
+        <div className="items-center flex justify-between mb-4">
+          <div className="text-2xl">Posts</div>
+          <Link href="/dashboard/posts/new">
+            <a className="bg-primary text-white px-8 py-2 rounded hover:shadow transition">
+              New
+            </a>
+          </Link>
+        </div>
+        <div className="bg-white p-4 rounded shadow">
+          <Tab.Group
+            selectedIndex={selectedIndex}
+            onChange={setSelectedIndex}
+          >
+            <Tab.List className="max-w-2xl space-x-2 px-2">
+              <Tab as={Fragment}>
+                {({ selected }) => (
+                  /* Use the `selected` state to conditionally style the selected tab. */
+                  <button
+                    className={`
                 w-24 px-4  py-2 rounded text-white
                   ${selected ? 'bg-primary' : 'bg-secondary'}`}
-                >
-                  All
-                </button>
-              )}
-            </Tab>
-            <Tab as={Fragment}>
-              {({ selected }) => (
-                /* Use the `selected` state to conditionally style the selected tab. */
-                <button
-                  className={`
+                  >
+                    All
+                  </button>
+                )}
+              </Tab>
+              <Tab as={Fragment}>
+                {({ selected }) => (
+                  /* Use the `selected` state to conditionally style the selected tab. */
+                  <button
+                    className={`
                 w-24 px-4 py-2 rounded text-white
                   ${selected ? 'bg-primary' : 'bg-secondary'}`}
-                >
-                  Published
-                </button>
-              )}
-            </Tab>
-            <Tab as={Fragment}>
-              {({ selected }) => (
-                /* Use the `selected` state to conditionally style the selected tab. */
-                <button
-                  className={`
+                  >
+                    Published
+                  </button>
+                )}
+              </Tab>
+              <Tab as={Fragment}>
+                {({ selected }) => (
+                  /* Use the `selected` state to conditionally style the selected tab. */
+                  <button
+                    className={`
                 w-24 px-4 py-2 rounded text-white
                   ${selected ? 'bg-primary' : 'bg-secondary'}`}
-                >
-                  Draft
-                </button>
-              )}
-            </Tab>
-          </Tab.List>
-          <Tab.Panels className="mt-4">
-            <Tab.Panel>
-              <div className="container mx-auto">
-                <div className="relative overflow-x-auto sm:rounded-lg">
-                  <DataTable
-                    columns={columns}
-                    pagination
-                    paginationTotalRows={totalPostsCount}
-                    data={posts}
-                    progressPending={loading}
-                  />
-                </div>
+                  >
+                    Draft
+                  </button>
+                )}
+              </Tab>
+            </Tab.List>
+          </Tab.Group>
+          <div className="mt-4">
+            <div className="container mx-auto">
+              <div className="relative overflow-x-auto sm:rounded-lg">
+                <DataTable
+                  columns={columns}
+                  pagination
+                  paginationTotalRows={totalPostsCount}
+                  data={posts}
+                  progressPending={loading}
+                />
               </div>
-            </Tab.Panel>
-            <Tab.Panel>
-              <div className="container mx-auto">
-                <div className="relative overflow-x-auto sm:rounded-lg">
-                  <DataTable
-                    columns={columns}
-                    pagination
-                    paginationTotalRows={totalPublishedPostsCount}
-                    data={publishedPosts}
-                    progressPending={loading}
-                  />
-                </div>
-              </div>
-            </Tab.Panel>
-            <Tab.Panel>
-              <div className="container mx-auto">
-                <div className="relative overflow-x-auto sm:rounded-lg">
-                  <DataTable
-                    columns={columns}
-                    pagination
-                    paginationTotalRows={totalDraftPostsCount}
-                    data={draftPosts}
-                    progressPending={loading}
-                  />
-                </div>
-              </div>
-            </Tab.Panel>
-          </Tab.Panels>
-        </Tab.Group>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  )
+    )
 }
 
 export default Posts
