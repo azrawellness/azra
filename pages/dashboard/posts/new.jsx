@@ -6,6 +6,7 @@ import {
   doc,
   addDoc,
   setDoc,
+  serverTimestamp,
 } from 'firebase/firestore'
 import { deleteObject, ref } from 'firebase/storage'
 import { useRouter } from 'next/router'
@@ -88,8 +89,11 @@ const NewPost = () => {
     try {
       setLoading(true)
       post.slug = slugify(post.title)
-      const response = await addDoc(collection(db, 'cities'), post)
+      post.publishedDate = serverTimestamp()
+      post.modifiedDate = serverTimestamp()
+      const response = await addDoc(collection(db, 'posts'), post)
       setLoading(false)
+      console.log(response, 96)
       router.push(`/dashboard/posts/${response.id}`)
     } catch (error) {
       setLoading(false)

@@ -16,7 +16,7 @@ const Posts = () => {
     {
       name: 'Title',
       selector: (row) => (
-        <Link href={`/dashboard/posts/${row.slug}`}>{row.title}</Link>
+        <Link href={`/dashboard/posts/${row.id}`}>{row.title}</Link>
       ),
     },
     {
@@ -56,7 +56,7 @@ const Posts = () => {
       name: 'Actions',
       cell: (row) => (
         <>
-          <Link href={`/dashboard/posts/${row.slug}`}>
+          <Link href={`/dashboard/posts/${row.id}`}>
             <a className="text-green hover:shadow-lg mr-2">
               <FontAwesomeIcon icon={faPenToSquare} />
             </a>
@@ -86,7 +86,7 @@ const Posts = () => {
     const qDraft = query(collection(db, POSTS), where('status', '==', 'draft'))
     const qPublished = query(
       collection(db, POSTS),
-      where('status', '==', 'published')
+      where('status', '==', 'publish')
     )
 
     const querySnapshot = await getDocs(q)
@@ -132,7 +132,7 @@ const Posts = () => {
 
     const q = query(
       collection(db, POSTS),
-      where('status', '==', 'published'),
+      where('status', '==', 'publish'),
       orderBy('publishedDate', 'desc')
     )
 

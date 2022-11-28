@@ -24,8 +24,8 @@ const EditPost = () => {
   const getPost = async () => {
     try {
       setLoading(true)
-      const { slug } = router.query
-      const q = query(collection(db, 'posts'), where('slug', '==', slug))
+      const { id } = router.query
+      const q = query(collection(db, 'posts', id))
 
       const querySnapshot = await getDocs(q)
       querySnapshot.forEach((doc) => {
