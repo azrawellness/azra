@@ -31,7 +31,10 @@ export const PostsSection = dynamic(() => import('./home/PostsSection'))
 export const Sidebar = dynamic(() => import('./dashboard/Sidebar'))
 export const MyEditor = dynamic(() => import('./dashboard/Editor'))
 
-// Dashboard Componetns
-export const PostSidebar = dynamic(() =>
-  import('./dashboard/posts/Sidebar.jsx')
+// Dashboard Components
+export const DashboardSidebar = dynamic(() =>
+  import('./dashboard/posts/Sidebar')
+)
+export const CategoryDialog = dynamic(() =>
+  import('./dashboard/CategoryDialog')
 )

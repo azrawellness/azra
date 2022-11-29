@@ -11,7 +11,7 @@ import { deleteObject, ref } from 'firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import { MyEditor, PostSidebar, Splash } from '../../../components'
+import { MyEditor, DashboardSidebar, Splash } from '../../../components'
 import { db, storage } from '../../../firebase-config'
 import slugify from 'slugify'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
@@ -195,7 +195,7 @@ const EditPost = () => {
               />
             </div>
             <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
-              <PostSidebar
+              <DashboardSidebar
                 post={post}
                 tags={tags}
                 categories={categories}

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import slugify from 'slugify'
-import { MyEditor, ServiceSidebar } from '../../../components'
+import { MyEditor, DashboardSidebar } from '../../../components'
 import { db } from '../../../firebase-config'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -142,7 +142,7 @@ const NewService = () => {
           />
         </div>
         <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
-          <ServiceSidebar
+          <DashboardSidebar
             service={service}
             tags={tags}
             categories={categories}
