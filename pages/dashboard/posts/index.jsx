@@ -49,8 +49,8 @@ const Posts = () => {
       cell: (row) => (
         <span
           className={`${
-            row.status === 'publish' ? 'bg-green' : 'bg-red'
-          } px-2 py-1 text-xs rounded-md text-white uppercase`}
+            row.status === 'publish' ? 'text-green' : 'text-red'
+          } text-center py-2 w-24 font-medium rounded-md bg-gray-dashboard uppercase`}
         >
           {row.status === 'publish' ? 'Published' : 'Draft'}
         </span>
@@ -58,20 +58,16 @@ const Posts = () => {
     },
     {
       name: 'Actions',
+      right: true,
       cell: (row) => (
-        <>
+        <div className="space-x-2">
           <Link href={`/dashboard/posts/${row.id}`}>
-            <a className="text-green hover:shadow-lg mr-2">
-              <FontAwesomeIcon icon={faPenToSquare} />
-            </a>
+            <a className="bg-green text-white px-4 py-2 rounded">Edit</a>
           </Link>
-          <button
-            onClick={() => deletePost(row.id)}
-            className="text-red hover:shadow-lg"
-          >
-            <FontAwesomeIcon icon={faTrash} />
+          <button className="bg-red text-white px-4 py-2 rounded">
+            Delete
           </button>
-        </>
+        </div>
       ),
     },
   ]

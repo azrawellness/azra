@@ -156,7 +156,7 @@ const Sidebar = ({
         <select
           name="author"
           id="author"
-          value={post.author.uid}
+          value={post.author?.uid}
           onChange={(e) => updateAuthor(e.target.value)}
           className="w-full bg-white border border-gray-dark rounded p-2"
         >

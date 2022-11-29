@@ -2,50 +2,36 @@ import { collection, getDocs, query } from 'firebase/firestore'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
-import { db } from '../../../firebase-config'
-import { SERVICES } from '../../../utils/constants'
-import Image from 'next/image'
 import { Splash } from '../../../components'
+import { db } from '../../../firebase-config'
+import { CATEGORIES } from '../../../utils/constants'
 
-const Services = () => {
+const Categories = () => {
   const [loading, setLoading] = useState(false)
-  const [services, setServices] = useState([])
+  const [categories, setCategories] = useState([])
 
   const columns = [
     {
-      name: 'Title',
+      name: 'Name',
       selector: (row) => (
-        <Link href={`/dashboard/posts/${row.id}`}>{row.title}</Link>
+        <Link href={`/dashboard/categories/${row.id}`}>{row.name}</Link>
       ),
       grow: 1,
     },
     {
-      name: 'Image',
-      selector: (row) =>
-        row.thumbnail.url ? (
-          <Image
-            width={40}
-            height={40}
-            objectFit="cover"
-            src={row.thumbnail.url}
-            alt={row.title}
-          />
-        ) : (
-          ''
-        ),
+      name: 'Slug',
+      selector: (row) => row.slug,
+      grow: 1,
     },
     {
       name: 'Actions',
       right: true,
       cell: (row) => (
         <div className="space-x-2">
-          <Link href={`/dashboard/services/${row.id}`}>
+          <Link href={`/dashboard/categories/${row.id}`}>
             <a className="bg-green text-white px-4 py-2 rounded">Edit</a>
           </Link>
-          <button
-            onClick={deleteService(row.id)}
-            className="bg-red text-white px-4 py-2 rounded"
-          >
+          <button className="bg-red text-white px-4 py-2 rounded">
             Delete
           </button>
         </div>
@@ -53,42 +39,43 @@ const Services = () => {
     },
   ]
 
-  const getServices = async () => {
+  const getCategories = async () => {
     try {
       setLoading(true)
-      const q = query(collection(db, SERVICES))
+      const q = query(collection(db, CATEGORIES))
       const querySnapshot = await getDocs(q)
 
-      const services = []
+      const categories = []
       querySnapshot.forEach((doc) => {
         console.log(doc)
-        services.push({
+        categories.push({
           ...doc.data(),
           id: doc.id,
         })
       })
       setLoading(false)
-      setServices(services)
+      setCategories(categories)
     } catch (error) {
       setLoading(false)
     }
   }
 
-  const deleteService = (id) => {
+  const deleteCategories = (id) => {
     // TODO: Add Logic
   }
 
   useEffect(() => {
-    getServices()
+    getCategories()
   }, [])
+
   if (loading) return <Splash />
 
-  if (services)
+  if (categories)
     return (
       <div className="my-10">
         <div className="items-center flex justify-between mb-4">
-          <div className="text-2xl">Services</div>
-          <Link href="/dashboard/services/new">
+          <div className="text-2xl">Categories</div>
+          <Link href="/dashboard/categories/new">
             <a className="bg-primary text-white px-8 py-2 rounded hover:shadow transition">
               New
             </a>
@@ -98,7 +85,7 @@ const Services = () => {
           <DataTable
             columns={columns}
             pagination
-            data={services}
+            data={categories}
             progressPending={loading}
           />
         </div>
@@ -106,4 +93,4 @@ const Services = () => {
     )
 }
 
-export default Services
+export default Categories

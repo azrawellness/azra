@@ -1,6 +1,10 @@
 export const TESTIMONIALS = 'testimonials'
 export const POSTS = 'posts'
 export const SERVICES = 'services'
+export const CATEGORIES = 'categories'
+export const TAGS = 'tags'
+export const USERS = 'users'
+export const CLIENT_REVIEWS = 'testimonials'
 
 export const NAVBAR_LINKS = [
   {
@@ -86,14 +90,6 @@ export const SIDEBAR_LINKS = [
     href: '/dashboard/tags',
     name: 'Tags',
     icon: 'fa fa-hashtag',
-    nested: false,
-    disabled: false,
-  },
-  {
-    id: 7,
-    href: '/dashboard/testimonials',
-    name: 'Testimonials',
-    icon: 'fa fa-comment',
     nested: false,
     disabled: false,
   },
