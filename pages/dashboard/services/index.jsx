@@ -1,4 +1,11 @@
-import { collection, getDocs, query } from 'firebase/firestore'
+import {
+  collection,
+  doc,
+  getDocs,
+  query,
+  deleteDoc,
+  orderBy,
+} from 'firebase/firestore'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
@@ -6,6 +13,8 @@ import { db } from '../../../firebase-config'
 import { SERVICES } from '../../../utils/constants'
 import Image from 'next/image'
 import { Splash } from '../../../components'
+import { toast } from 'react-toastify'
+import moment from 'moment'
 
 const Services = () => {
   const [loading, setLoading] = useState(false)
@@ -15,7 +24,7 @@ const Services = () => {
     {
       name: 'Title',
       selector: (row) => (
-        <Link href={`/dashboard/posts/${row.id}`}>{row.title}</Link>
+        <Link href={`/dashboard/services/${row.id}`}>{row.title}</Link>
       ),
       grow: 1,
     },
@@ -35,6 +44,29 @@ const Services = () => {
         ),
     },
     {
+      name: 'Status',
+      cell: (row) => (row.status === 'publish' ? 'Published' : 'Draft'),
+    },
+    {
+      name: 'Featured',
+      cell: (row) =>
+        row.featured ? (
+          <div className="bg-black text-white px-2 py-1 rounded">Featured</div>
+        ) : (
+          ''
+        ),
+    },
+    {
+      name: 'Published Date',
+      cell: (row) =>
+        moment.unix(row.publishedDate.seconds).format('DD/MM/YYYY, h:mm a'),
+    },
+    {
+      name: 'Modified Date',
+      cell: (row) =>
+        moment.unix(row.modifiedDate.seconds).format('DD/MM/YYYY, h:mm a'),
+    },
+    {
       name: 'Actions',
       right: true,
       cell: (row) => (
@@ -43,7 +75,7 @@ const Services = () => {
             <a className="bg-green text-white px-4 py-2 rounded">Edit</a>
           </Link>
           <button
-            onClick={deleteService(row.id)}
+            onClick={() => deleteService(row.id)}
             className="bg-red text-white px-4 py-2 rounded"
           >
             Delete
@@ -56,7 +88,7 @@ const Services = () => {
   const getServices = async () => {
     try {
       setLoading(true)
-      const q = query(collection(db, SERVICES))
+      const q = query(collection(db, SERVICES), orderBy('publishedDate'))
       const querySnapshot = await getDocs(q)
 
       const services = []
@@ -74,8 +106,16 @@ const Services = () => {
     }
   }
 
-  const deleteService = (id) => {
-    // TODO: Add Logic
+  const deleteService = async (id) => {
+    console.log('called', 99)
+    // await deleteDoc(doc(db, 'services', id))
+    //   .then(() => {
+    //     toast.success('Service Deleted Successfully')
+    //   })
+    //   .catch((err) => {
+    //     toast.error(err)
+    //     getServices()
+    //   })
   }
 
   useEffect(() => {

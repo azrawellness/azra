@@ -1,13 +1,21 @@
 import { collection, getDocs, query } from 'firebase/firestore'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
-import { Splash } from '../../../components'
+import { Splash, CategoryDialog } from '../../../components'
 import { db } from '../../../firebase-config'
 import { CATEGORIES } from '../../../utils/constants'
+import { Switch } from '@headlessui/react'
 
 const Categories = () => {
+  const [show, setShow] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [category, setCategory] = useState({
+    id: '',
+    name: '',
+    slug: '',
+    status: true,
+  })
   const [categories, setCategories] = useState([])
 
   const columns = [
@@ -60,6 +68,10 @@ const Categories = () => {
     }
   }
 
+  const processCategory = () => {
+    // TODO: Add Logic
+  }
+
   const deleteCategories = (id) => {
     // TODO: Add Logic
   }
@@ -72,14 +84,15 @@ const Categories = () => {
 
   if (categories)
     return (
-      <div className="my-10">
+      <div className="my-10 space-y-2">
         <div className="items-center flex justify-between mb-4">
           <div className="text-2xl">Categories</div>
-          <Link href="/dashboard/categories/new">
-            <a className="bg-primary text-white px-8 py-2 rounded hover:shadow transition">
-              New
-            </a>
-          </Link>
+          <button
+            onClick={() => setShow(true)}
+            className="bg-primary text-white px-8 py-2 rounded hover:shadow transition"
+          >
+            New
+          </button>
         </div>
         <div className="bg-white rounded shadow w-full">
           <DataTable
@@ -89,6 +102,14 @@ const Categories = () => {
             progressPending={loading}
           />
         </div>
+        <CategoryDialog
+          show={show}
+          title={category.id ? 'Update Category' : 'Create Category'}
+          setShow={setShow}
+          category={category}
+          setCategory={setCategory}
+          processCategory={processCategory}
+        />
       </div>
     )
 }

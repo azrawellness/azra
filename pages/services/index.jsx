@@ -1,4 +1,4 @@
-import { collection, getDocs, query } from 'firebase/firestore'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { Header, ServiceCard, Splash } from '../../components'
@@ -12,7 +12,7 @@ const Services = () => {
   const getServices = async () => {
     setLoading(true)
     const servicesRef = collection(db, SERVICES)
-    const q = query(servicesRef)
+    const q = query(servicesRef, orderBy('publishedDate'))
     const querySnapshot = await getDocs(q)
     let data = []
     querySnapshot.forEach((doc) => {
@@ -34,7 +34,10 @@ const Services = () => {
     <>
       <Head>
         <title>Services - Azra</title>
-        <meta name="description" content="Azra Website" />
+        <meta
+          name="description"
+          content="Azra Website"
+        />
       </Head>
       <div className="bg-gray text-black">
         <Header title="Services" />

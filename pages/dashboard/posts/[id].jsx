@@ -11,7 +11,7 @@ import { deleteObject, ref } from 'firebase/storage'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import { MyEditor, DashboardSidebar, Splash } from '../../../components'
+import { MyEditor, PostSidebar, Splash } from '../../../components'
 import { db, storage } from '../../../firebase-config'
 import slugify from 'slugify'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
@@ -191,11 +191,13 @@ const EditPost = () => {
             <div className="min-h-screen h-full col-span-9 bg-white p-2 rounded shadow">
               <MyEditor
                 content={post?.content}
-                setPost={setPost}
+                setContent={(e) =>
+                  setPost((prevState) => ({ ...prevState, content: e }))
+                }
               />
             </div>
             <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
-              <DashboardSidebar
+              <PostSidebar
                 post={post}
                 tags={tags}
                 categories={categories}

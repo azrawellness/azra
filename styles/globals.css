@@ -38,3 +38,42 @@ blockquote:before {
   margin-left: -0.6em;
   margin-top: 0.2em;
 }
+
+.azra-content blockquote {
+  margin: 1em auto auto 2em;
+}
+
+.azra-content ul {
+  font-size: initial;
+  list-style: inside;
+}
+
+.azra-content ul li {
+  font-size: initial;
+}
+
+.azra-content blockquote:before {
+  font-family: 'Prata';
+  position: absolute;
+  content: '\201C';
+  font-size: 4em;
+  color: #99c300;
+  margin-left: -0.6em;
+  margin-top: 0.2em;
+}
+
+.azra-content p {
+  font-size: initial;
+}
+
+.azra-content a {
+  color: #99c300;
+}
+
+.azra-content h1 {
+  font-size: xx-large;
+}
+
+.azra-content h2 {
+  font-size: x-large;
+}

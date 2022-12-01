@@ -34,7 +34,10 @@ const Service = () => {
     <>
       <Head>
         <title>{service && service.title} - Azra</title>
-        <meta name="description" content="Azra Website" />
+        <meta
+          name="description"
+          content="Azra Website"
+        />
       </Head>
       <div className="bg-gray text-black py-16 px-4 lg:px-0">
         <div className="container mx-auto">
@@ -59,7 +62,7 @@ const Service = () => {
 
                 {/* Service Content */}
                 <div
-                  className="lg:text-lg my-10"
+                  className="lg:text-lg my-10 azra-content"
                   dangerouslySetInnerHTML={{ __html: service.content }}
                 ></div>
               </div>

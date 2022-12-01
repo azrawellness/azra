@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import slugify from 'slugify'
-import { MyEditor, DashboardSidebar } from '../../../components'
+import { MyEditor, PostSidebar } from '../../../components'
 import { db } from '../../../firebase-config'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,7 +32,6 @@ const NewPost = () => {
     title: '',
   })
   const [loading, setLoading] = useState(false)
-  const [content, setContent] = useState(null)
   const [categories, setCategories] = useState([])
   const [tags, setTags] = useState([])
   const [users, setUsers] = useState([])
@@ -138,11 +137,13 @@ const NewPost = () => {
         <div className="min-h-screen h-full col-span-9 bg-white p-2 rounded shadow">
           <MyEditor
             content={post?.content}
-            setPost={setPost}
+            setContent={(e) =>
+              setPost((prevState) => ({ ...prevState, content: e }))
+            }
           />
         </div>
         <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
-          <DashboardSidebar
+          <PostSidebar
             post={post}
             tags={tags}
             categories={categories}

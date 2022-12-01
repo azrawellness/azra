@@ -94,7 +94,7 @@ export const SIDEBAR_LINKS = [
     disabled: false,
   },
   {
-    id: 8,
+    id: 7,
     href: '/dashboard/users',
     name: 'Users',
     icon: 'fa fa-person',
@@ -103,6 +103,14 @@ export const SIDEBAR_LINKS = [
   },
   {
     id: 8,
+    href: '/dashboard/media',
+    name: 'Media',
+    icon: 'fa fa-image',
+    nested: false,
+    disabled: false,
+  },
+  {
+    id: 9,
     href: '/dashboard/settings',
     name: 'Settings',
     icon: 'fa fa-gear',

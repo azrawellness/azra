@@ -1,11 +1,8 @@
-import { faChevronDown, faSquareCheck } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Disclosure, Listbox, Transition } from '@headlessui/react'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { Fragment, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import Select from 'react-select'
 import { Image } from '../../../components'
 import { storage } from '../../../firebase-config'
-import Select from 'react-select'
 
 const Sidebar = ({
   post,
@@ -113,12 +110,7 @@ const Sidebar = ({
     <>
       {/* Status */}
       <div className="mb-4">
-        <label
-          htmlFor="status"
-          className="text-xs"
-        >
-          Status
-        </label>
+        <label htmlFor="status">Status</label>
         <select
           name="status"
           id="status"
@@ -147,12 +139,7 @@ const Sidebar = ({
       </div>
       {/* Author */}
       <div className="mb-4">
-        <label
-          htmlFor="author"
-          className="text-xs"
-        >
-          Author
-        </label>
+        <label htmlFor="author">Author</label>
         <select
           name="author"
           id="author"
@@ -175,12 +162,7 @@ const Sidebar = ({
       </div>
       {/* Categories */}
       <div className="mb-4">
-        <label
-          htmlFor="categories"
-          className="text-xs"
-        >
-          Categories
-        </label>
+        <label htmlFor="categories">Categories</label>
         <Select
           className=""
           isMulti
@@ -200,12 +182,7 @@ const Sidebar = ({
       </div>
       {/* Categories */}
       <div className="mb-4">
-        <label
-          htmlFor="categories"
-          className="text-xs"
-        >
-          Tags
-        </label>
+        <label htmlFor="categories">Tags</label>
         <Select
           className=""
           isMulti
@@ -223,12 +200,7 @@ const Sidebar = ({
       </div>
       {/* Excerpt */}
       <div className="mb-4">
-        <label
-          htmlFor="excerpt"
-          className="text-xs"
-        >
-          Excerpt
-        </label>
+        <label htmlFor="excerpt">Excerpt</label>
         <textarea
           value={post?.excerpt}
           onChange={(e) =>
@@ -244,13 +216,8 @@ const Sidebar = ({
         ></textarea>
       </div>
       {/* Featured Image */}
-      <div className="mb-4">
-        <label
-          htmlFor="featuredImage"
-          className="text-xs"
-        >
-          Featured Image
-        </label>
+      <div className="mb-4 border p-1 rounded">
+        <label htmlFor="featuredImage">Featured Image</label>
         {featuredImage && featuredImage.fileName && (
           <div>
             <div className="relative w-full h-48">

@@ -18,7 +18,10 @@ function MyApp({ Component, pageProps, router }) {
         <DashboardLayout>
           <NextNProgress color="#99c300" />
           <Component {...pageProps} />
-          <ToastContainer theme="colored" />
+          <ToastContainer
+            theme="colored"
+            autoClose={1000}
+          />
         </DashboardLayout>
       </AuthContextProvider>
     )

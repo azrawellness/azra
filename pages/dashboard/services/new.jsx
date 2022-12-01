@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import slugify from 'slugify'
-import { MyEditor, DashboardSidebar } from '../../../components'
+import { MyEditor, ServiceSidebar } from '../../../components'
 import { db } from '../../../firebase-config'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,12 +30,9 @@ const NewService = () => {
     publishedDate: null,
     slug: null,
     title: '',
+    status: 'draft',
   })
   const [loading, setLoading] = useState(false)
-  const [content, setContent] = useState(null)
-  const [categories, setCategories] = useState([])
-  const [tags, setTags] = useState([])
-  const [users, setUsers] = useState([])
 
   const serviceUpdated = () => {}
 
@@ -45,41 +42,13 @@ const NewService = () => {
 
   const updateFeaturedImage = () => {}
 
-  const getTags = async () => {
-    let lTags = []
-    const querySnapshot = await getDocs(collection(db, 'tags'))
-    querySnapshot.forEach((doc) => {
-      lTags.push({ ...doc.data(), id: doc.id })
-    })
-    setTags(lTags)
-  }
+  const removeThumbnail = () => {}
 
-  const getCategories = async () => {
-    let lCategories = []
-    const querySnapshot = await getDocs(collection(db, 'categories'))
-    querySnapshot.forEach((doc) => {
-      lCategories.push({ ...doc.data(), id: doc.id })
-    })
-    setCategories(lCategories)
-  }
-
-  const getUsers = async () => {
-    let lUsers = []
-    const querySnapshot = await getDocs(collection(db, 'users'))
-    querySnapshot.forEach((doc) => {
-      lUsers.push({ ...doc.data(), id: doc.id })
-    })
-    setUsers(lUsers)
-  }
+  const updateThumbnail = () => {}
 
   const saveNewService = async () => {
     if (service.title.length === 0) {
       toast.error('Title cannot be empty')
-      return
-    }
-
-    if (service.author === null) {
-      toast.error('Please select an Author')
       return
     }
 
@@ -88,21 +57,26 @@ const NewService = () => {
       service.slug = slugify(service.title, { lower: true })
       service.publishedDate = serverTimestamp()
       service.modifiedDate = serverTimestamp()
-      const response = await addDoc(collection(db, 'services'), service)
+      await addDoc(collection(db, 'services'), service)
       setLoading(false)
-      console.log(response, 96)
+
+      if (service.featuredImage.name === null) {
+        toast.warning(
+          'Please add Featured image before publishing the service!!'
+        )
+      }
+
+      if (service.thumbnail.name === null) {
+        toast.warning('Please add Thumbnail before publishing the service!!')
+      }
+
+      toast.success('Service Created Successfully!!')
       router.push(`/dashboard/services/${response.id}`)
     } catch (error) {
       setLoading(false)
       toast.error(error)
     }
   }
-
-  useEffect(() => {
-    getTags()
-    getCategories()
-    getUsers()
-  }, [])
 
   return (
     <>
@@ -138,20 +112,22 @@ const NewService = () => {
         <div className="min-h-screen h-full col-span-9 bg-white p-2 rounded shadow">
           <MyEditor
             content={service?.content}
-            setService={setService}
+            setContent={(e) =>
+              setService((prevState) => ({ ...prevState, content: e }))
+            }
           />
         </div>
         <div className="col-span-3 h-fit bg-white p-2 rounded shadow">
-          <DashboardSidebar
+          <ServiceSidebar
             service={service}
-            tags={tags}
-            categories={categories}
-            users={users}
             setService={setService}
             serviceUpdated={serviceUpdated}
             featuredImage={service?.featuredImage}
             removeFeaturedImage={removeFeaturedImage}
             updateFeaturedImage={updateFeaturedImage}
+            thumbnail={service?.thumbnail}
+            removeThumbnail={removeThumbnail}
+            updateThumbnail={updateThumbnail}
           />
         </div>
       </div>
