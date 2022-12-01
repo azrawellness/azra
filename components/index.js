@@ -39,3 +39,4 @@ export const ServiceSidebar = dynamic(() =>
 export const CategoryDialog = dynamic(() =>
   import('./dashboard/CategoryDialog')
 )
+export const TagDialog = dynamic(() => import('./dashboard/TagDialog'))

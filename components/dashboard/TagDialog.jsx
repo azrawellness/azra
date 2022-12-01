@@ -1,14 +1,7 @@
 import { Dialog, Transition, Switch } from '@headlessui/react'
 import { Fragment } from 'react'
 
-const CategoryDialog = ({
-  title,
-  show,
-  setShow,
-  category,
-  setCategory,
-  processCategory,
-}) => {
+const TagDialog = ({ title, show, setShow, tag, setTag, processTag }) => {
   return (
     <Transition
       appear
@@ -58,9 +51,9 @@ const CategoryDialog = ({
                       id="name"
                       className="border rounded px-2 py-2 w-full"
                       placeholder="Name"
-                      value={category.name}
+                      value={tag.name}
                       onChange={(e) =>
-                        setCategory((prevState) => ({
+                        setTag((prevState) => ({
                           ...prevState,
                           name: e.target.value,
                         }))
@@ -74,43 +67,14 @@ const CategoryDialog = ({
                       id="slug"
                       className="border rounded px-2 py-2 w-full"
                       placeholder="Slug"
-                      value={category.slug}
+                      value={tag.slug}
                       onChange={(e) =>
-                        setCategory((prevState) => ({
+                        setTag((prevState) => ({
                           ...prevState,
                           slug: e.target.value,
                         }))
                       }
                     />
-                  </div>
-                  <div className="flex justify-end">
-                    <Switch.Group>
-                      <div className="flex items-center">
-                        <Switch.Label className="mr-4">Status</Switch.Label>
-                        <Switch
-                          checked={category.status}
-                          onChange={(e) =>
-                            setCategory((prevState) => ({
-                              ...prevState,
-                              status: e,
-                            }))
-                          }
-                          className={`${category.status ? 'bg-green' : 'bg-red'}
-                          relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
-                        >
-                          <span className="sr-only">Use setting</span>
-                          <span
-                            aria-hidden="true"
-                            className={`${
-                              category.status
-                                ? 'translate-x-9'
-                                : 'translate-x-0'
-                            }
-                            pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-                          />
-                        </Switch>
-                      </div>
-                    </Switch.Group>
                   </div>
                 </div>
                 <div className="mt-4 flex justify-end p-2 space-x-4 border-t">
@@ -124,9 +88,9 @@ const CategoryDialog = ({
                   <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-green text-white px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={processCategory}
+                    onClick={processTag}
                   >
-                    {category.id ? 'Update' : 'Save'}
+                    {tag.id ? 'Update' : 'Save'}
                   </button>
                 </div>
               </Dialog.Panel>
@@ -138,4 +102,4 @@ const CategoryDialog = ({
   )
 }
 
-export default CategoryDialog
+export default TagDialog
