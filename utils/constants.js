@@ -109,12 +109,12 @@ export const SIDEBAR_LINKS = [
     nested: false,
     disabled: false,
   },
-  {
-    id: 9,
-    href: '/dashboard/settings',
-    name: 'Settings',
-    icon: 'fa fa-gear',
-    nested: false,
-    disabled: true,
-  },
+  // {
+  //   id: 9,
+  //   href: '/dashboard/settings',
+  //   name: 'Settings',
+  //   icon: 'fa fa-gear',
+  //   nested: false,
+  //   disabled: true,
+  // },
 ]

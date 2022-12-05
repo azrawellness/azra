@@ -1,4 +1,4 @@
-import { firebaseAdmin } from '../../firebase-admin'
+import { firebaseAdmin } from '../../../firebase-admin'
 
 export default async function handler(req, res) {
   try {

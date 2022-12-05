@@ -63,7 +63,7 @@ const Users = () => {
       <div className="my-10">
         <div className="items-center flex justify-between mb-4">
           <div className="text-2xl">Users</div>
-          <Link href="/dashboard/users/new">
+          <Link href="/dashboard/users/0">
             <a className="bg-primary text-white px-8 py-2 rounded hover:shadow transition">
               New
             </a>
