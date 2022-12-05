@@ -1,4 +1,12 @@
-import { collection, getDocs, orderBy, query, where } from 'firebase/firestore'
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore'
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
@@ -11,6 +19,7 @@ import DataTable from 'react-data-table-component'
 import { Tab } from '@headlessui/react'
 import { Fragment } from 'react'
 import { Splash } from '../../../components'
+import { toast } from 'react-toastify'
 
 const Posts = () => {
   const columns = [
@@ -64,7 +73,10 @@ const Posts = () => {
           <Link href={`/dashboard/posts/${row.id}`}>
             <a className="bg-green text-white px-4 py-2 rounded">Edit</a>
           </Link>
-          <button className="bg-red text-white px-4 py-2 rounded">
+          <button
+            onClick={() => deletePost(row.id)}
+            className="bg-red text-white px-4 py-2 rounded"
+          >
             Delete
           </button>
         </div>
@@ -99,8 +111,15 @@ const Posts = () => {
   }
 
   const deletePost = async (id) => {
-    // TODO: Add Logic
-    console.log('called', 93)
+    console.log('called', 99)
+    await deleteDoc(doc(db, 'posts', id))
+      .then(() => {
+        toast.success('Post Deleted Successfully')
+      })
+      .catch((err) => {
+        toast.error(err)
+        getPosts()
+      })
   }
 
   const getPosts = async () => {

@@ -5,6 +5,7 @@ import {
   orderBy,
   query,
   startAfter,
+  where,
 } from 'firebase/firestore'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
@@ -29,6 +30,7 @@ const Blogs = () => {
     setLoading(true)
     const initialPostQuery = query(
       collection(db, POSTS),
+      where('status', '==', 'publish'),
       orderBy('publishedDate', 'desc'),
       limit(10)
     )
@@ -56,6 +58,7 @@ const Blogs = () => {
   const getPosts = async () => {
     const q = query(
       collection(db, POSTS),
+      where('status', '==', 'publish'),
       orderBy('publishedDate', 'desc'),
       startAfter(lastVisible),
       limit(10)
@@ -89,7 +92,10 @@ const Blogs = () => {
     <>
       <Head>
         <title>Blog - Azra</title>
-        <meta name="description" content="Azra Website" />
+        <meta
+          name="description"
+          content="Azra Website"
+        />
       </Head>
       <div className="bg-gray text-black">
         <Header title="Blog" />
@@ -110,7 +116,12 @@ const Blogs = () => {
         >
           <div className="grid grid-cols-1 w-full max-w-6xl mx-auto gap-4 py-10 px-4 lg:px-0">
             {posts &&
-              posts.map((post, index) => <PostCard key={index} post={post} />)}
+              posts.map((post, index) => (
+                <PostCard
+                  key={index}
+                  post={post}
+                />
+              ))}
           </div>
         </InfiniteScroll>
       </div>
