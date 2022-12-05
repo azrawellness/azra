@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
@@ -31,7 +32,10 @@ const Users = () => {
           <Link href={`/dashboard/users/${row.uid}`}>
             <a className="bg-green text-white px-4 py-2 rounded">Edit</a>
           </Link>
-          <button className="bg-red text-white px-4 py-2 rounded">
+          <button
+            onClick={() => deleteUsers(row.uid)}
+            className="bg-red text-white px-4 py-2 rounded"
+          >
             Delete
           </button>
         </div>
@@ -40,16 +44,25 @@ const Users = () => {
   ]
 
   const getUsers = async () => {
-    const res = await fetch('/api/users')
-    const { users } = await res.json()
-
-    // console.log(data, 46)
-
-    setUsers(users)
+    try {
+      setLoading(true)
+      const { data } = await axios.get('/api/users')
+      setUsers(data.users)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
   }
 
-  const deleteUsers = (id) => {
-    // TODO: Add Logic
+  const deleteUsers = async (uid) => {
+    try {
+      await axios.delete(`/api/users/${uid}`)
+      toast.success('User Deleted Successfully')
+      await getUsers()
+    } catch (error) {
+      toast.error(err)
+    }
   }
 
   useEffect(() => {
@@ -80,32 +93,5 @@ const Users = () => {
       </div>
     )
 }
-
-// export async function getStaticProps() {
-//   const users = []
-//   await firebaseAdmin
-//     .auth()
-//     .listUsers()
-//     .then((listUsersResult) => {
-//       listUsersResult.users.forEach((userRecord) => {
-//         users.push(userRecord)
-//       })
-//       // if (listUsersResult.pageToken) {
-//       //   // List next batch of users.
-//       //   listAllUsers(listUsersResult.pageToken)
-//       // }
-//     })
-//     .catch((error) => {
-//       console.log('Error listing users:', error)
-//     })
-
-//   // By returning { props: { posts } }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       users: JSON.stringify(users),
-//     },
-//   }
-// }
 
 export default Users

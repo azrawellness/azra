@@ -43,6 +43,18 @@ export default async function handler(req, res) {
           })
       }
 
+      if (req.method === 'DELETE') {
+        await firebaseAdmin
+          .auth()
+          .deleteUser(uid)
+          .then(() => {
+            res.status(200).json({ message: 'User deleted successfully' })
+          })
+          .catch((error) => {
+            res.status(500).json({ error })
+          })
+      }
+
       if (req.method === 'GET') {
         let user = null
         await firebaseAdmin
