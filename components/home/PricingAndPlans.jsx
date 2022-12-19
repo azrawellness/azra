@@ -2,15 +2,18 @@ import {
   faCirclePlay,
   faHandHoldingHeart,
   faPerson,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import { Dash, VideoModal } from '../../components'
-import pricingAndPlans from '../../public/images/home/pricing-and-plans.jpeg'
-import { useState } from 'react'
+  faClockRotateLeft,
+  faFaceSmile,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import { Dash, VideoModal } from "../../components";
+import pricingAndPlans from "../../public/images/home/pricing-and-plans.jpeg";
+import { useState } from "react";
+import ContactForm from "../ContactForm";
 
 const PricingAndPlans = () => {
-  const [showVideoModal, setShowVideoModal] = useState(false)
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
     <div className="w-full bg-white lg:py-20 lg:px-28 px-4">
@@ -52,7 +55,7 @@ const PricingAndPlans = () => {
             <div className="flex flex-col">
               <div className="font-title text-xl mb-4">Pricing:</div>
               <ul className="list-disc list-inside">
-                <li>Prices as low as Rs.1730</li>
+                <li>Prices as low as Rs.1500 per week*</li>
                 <li>EMI payment options available</li>
                 <li>
                   Our plans are goal-oriented and customized to your needs.
@@ -86,8 +89,8 @@ const PricingAndPlans = () => {
                 />
               </div>
               <div className="w-5/6">
-                <div className="font-title text-2xl">674</div>
-                <div>Successfully Managed PCOS Cases</div>
+                <div className="font-title text-3xl">674</div>
+                <div className="font-title text-2xl">Successfully Managed PCOS Cases</div>
               </div>
             </div>
             <div className="flex p-4">
@@ -99,16 +102,43 @@ const PricingAndPlans = () => {
                 />
               </div>
               <div className="w-5/6">
-                <div className="font-title text-2xl">2700</div>
-                <div>
+                <div className="font-title text-3xl">2700</div>
+                <div className="font-title text-2xl">
                   Successfully Managed Hypertension, Thyroid & Diabetes Cases
                 </div>
+              </div>
+            </div>
+            <div className="flex p-4">
+              <div className="w-1/6">
+                <FontAwesomeIcon
+                  className="text-primary"
+                  size="2x"
+                  icon={faFaceSmile}
+                />
+              </div>
+              <div className="w-5/6">
+                <div className="font-title text-3xl">100%</div>
+                <div className="font-title text-2xl"> Customer Satisfaction Rate</div>
+              </div>
+            </div>
+            <div className="flex p-4">
+              <div className="w-1/6">
+                <FontAwesomeIcon
+                  className="text-primary"
+                  size="2x"
+                  icon={faClockRotateLeft}
+                />
+              </div>
+              <div className="w-5/6">
+                <div className="font-title text-3xl">24×7 </div>
+                <div className="font-title text-2xl">Access for Queries and Weekly Follow-ups</div>
               </div>
             </div>
           </div>
         </div>
         <div className="w-full h-full relative">
-          <button
+          <ContactForm />
+          {/* <button
             onClick={() => setShowVideoModal(true)}
             href="https://www.youtube.com/watch?v=XMcab1MFaLc"
             target="_blank"
@@ -116,12 +146,12 @@ const PricingAndPlans = () => {
             className="absolute cursor-pointer transition top-1/2 left-1/2 z-30 text-primary -translate-y-1/2 -translate-x-1/2 bg-white rounded-full shadow-3xl"
           >
             <FontAwesomeIcon size="4x" icon={faCirclePlay} />
-          </button>
-          <VideoModal
+          </button> */}
+          {/* <VideoModal
             isOpen={showVideoModal}
             closeDialog={() => setShowVideoModal(false)}
-          />
-          <Image src={pricingAndPlans} alt="Pricing and Plans" />
+          /> */}
+          {/* <Image src={pricingAndPlans} alt="Pricing and Plans" /> */}
           {/* <iframe
             width="100%"
             height="100%"
@@ -134,7 +164,7 @@ const PricingAndPlans = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PricingAndPlans
+export default PricingAndPlans;

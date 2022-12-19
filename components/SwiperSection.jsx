@@ -1,12 +1,12 @@
-import { Autoplay, Navigation } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import sliderOne from '../public/slider/slider-1.jpg'
-import sliderTwo from '../public/slider/slider-2.jpg'
-import sliderThree from '../public/slider/slider-3.jpg'
-import { Dash, WhatsAppButton } from '../components'
-import Image from './Image'
+import { Autoplay, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import sliderOne from "../public/slider/slider-1.jpg";
+import sliderTwo from "../public/slider/slider-2.jpg";
+import sliderThree from "../public/slider/slider-3.jpg";
+import { Dash, WhatsAppButton } from "../components";
+import Image from "./Image";
 
 const SwiperSection = () => {
   return (
@@ -25,19 +25,19 @@ const SwiperSection = () => {
         <SwiperSlide>
           <div className="relative h-60 lg:h-128 z-10">
             <div className="absolute bottom-0 p-6 lg:p-24 z-50 top-0 left-0 right-0">
-              <div className="text-primary text-sm lg:text-xl mb-2 lg:mb-4 flex items-center lg:space-x-2">
+              <div className="text-primary text-sm lg:text-xl mb-4 flex items-center lg:space-x-2">
                 <Dash />
                 <div>Welcome to Azra - Your Personal Dietitian</div>
               </div>
-              <div className="text-2xl lg:text-7xl font-title w-full mb-2 lg:mb-4">
-                Easy to Follow <br /> Diet Plans from Rs 1730
+              <div className="lg:text-7xl font-title w-full mb-4 sm:mb-2 lg:mb-4 sm:text-xl text-LG">
+                Easy to Follow <br /> Diet Plans Starting @ Rs.1500 | USD 18 | SGD 25 | GBP 15 | AUD 27| AED 67 per week*
               </div>
-              <div className="text-xs lg:text-xl text-black mb-2 lg:mb-4">
-                Weight Loss | Weight Gain | Hypertension | Pregnancy{' '}
+              <div className="hidden sm:block text-xs lg:text-xl text-black mb-4 sm:mb-2 lg:mb-4 sm:text-md  text-[10px]">
+                Weight Loss | Weight Gain | Hypertension | Pregnancy{" "}
                 <br className="hidden lg:flex" />| PCOS | Diabetes | Renal |
                 Thyroid | Child-Nutrition | Sports Nutrition
               </div>
-              <WhatsAppButton classes="bg-primary text-white text-sm lg:text-base rounded-3xl px-2 py-1 lg:px-4 lg:py-2 space-x-2 items-center inline-flex" />
+              <WhatsAppButton classes="bg-primary text-white text-sm lg:text-base rounded-3xl px-2 py-1 lg:px-4 lg:py-2 space-x-2 items-center inline-flex " />
             </div>
             <Image
               src={sliderOne}
@@ -98,7 +98,7 @@ const SwiperSection = () => {
         </SwiperSlide>
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default SwiperSection
+export default SwiperSection;
