@@ -11,6 +11,7 @@ import { Dash, VideoModal } from "../../components";
 import pricingAndPlans from "../../public/images/home/pricing-and-plans.jpeg";
 import { useState } from "react";
 import ContactForm from "../ContactForm";
+import AppointmentForm from "../AppointmentForm";
 
 const PricingAndPlans = () => {
   const [showVideoModal, setShowVideoModal] = useState(false);
@@ -90,7 +91,9 @@ const PricingAndPlans = () => {
               </div>
               <div className="w-5/6">
                 <div className="font-title text-3xl">674</div>
-                <div className="font-title text-2xl">Successfully Managed PCOS Cases</div>
+                <div className="font-title text-2xl">
+                  Successfully Managed PCOS Cases
+                </div>
               </div>
             </div>
             <div className="flex p-4">
@@ -118,7 +121,10 @@ const PricingAndPlans = () => {
               </div>
               <div className="w-5/6">
                 <div className="font-title text-3xl">100%</div>
-                <div className="font-title text-2xl"> Customer Satisfaction Rate</div>
+                <div className="font-title text-2xl">
+                  {" "}
+                  Customer Satisfaction Rate
+                </div>
               </div>
             </div>
             <div className="flex p-4">
@@ -131,13 +137,15 @@ const PricingAndPlans = () => {
               </div>
               <div className="w-5/6">
                 <div className="font-title text-3xl">24×7 </div>
-                <div className="font-title text-2xl">Access for Queries and Weekly Follow-ups</div>
+                <div className="font-title text-2xl">
+                  Access for Queries and Weekly Follow-ups
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="w-full h-full relative">
-          <ContactForm />
+          <AppointmentForm />
           {/* <button
             onClick={() => setShowVideoModal(true)}
             href="https://www.youtube.com/watch?v=XMcab1MFaLc"
