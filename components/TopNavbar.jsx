@@ -22,7 +22,7 @@ const TopNavbar = () => {
               info@azra.in
             </a>
           </div>
-          <div className="flex px-2 space-x-2 text-primary">
+          {/* <div className="flex px-2 space-x-2 text-primary">
             <a
               href="http://www.instagram.com/azrawellnessexpert"
               target="_blank"
@@ -33,7 +33,7 @@ const TopNavbar = () => {
             <a href="/" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faFacebook} />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

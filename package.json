@@ -32,7 +32,8 @@
     "react-toastify": "^9.1.1",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.5",
-    "swiper": "^8.2.4"
+    "swiper": "^8.2.4",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
