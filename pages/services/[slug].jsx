@@ -33,10 +33,10 @@ const Service = () => {
   ) : (
     <>
       <Head>
-        <title>{service && service.title} - Azra</title>
+        <title>{service && service.title} - Azrah</title>
         <meta
           name="description"
-          content="Azra Website"
+          content="Azrah Website"
         />
       </Head>
       <div className="bg-gray text-black py-16 px-4 lg:px-0">

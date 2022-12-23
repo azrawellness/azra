@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Azra - Multi-Speciality Wellness Expert</title>
-        <meta name="description" content="Azra Website" />
+        <title>Azrah - Multi-Speciality Wellness Expert</title>
+        <meta name="description" content="Azrah Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Script

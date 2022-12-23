@@ -33,10 +33,10 @@ const Services = () => {
   return (
     <>
       <Head>
-        <title>Services - Azra</title>
+        <title>Services - Azrah</title>
         <meta
           name="description"
-          content="Azra Website"
+          content="Azrah Website"
         />
       </Head>
       <div className="bg-gray text-black">

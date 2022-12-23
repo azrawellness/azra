@@ -64,7 +64,7 @@ export const whatWeOffer = [
     link: '/services/weight-gain-nutrition',
     icon: 'fa-solid fa-weight-scale',
     description:
-      'Weight gain can be challenging but is not impossible. At Azra, our professionals can assist you in gaining healthy weight.',
+      'Weight gain can be challenging but is not impossible. At Azrah, our professionals can assist you in gaining healthy weight.',
   },
   {
     title: 'PCOS / PCOD Nutrition',
