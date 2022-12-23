@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-
+import bg from "../public/images/home/formbg.png";
 const AppointmentForm = ({ rounded = false }) => {
   const formEl = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,8 @@ const AppointmentForm = ({ rounded = false }) => {
           Book An Appointment
         </h2>
         <p
-          className={` text-xl bg-[url('../public/images/home/formbg.png')] bg-no-repeat bg-contain bg-center`}
+          style={{ backgroundImage: `url(${bg.src})` }}
+          className={` text-xl  bg-no-repeat bg-contain bg-center`}
         >
           Sign Up For a Free 1-on-1 Discovery Call on Phone with our
           Nutritionists to discuss your Health Challenges & Goals <br /> Just
