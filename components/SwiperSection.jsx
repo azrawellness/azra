@@ -27,7 +27,7 @@ const SwiperSection = () => {
             <div className="absolute bottom-0 p-6 lg:p-24 z-50 top-0 left-0 right-0">
               <div className="text-primary text-sm lg:text-xl mb-4 flex items-center lg:space-x-2">
                 <Dash />
-                <div>Welcome to Azra - Your Personal Dietitian</div>
+                <div>Welcome to Azrah - Your Personal Dietitian</div>
               </div>
               <div className="lg:text-7xl font-title w-full mb-4 sm:mb-2 lg:mb-4 sm:text-xl text-LG">
                 Easy to Follow <br /> Diet Plans Starting @ Rs.1500 | USD 18 | SGD 25 | GBP 15 | AUD 27| AED 67 per week*

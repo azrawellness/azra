@@ -91,10 +91,10 @@ const Blogs = () => {
   ) : (
     <>
       <Head>
-        <title>Blog - Azra</title>
+        <title>Blog - Azrah</title>
         <meta
           name="description"
-          content="Azra Website"
+          content="Azrah Website"
         />
       </Head>
       <div className="bg-gray text-black">

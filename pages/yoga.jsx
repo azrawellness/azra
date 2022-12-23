@@ -9,7 +9,7 @@ const Yoga = () => {
   const steps = [
     {
       title: 'Step 1 - Get Assessed',
-      body: "Meet with your dedicated trainer for a FREE demo session where they'll assess your physical, mental, & spiritual health & explain how AZRA can help you!",
+      body: "Meet with your dedicated trainer for a FREE demo session where they'll assess your physical, mental, & spiritual health & explain how AZRAH can help you!",
     },
     {
       title: 'Step 2 - Build Your Plan',
@@ -28,8 +28,8 @@ const Yoga = () => {
   return (
     <>
       <Head>
-        <title>Online Yoga Classes - Azra</title>
-        <meta name="description" content="Azra Website" />
+        <title>Online Yoga Classes - Azrah</title>
+        <meta name="description" content="Azrah Website" />
       </Head>
       <div className="text-black">
         <Header title="Online Yoga Classes" />

@@ -5,7 +5,7 @@ const AuthLayout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Azra - Login</title>
+        <title>Azrah - Login</title>
         <meta name="description" content="Azra Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>

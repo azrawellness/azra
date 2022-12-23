@@ -16,8 +16,8 @@ const Dashboardlayout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Azra - Dashboard</title>
-        <meta name="description" content="Azra Website" />
+        <title>Azrah - Dashboard</title>
+        <meta name="description" content="Azrah Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="scroll-smooth bg-gray-dashboard min-h-screen h-full">
