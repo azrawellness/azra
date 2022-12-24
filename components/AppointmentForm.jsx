@@ -34,7 +34,7 @@ const AppointmentForm = ({ rounded = false }) => {
   };
 
   return (
-    <div className=" text-white p-10">
+    <div className=" text-black p-10">
       <div className="text-center  text-black">
         <h2 className="text-primary font-title text-4xl mb-10 font-bold">
           Book An Appointment
@@ -67,7 +67,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 required
                 id="name"
                 name="name"
-                className="text-2xl border-primary border-2 dark:bg-alternate text-white dark:text-primary focus:outline-none rounded p-2 shadow-sm"
+                className="text-2xl border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
             <div className="form-control flex flex-col py-4">
@@ -79,7 +79,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 required
                 id="phone"
                 name="phone"
-                className="text-2xl  border-primary border-2 dark:bg-alternate text-white dark:text-primary focus:outline-none rounded p-2 shadow-sm"
+                className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
             <div className="form-control flex flex-col py-4">
@@ -91,7 +91,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 required
                 id="phone"
                 name="phone"
-                className="text-2xl  border-primary border-2 dark:bg-alternate text-white dark:text-primary focus:outline-none rounded p-2 shadow-sm"
+                className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
             <div className="form-control flex flex-col py-4">
@@ -103,7 +103,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 required
                 id="phone"
                 name="phone"
-                className="text-2xl  border-primary border-2 dark:bg-alternate text-white dark:text-primary focus:outline-none rounded p-2 shadow-sm"
+                className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
             <div className="form-control flex flex-col py-4">
@@ -115,7 +115,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 required
                 id="phone"
                 name="phone"
-                className="text-2xl  border-primary border-2 dark:bg-alternate text-white dark:text-primary focus:outline-none rounded p-2 shadow-sm"
+                className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
 
