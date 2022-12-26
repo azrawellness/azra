@@ -1,28 +1,28 @@
-import Head from 'next/head'
-import Script from 'next/script'
+import Head from "next/head";
+import Script from "next/script";
 import {
   Footer,
   TopNavbar,
   Navbar,
   WhatsAppButton,
   ContactForm,
-} from '../components'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+} from "../components";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Layout = ({ children }) => {
-  const router = useRouter()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = (status) => {
-    setIsMenuOpen(status)
-  }
+    setIsMenuOpen(status);
+  };
   return (
     <>
       <Head>
         <title>Azrah - Multi-Speciality Wellness Expert</title>
         <meta name="description" content="Azrah Website" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favnew.png" />
       </Head>
       <Script
         strategy="afterInteractive"
@@ -53,7 +53,7 @@ const Layout = ({ children }) => {
         <Footer />
         <div
           className={`${
-            isMenuOpen || router.pathname == '/yoga' ? 'hidden' : 'flex'
+            isMenuOpen || router.pathname == "/yoga" ? "hidden" : "flex"
           } right-0 top-14 lg:top-1/2 z-30 fixed`}
         >
           <WhatsAppButton
@@ -63,7 +63,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
