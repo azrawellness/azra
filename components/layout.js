@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>Azrah - Multi-Speciality Wellness Expert</title>
         <meta name="description" content="Azrah Website" />
-        <link rel="icon" href="/AZRANEWLOGO3.jpg" />
+        <link rel="icon" href="/favnew.png" />
       </Head>
       <Script
         strategy="afterInteractive"
