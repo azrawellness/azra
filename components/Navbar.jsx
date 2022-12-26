@@ -60,7 +60,7 @@ const Navbar = ({ toggleMenu }) => {
                   <Image
                     src={logo2}
                     layout="fill"
-                    objectFit="contain"
+                    objectFit="cover"
                     alt="Pawan Kumar"
                   />
                 </div>

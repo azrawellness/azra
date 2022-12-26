@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const TopNavbar = () => {
   return (
@@ -13,7 +13,7 @@ const TopNavbar = () => {
           Australia, South Africa, Kenya, Singapore
         </div>
         <div className="flex justify-between divide-x divide-gray">
-          <div className="px-2">
+          {/* <div className="px-2">
             <a href="mailto:info@azra.in">
               <FontAwesomeIcon
                 icon={faEnvelope}
@@ -21,7 +21,7 @@ const TopNavbar = () => {
               />
               info@azra.in
             </a>
-          </div>
+          </div> */}
           {/* <div className="flex px-2 space-x-2 text-primary">
             <a
               href="http://www.instagram.com/azrawellnessexpert"
@@ -37,7 +37,7 @@ const TopNavbar = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TopNavbar
+export default TopNavbar;

@@ -56,12 +56,12 @@ const Footer = () => {
                 <span>+91-9899-1919-36</span>
               </a>
             </div>
-            <div>
+            {/* <div>
               <a href="mailto:info@azra.in">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
                 <span>info@azra.in</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
