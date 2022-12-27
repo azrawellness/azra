@@ -1,5 +1,5 @@
-import { faLeaf } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   AboutAzra,
   FeatureSection,
@@ -12,9 +12,14 @@ import {
   Testimonials,
   WhatsAppButton,
   WhyChoseUs,
-} from '../components'
-import ctaImage from '../public/images/home/home-cta.jpeg'
-import { featuredClients, featuredOurResults, whatWeOffer } from '../utils/data'
+} from "../components";
+import { WhatWeDo } from "../components/home/WhatWeDo";
+import ctaImage from "../public/images/home/home-cta.jpeg";
+import {
+  featuredClients,
+  featuredOurResults,
+  whatWeOffer,
+} from "../utils/data";
 
 const Home = () => {
   return (
@@ -38,7 +43,8 @@ const Home = () => {
             We understand that you are special – and your body requirements are
             unique. We work to design unique diet plans specifically for:
           </div>
-          <Services services={whatWeOffer} />
+          {/* <Services services={whatWeOffer} /> */}
+          <WhatWeDo services={whatWeOffer}></WhatWeDo>
         </div>
       </div>
 
@@ -103,7 +109,7 @@ const Home = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
