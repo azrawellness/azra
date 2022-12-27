@@ -1,50 +1,51 @@
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Header } from '../components'
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Header } from "../components";
+import EnquiryForm from "../components/EnquiryForm";
 
 const ContactUs = () => {
   const regionalOfficeAddresses = [
     {
-      name: 'Bengaluru Regional Office',
+      name: "Bengaluru Regional Office",
       address:
-        'Level 14, Concorde Towers, UB City, 1 Vittal Mallya Road, Bengaluru 560001',
+        "Level 14, Concorde Towers, UB City, 1 Vittal Mallya Road, Bengaluru 560001",
     },
     {
-      name: 'Chennai Regional Office',
+      name: "Chennai Regional Office",
       address:
-        'Samson Towers, 8th Floor at Pantheon Road, and Casa Major Road, Block 31, Egmore Village, Chennai, 600008',
+        "Samson Towers, 8th Floor at Pantheon Road, and Casa Major Road, Block 31, Egmore Village, Chennai, 600008",
     },
     {
-      name: 'Hyderabad Regional Office',
+      name: "Hyderabad Regional Office",
       address:
-        '18, ILabs Centre, Level 2, Oval Building, Hyderabad, Telangana 500081',
+        "18, ILabs Centre, Level 2, Oval Building, Hyderabad, Telangana 500081",
     },
     {
-      name: 'Kolkata Regional Office',
+      name: "Kolkata Regional Office",
       address:
-        'DP-5, DP Block, Sector V, Bidhannagar Godrej Waterside Kolkata 700091',
+        "DP-5, DP Block, Sector V, Bidhannagar Godrej Waterside Kolkata 700091",
     },
     {
-      name: 'Mumbai Regional Office',
-      address: 'Boston House, Andheri East, Mumbai, Maharashtra 400093',
+      name: "Mumbai Regional Office",
+      address: "Boston House, Andheri East, Mumbai, Maharashtra 400093",
     },
     {
-      name: 'Dehradun Regional Office',
+      name: "Dehradun Regional Office",
       address:
-        'Plot #22, IT Park, Sahastradhara Rd, Dehradun, Uttarakhand 248001',
+        "Plot #22, IT Park, Sahastradhara Rd, Dehradun, Uttarakhand 248001",
     },
     {
-      name: 'Lucknow Regional Office',
+      name: "Lucknow Regional Office",
       address:
-        'Cyber Heights, TC-212, 2nd Floor, Levana, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010',
+        "Cyber Heights, TC-212, 2nd Floor, Levana, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010",
     },
     {
-      name: 'International',
+      name: "International",
       address:
-        'USA, Canada, Australia, UK, UAE, Saudi Arabia, Kuwait, Bahrain, Qatar, Singapore',
+        "USA, Canada, Australia, UK, UAE, Saudi Arabia, Kuwait, Bahrain, Qatar, Singapore",
     },
-  ]
+  ];
 
   return (
     <div className="bg-gray text-black">
@@ -93,13 +94,17 @@ const ContactUs = () => {
             </div>
           ))}
         </div>
-        <div className="font-primary font-semibold text-sm mt-4 mb-16 px-4 lg:px-0">
+        <div className="font-primary font-semibold text-md mt-4 px-4 lg:px-0">
           *For more information here we provide separate department contact
           person details, please contact them.
         </div>
       </div>
-    </div>
-  )
-}
 
-export default ContactUs
+      <div className="w-full flex justify-center ">
+        <EnquiryForm />
+      </div>
+    </div>
+  );
+};
+
+export default ContactUs;
