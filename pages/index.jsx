@@ -13,6 +13,7 @@ import {
   WhatsAppButton,
   WhyChoseUs,
 } from "../components";
+import EnquiryForm from "../components/EnquiryForm";
 import { WhatWeDo } from "../components/home/WhatWeDo";
 import ctaImage from "../public/images/home/home-cta.jpeg";
 import {
@@ -86,7 +87,7 @@ const Home = () => {
       <Testimonials />
 
       {/* CTA section */}
-      <div className="relative h-72 lg:h-128 w-full">
+      <div className="relative h-[80vh] md:h-[100vh] lg:h-[120vh] w-full">
         <div className="absolute z-30 top-10 lg:top-28 left-5 lg:left-28">
           <FontAwesomeIcon
             icon={faLeaf}
@@ -98,8 +99,9 @@ const Home = () => {
           </div>
           <div className="mb-4">
             WhatsApp us or Chat with us - We respond immediately!
+          <EnquiryForm/>
           </div>
-          <WhatsAppButton />
+          {/* <WhatsAppButton /> */}
         </div>
         <Image
           src={ctaImage}

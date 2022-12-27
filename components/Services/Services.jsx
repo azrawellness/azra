@@ -7,6 +7,7 @@ import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import EnquiryForm from '../EnquiryForm'
 
 const Services = ({ services }) => {
   return (
