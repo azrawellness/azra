@@ -2,6 +2,7 @@ import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { Header, ServiceCard, Splash } from '../../components'
+import EnquiryForm from '../../components/EnquiryForm'
 import { db } from '../../firebase-config'
 import { SERVICES } from '../../utils/constants'
 
@@ -57,7 +58,11 @@ const Services = () => {
               ))}
             </div>
           )}
+          
         </div>
+        <div className="w-full flex justify-center ">
+        <EnquiryForm/>
+      </div>
       </div>
     </>
   )

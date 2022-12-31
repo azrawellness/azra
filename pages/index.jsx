@@ -48,9 +48,11 @@ const Home = () => {
           <WhatWeDo services={whatWeOffer}></WhatWeDo>
         </div>
       </div>
-
+      <div className="w-full flex justify-center ">
+        <EnquiryForm  />
+      </div>
       {/* Real Clients, Real Transformations Section */}
-      <div className="bg-white py-28">
+      <div className="bg-white py-20">
         <div className="container mx-auto">
           <div className="text-center font-title text-4xl mb-16">
             Real Clients, Real Transformations
