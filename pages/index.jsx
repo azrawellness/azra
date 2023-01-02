@@ -14,6 +14,7 @@ import {
   WhyChoseUs,
 } from "../components";
 import EnquiryForm from "../components/EnquiryForm";
+import EnquiryFormNoBg from "../components/EnquiryFormNoBG";
 import { WhatWeDo } from "../components/home/WhatWeDo";
 import ctaImage from "../public/images/home/home-cta.jpeg";
 import {
@@ -101,7 +102,7 @@ const Home = () => {
           </div>
           <div className="mb-4">
             WhatsApp us or Chat with us - We respond immediately!
-          <EnquiryForm/>
+          <EnquiryFormNoBg/>
           </div>
           {/* <WhatsAppButton /> */}
         </div>
