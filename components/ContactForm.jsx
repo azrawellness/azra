@@ -35,6 +35,7 @@ const ContactForm = ({ rounded = false }) => {
 
   return (
     <div className="bg-primary text-white py-28">
+      
       <div className="text-center font-title text-black text-4xl mb-10">
         Make an online appointment (It’s free)
       </div>

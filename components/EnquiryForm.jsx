@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
-import bg from "../public/images/home/formbg.png";
+import bg from "../public/images/formBgBlur.jpg";
+import { faLeaf } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const EnquiryForm = ({ rounded = false }) => {
   const formEl = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -34,9 +36,11 @@ const EnquiryForm = ({ rounded = false }) => {
   };
 
   return (
-    <div className=" text-black ">
-      
-      <div className=" bg-white rounded shadow  w-[90vw] md:w-[60vw] lg:w-[40vw] my-5 flex flex-row space-x-4 px-6 py-8">
+    <div className=" text-black "  style={{ backgroundImage: `url(${bg.src})` , backgroundSize:'cover' , backgroundPosition:'center'}}>
+      <div className="rounded shadow  w-[90vw] md:w-[60vw] lg:w-[40vw] my-5 flex flex-col  px-8 py-8 ">
+        <FontAwesomeIcon icon={faLeaf} className='text-primary text-[3rem] self-start m-4' />
+        <h3 className="font-bold text-2xl">We Are Excited To Make You Healthier</h3> <br />
+        <h3 className="text-xl">WhatsApp us or Chat with us - We respond immediately!</h3><br />
         <div className="w-full">
           <form
             ref={formEl}
@@ -69,7 +73,7 @@ const EnquiryForm = ({ rounded = false }) => {
                 className="text-l border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
-            
+
             <div className="form-control flex flex-col py-2">
               <label htmlFor="phone" className="text-black lg:text-xl">
                 Your WhatsApp Number
@@ -82,8 +86,8 @@ const EnquiryForm = ({ rounded = false }) => {
                 className="text-l  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
-            
-           
+
+
 
             {/* <div className="form-control flex flex-col py-4">
               <label htmlFor="email" className="text-black text-xl">
@@ -125,12 +129,11 @@ const EnquiryForm = ({ rounded = false }) => {
                 {loading ? "Submitting..." : "Submit"}
               </button>
             </div>
-           
+
             {status ? (
               <div
-                className={`${
-                  success ? "bg-green" : "bg-red"
-                } w-full my-4 rounded py-2 px-2 text-white`}
+                className={`${success ? "bg-green" : "bg-red"
+                  } w-full my-4 rounded py-2 px-2 text-white`}
               >
                 {status}
               </div>
