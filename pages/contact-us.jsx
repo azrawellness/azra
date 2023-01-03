@@ -1,10 +1,15 @@
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Header } from "../components";
 import EnquiryForm from "../components/EnquiryForm";
 
-const ContactUs = () => {
+const ContactUs = ({
+  classes = "bg-primary text-white rounded-3xl py-2  items-center inline-flex",
+  text = " Get Free Consultation",
+  hideOnMobile = false,
+}) => {
   const regionalOfficeAddresses = [
     {
       name: "Bengaluru Regional Office",
@@ -68,10 +73,30 @@ const ContactUs = () => {
               <FontAwesomeIcon icon={faPhone} className="mr-2" />
               <a href="tel:+919899191936">+91-9899-1919-36</a>
             </div>
-            <a href="mailto:info@azra.in">
+            {/* <a href="mailto:info@azra.in">
               <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
               info@azra.in
-            </a>
+            </a> */}
+
+            <div>
+              <FontAwesomeIcon
+                size="xl"
+                icon={faWhatsapp}
+                className="mr-2 font-bold"
+              />
+              <a
+                href="https://api.whatsapp.com/send/?phone=919899191936&text=Hello&app_absent=0"
+                target="_blank"
+                className={`${classes} ${
+                  hideOnMobile ? "border-2 border-white" : ""
+                }`}
+                rel="noreferrer"
+              >
+                <div className={`${hideOnMobile ? "hidden lg:flex" : "flex"}`}>
+                  {text}
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
