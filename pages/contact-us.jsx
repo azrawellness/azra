@@ -59,7 +59,7 @@ const ContactUs = ({
         <div className="flex flex-col lg:flex-row w-full px-4 lg:px-0 space-y-4 lg:space-y-0 lg:space-x-10 text-gray">
           <div className="bg-primary px-10 pt-10 py-16 shadow w-full">
             <div className="text-3xl font-title mb-4 pb-1 border-b border-white inline-flex">
-              Main Branch
+              Main  Branch
             </div>
             <div>Delhi Corporate Office</div>
             <div>Regal Building, Connaught Place,</div>
