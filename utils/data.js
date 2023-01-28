@@ -7,6 +7,19 @@ import ClientReviews6 from '../public/images/client-reviews/client_reviews_6.jpe
 import ClientReviews7 from '../public/images/client-reviews/client_reviews_7.jpeg'
 import ClientReviews8 from '../public/images/client-reviews/client_reviews_8.jpeg'
 import ClientReviews9 from '../public/images/client-reviews/client_reviews_9.jpeg'
+import ClientReviews10 from '../public/images/client-reviews/client_reviews_10.jpg'
+import ClientReviews11 from '../public/images/client-reviews/client_reviews_11.jpg'
+import ClientReviews12 from '../public/images/client-reviews/client_reviews_12.jpg'
+import ClientReviews13 from '../public/images/client-reviews/client_reviews_13.jpg'
+import ClientReviews14 from '../public/images/client-reviews/client_reviews_14.jpg'
+//import ClientReviews15 from '../public/images/client-reviews/client_reviews_15.jpg'
+//import ClientReviews16 from '../public/images/client-reviews/client_reviews_16.jpg'
+//import ClientReviews17 from '../public/images/client-reviews/client_reviews_17.jpg'
+import ClientReviews18 from '../public/images/client-reviews/client_reviews_18.jpg'
+import ClientReviews19 from '../public/images/client-reviews/client_reviews_19.jpg'
+import ClientReviews20 from '../public/images/client-reviews/client_reviews_20.jpg'
+import ClientReviews21 from '../public/images/client-reviews/client_reviews_21.jpg'
+import ClientReviews22 from '../public/images/client-reviews/client_reviews_22.jpg'
 
 import OurResults1 from '../public/images/our-results/our-results_1.jpeg'
 import OurResults2 from '../public/images/our-results/our-results_2.jpeg'
@@ -101,6 +114,50 @@ export const featuredClients = [
   {
     link: ClientReviews6,
   },
+  {
+    link: ClientReviews10,
+  },
+  {
+    link: ClientReviews11,
+  },
+  {
+    link: ClientReviews12,
+  },
+  {
+    link: ClientReviews13,
+  },
+  {
+    link: ClientReviews14,
+  },
+  // {
+  //   link: ClientReviews15,
+  // },
+  // {
+  //   link: ClientReviews16,
+  // },
+  // {
+  //   link: ClientReviews17,
+  // },
+  {
+    link: ClientReviews18,
+  },
+  {
+    link: ClientReviews19,
+  },
+  {
+    link: ClientReviews20,
+  },
+  {
+    link: ClientReviews21,
+  },
+  {
+    link: ClientReviews22,
+  },
+  // {
+  //   link: ClientReviews23,
+  // },
+
+
 ]
 
 export const featuredOurResults = [
