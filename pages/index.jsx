@@ -34,6 +34,19 @@ const Home = () => {
 
       {/* About Azra Section */}
       <AboutAzra />
+      {/* Real Clients, Real Transformations Section */}
+      <div className="bg-white py-20">
+        <div className="container mx-auto">
+          <div className="text-center font-title text-4xl mb-16">
+            Real Clients, Real Transformations
+          </div>
+          <ImageSlider
+            lazyBoundary="500px"
+            classId="real-clients"
+            images={featuredClients}
+          />
+        </div>
+      </div>
 
       {/* What do we offer section */}
       <div className="bg-gray py-24">
@@ -50,20 +63,7 @@ const Home = () => {
         </div>
       </div>
       <div className="w-full flex justify-center ">
-        <EnquiryForm  />
-      </div>
-      {/* Real Clients, Real Transformations Section */}
-      <div className="bg-white py-20">
-        <div className="container mx-auto">
-          <div className="text-center font-title text-4xl mb-16">
-            Real Clients, Real Transformations
-          </div>
-          <ImageSlider
-            lazyBoundary="500px"
-            classId="real-clients"
-            images={featuredClients}
-          />
-        </div>
+        <EnquiryForm />
       </div>
 
       {/* Why Choose Us Section */}
@@ -102,7 +102,7 @@ const Home = () => {
           </div>
           <div className="mb-4">
             WhatsApp us or Chat with us - We respond immediately!
-          <EnquiryFormNoBg/>
+            <EnquiryFormNoBg />
           </div>
           {/* <WhatsAppButton /> */}
         </div>
