@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const WhatWeDo = ({ services}) => {
   return (
-    <div className="  flex flex-wrap justify-evenly  ">
+    <div className=" flex flex-wrap justify-evenly  ">
       {services.map((service, index) => (
         <div key={index} className="lg:w-[30rem] relative h-70 mb-[2.5rem]   ">
           <FontAwesomeIcon

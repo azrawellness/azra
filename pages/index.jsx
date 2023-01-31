@@ -49,9 +49,9 @@ const Home = () => {
       </div>
 
       {/* What do we offer section */}
-      <div className="bg-gray py-24">
+      <div className="bg-gray py-[2rem]">
         <div className="container mx-auto">
-          <div className="text-center font-title text-5xl mb-4">
+          <div className="text-center font-title text-5xl mt-[3rem] mb-4">
             What Do We Offer?
           </div>
           <div className="text-dark-gray text-center w-full max-w-xl mx-auto text-lg mb-10">
