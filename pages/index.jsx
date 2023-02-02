@@ -35,7 +35,7 @@ const Home = () => {
       {/* About Azra Section */}
       <AboutAzra />
       {/* Real Clients, Real Transformations Section */}
-      <div className="bg-white py-20">
+      <div className="bg-white ">
         <div className="container mx-auto">
           <div className="text-center font-title text-4xl mb-16">
             Real Clients, Real Transformations
@@ -49,8 +49,8 @@ const Home = () => {
       </div>
 
       {/* What do we offer section */}
-      <div className="bg-gray py-[2rem]">
-        <div className="container mx-auto">
+      <div className="bg-gray ">
+        <div className="container mx-auto pt-[1rem] ">
           <div className="text-center font-title text-5xl mt-[3rem] mb-4">
             What Do We Offer?
           </div>
@@ -70,7 +70,7 @@ const Home = () => {
       <WhyChoseUs />
 
       {/* Our Results Speak - When They can, so can You ! */}
-      <div className="bg-gray py-28">
+      <div className="bg-gray pt-20">
         <div className="container mx-auto">
           <div className="text-center font-title text-4xl mb-16">
             Our Results Speak - When They can, so can You !

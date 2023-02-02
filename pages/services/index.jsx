@@ -42,7 +42,7 @@ const Services = () => {
       </Head>
       <div className="bg-gray text-black">
         <Header title="Services" />
-        <div className="container mx-auto py-16">
+        <div className="container mx-auto ">
           {loading ? (
             <Splash />
           ) : (
@@ -60,7 +60,7 @@ const Services = () => {
           )}
           
         </div>
-        <div className="w-full flex justify-center ">
+        <div className="w-full flex justify-center mt-[-2rem] ">
         <EnquiryForm/>
       </div>
       </div>
