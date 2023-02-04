@@ -20,7 +20,7 @@ const Dashboardlayout = ({ children }) => {
         <meta name="description" content="Azrah Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
@@ -33,7 +33,7 @@ const Dashboardlayout = ({ children }) => {
                     page_path: window.location.pathname,
                     });
                 `}
-      </Script>
+      </Script> */}
       <div className="scroll-smooth bg-gray-dashboard min-h-screen h-full">
         <nav className="px-4 py-2 bg-secondary">
           <div className="container mx-auto">
