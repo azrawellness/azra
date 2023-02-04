@@ -12,20 +12,7 @@ const Register = () => {
         <title>Azrah - Register</title>
         <meta name="description" content="Azrah Website" />
       </Head>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />
-      <Script id="google-analytics-tag" strategy="afterInteractive">
-        {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                    page_path: window.location.pathname,
-                    });
-                `}
-      </Script>
+     
       <div className="h-full min-h-screen flex items-center mx-auto text-white justify-center w-full">
         <div className="bg-primary p-4 shadow rounded w-full max-w-sm">
           <div className="relative h-16 w-16 mx-auto">
