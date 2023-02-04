@@ -13,7 +13,20 @@ const Dashboard = () => {
         <meta name="description" content="Azrah Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+      <Script id="google-analytics-tag" strategy="afterInteractive">
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
       <div className="my-10">
         <div className="grid grid-cols-4 gap-4">
           {SIDEBAR_LINKS.map((link, index) => (
