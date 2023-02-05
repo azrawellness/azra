@@ -22,11 +22,11 @@ export const NAVBAR_LINKS = [
   //   name: 'Yoga Live Online Classes',
   //   match: true,
   // },
-  {
-    href: '/services',
-    name: 'Services',
-    match: true,
-  },
+  // {
+  //   href: '/services',
+  //   name: 'Services',
+  //   match: true,
+  // },
   // {
   //   href: '/blog',
   //   name: 'Blog',
@@ -37,11 +37,11 @@ export const NAVBAR_LINKS = [
     name: 'Client Reviews',
     match: false,
   },
-  {
-    href: '/contact-us',
-    name: 'Contact Us',
-    match: false,
-  },
+  // {
+  //   href: '/contact-us',
+  //   name: 'Contact Us',
+  //   match: false,
+  // },
 ]
 
 export const SIDEBAR_LINKS = [
