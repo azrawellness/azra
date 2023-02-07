@@ -51,7 +51,9 @@ const ClientReviews = () => {
           </div>
         )}
       </div>
-      <EnquiryForm/>
+      <div className="w-full flex justify-center ">
+        <EnquiryForm />
+      </div>
     </div>
   )
 }
