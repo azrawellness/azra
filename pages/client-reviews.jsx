@@ -2,6 +2,7 @@ import { getDownloadURL, listAll, ref } from 'firebase/storage'
 import { Header, Image, Splash } from '../components'
 import { storage } from '../firebase-config'
 import { useState, useEffect } from 'react'
+import EnquiryForm from '../components/EnquiryForm'
 
 const ClientReviews = () => {
   const [clientReviews, setClientReviews] = useState([])
@@ -50,6 +51,7 @@ const ClientReviews = () => {
           </div>
         )}
       </div>
+      <EnquiryForm/>
     </div>
   )
 }
