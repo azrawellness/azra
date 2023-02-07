@@ -31,7 +31,7 @@ const ClientReviews = () => {
   return (
     <div className="bg-gray text-black">
       <Header title="Client Reviews" />
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto ">
         {loading ? (
           <Splash />
         ) : (
