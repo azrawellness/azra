@@ -34,7 +34,7 @@ export const NAVBAR_LINKS = [
   // },
   {
     href: '/client-reviews',
-    name: 'Client Reviews',
+    name: 'Book a Free Consultation',
     match: false,
   },
   // {
