@@ -13,7 +13,7 @@ const Dashboard = () => {
         <meta name="description" content="Azrah Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-
+     
       <div className="my-10">
         <div className="grid grid-cols-4 gap-4">
           {SIDEBAR_LINKS.map((link, index) => (

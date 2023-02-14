@@ -31,6 +31,7 @@ const Yoga = () => {
         <title>Online Yoga Classes - Azrah</title>
         <meta name="description" content="Azrah Website" />
       </Head>
+     
       <div className="text-black">
         <Header title="Online Yoga Classes" />
         <div className="flex flex-col lg:flex-row">

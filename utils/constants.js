@@ -34,14 +34,14 @@ export const NAVBAR_LINKS = [
   // },
   {
     href: '/client-reviews',
-    name: 'Client Reviews',
+    name: 'Book a Free Consultation',
     match: false,
   },
-  {
-    href: '/contact-us',
-    name: 'Contact Us',
-    match: false,
-  },
+  // {
+  //   href: '/contact-us',
+  //   name: 'Contact Us',
+  //   match: false,
+  // },
 ]
 
 export const SIDEBAR_LINKS = [

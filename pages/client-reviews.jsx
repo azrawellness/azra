@@ -1,36 +1,41 @@
-import { getDownloadURL, listAll, ref } from 'firebase/storage'
-import { Header, Image, Splash } from '../components'
-import { storage } from '../firebase-config'
-import { useState, useEffect } from 'react'
-
+import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { Header, Image, Splash } from "../components";
+import { storage } from "../firebase-config";
+import { useState, useEffect } from "react";
+import EnquiryForm from "../components/EnquiryForm";
+import Head from "next/script";
+import { InlineWidget } from "react-calendly";
 const ClientReviews = () => {
-  const [clientReviews, setClientReviews] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [clientReviews, setClientReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getClientReviews = async () => {
-    setLoading(true)
-    const storageRef = ref(storage, 'client-reviews')
+    setLoading(true);
+    const storageRef = ref(storage, "client-reviews");
 
     await listAll(storageRef)
       .then((result) => {
         return Promise.all(
           result.items.map((imageRef) => getDownloadURL(imageRef))
-        )
+        );
       })
       .then((res) => {
-        setClientReviews(res)
-        setLoading(false)
-      })
-  }
+        setClientReviews(res);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
-    getClientReviews()
-  }, [])
-
+    getClientReviews();
+  }, []);
+  
   return (
     <div className="bg-gray text-black">
-      <Header title="Client Reviews" />
-      <div className="container mx-auto py-16">
+      <Header title="Book a Free Consultation" />
+
+      <InlineWidget className="calendly" url="https://calendly.com/azrawellnessexpert/30min" />
+    
+      <div className="container mx-auto ">
         {loading ? (
           <Splash />
         ) : (
@@ -50,8 +55,9 @@ const ClientReviews = () => {
           </div>
         )}
       </div>
+     
     </div>
-  )
-}
+  );
+};
 
-export default ClientReviews
+export default ClientReviews;

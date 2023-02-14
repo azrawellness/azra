@@ -38,6 +38,7 @@ const Post = () => {
         <title>{post && post.title} - Azrah</title>
         <meta name="description" content="Azrah Website" />
       </Head>
+      
       <div className="bg-gray text-black py-16 px-4 lg:px-0">
         <div className="container mx-auto">
           {post && (

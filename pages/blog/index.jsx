@@ -97,6 +97,7 @@ const Blogs = () => {
           content="Azrah Website"
         />
       </Head>
+     
       <div className="bg-gray text-black">
         <Header title="Blog" />
         <InfiniteScroll

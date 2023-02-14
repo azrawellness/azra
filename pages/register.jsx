@@ -12,6 +12,7 @@ const Register = () => {
         <title>Azrah - Register</title>
         <meta name="description" content="Azrah Website" />
       </Head>
+     
       <div className="h-full min-h-screen flex items-center mx-auto text-white justify-center w-full">
         <div className="bg-primary p-4 shadow rounded w-full max-w-sm">
           <div className="relative h-16 w-16 mx-auto">
