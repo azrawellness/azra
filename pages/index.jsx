@@ -28,12 +28,24 @@ const Home = () => {
     <div className="h-full bg-white w-full">
       {/* Main Slider Section */}
       <SwiperSection />
-
-      {/* Feature Section */}
-      <FeatureSection />
-
       {/* About Azra Section */}
       <AboutAzra />
+      {/* Feature Section */}
+
+      {/* What do we offer section */}
+      <div className="bg-gray ">
+        <div className="container mx-auto pt-[1rem] ">
+          <div className="text-center font-title text-5xl mt-[3rem] mb-4">
+            What Do We Offer?
+          </div>
+          <div className="text-dark-gray text-center w-full max-w-xl mx-auto text-lg mb-10">
+            We understand that you are special – and your body requirements are
+            unique. We work to design unique diet plans specifically for:
+          </div>
+          {/* <Services services={whatWeOffer} /> */} <FeatureSection />
+          {/* <WhatWeDo services={whatWeOffer}></WhatWeDo> */}
+        </div>
+      </div>
       {/* Real Clients, Real Transformations Section */}
       <div className="bg-white ">
         <div className="container mx-auto">
@@ -47,27 +59,12 @@ const Home = () => {
           />
         </div>
       </div>
+      {/* Why Choose Us Section */}
+      <WhyChoseUs />
 
-      {/* What do we offer section */}
-      <div className="bg-gray ">
-        <div className="container mx-auto pt-[1rem] ">
-          <div className="text-center font-title text-5xl mt-[3rem] mb-4">
-            What Do We Offer?
-          </div>
-          <div className="text-dark-gray text-center w-full max-w-xl mx-auto text-lg mb-10">
-            We understand that you are special – and your body requirements are
-            unique. We work to design unique diet plans specifically for:
-          </div>
-          {/* <Services services={whatWeOffer} /> */}
-          <WhatWeDo services={whatWeOffer}></WhatWeDo>
-        </div>
-      </div>
       <div className="w-full flex justify-center ">
         <EnquiryForm />
       </div>
-
-      {/* Why Choose Us Section */}
-      <WhyChoseUs />
 
       {/* Our Results Speak - When They can, so can You ! */}
       <div className="bg-gray pt-20">
