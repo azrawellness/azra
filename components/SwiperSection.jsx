@@ -30,7 +30,7 @@ const SwiperSection = () => {
                 <div>Welcome to Azrah - Your Personal Dietitian</div>
               </div>
               <div className="lg:text-7xl font-title w-full mb-4 sm:mb-2 lg:mb-4 sm:text-xl text-LG">
-                Easy to Follow <br /> Diet Plans @Rs.4000 | USD 80 | SGD 65 |
+                Easy to Follow <br /> Diet Plans @Rs.4000 | USD 50 | SGD 65 |
                 GBP 40 | AUD 71 per month*
               </div>
               <div className="hidden sm:block text-xs lg:text-xl text-black mb-4 sm:mb-2 lg:mb-4 sm:text-md  text-[10px]">
