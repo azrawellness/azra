@@ -20,9 +20,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Azrah - Wellness Expert</title>
-        <meta name="description" content="Azrah Website" />
-        <link rel="icon" href="/favnew.png" />
+        <title>Azra - Wellness Expert</title>
+        <meta name="description" content="Azra Website" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <Script
         strategy="afterInteractive"

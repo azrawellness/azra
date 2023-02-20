@@ -14,13 +14,13 @@ const AboutAzra = () => {
         <div>
           <div className="text-primary flex items-center space-x-2 mb-4 font-semibold">
             <Dash border="border" hidden={false} />
-            <div>About Azrah</div>
+            <div>About Azra</div>
           </div>
           <div className="text-4xl lg:text-5xl font-title w-full max-w-md mb-4">
             Start Your Healthy Journey Now
           </div>
           <div className="text-gray-dark font-normal">
-            At Azrah, we are a vibrant team of health enthusiasts, who are
+            At Azra, we are a vibrant team of health enthusiasts, who are
             dedicated to nutrition and wellbeing. Our nutritionists are
             professionals with in-depth knowledge and extensive experience. We
             design medically sound diet plans for you – so that you become
@@ -76,7 +76,7 @@ const AboutAzra = () => {
           src={aboutAzraImage}
           lazyBoundary="800px"
           layout="responsive"
-          alt="About Azrah"
+          alt="About Azra"
         />
       </div>
     </div>

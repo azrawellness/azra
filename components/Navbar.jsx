@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 // import { useAuth } from '../context/AuthContext'
 import { NAVBAR_LINKS } from '../utils/constants'
 import logo from '../public/logo.png'
-import logo2 from '../public/AZRANEWLOGO3.jpg'
+//import logo2 from '../public/AZRANEWLOGO3.jpg'
 import { Image } from '../components'
 
 const Navbar = ({ toggleMenu }) => {
@@ -58,7 +58,7 @@ const Navbar = ({ toggleMenu }) => {
               <Link href="/" passHref>
                 <div className="relative h-20 w-28 lg:h-40 lg:w-60 cursor-pointer">
                   <Image
-                    src={logo2}
+                    src={logo}
                     layout="fill"
                     objectFit="cover"
                     alt="Pawan Kumar"
