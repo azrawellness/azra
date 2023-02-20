@@ -7,7 +7,7 @@ import {
 
 const FeatureSection = () => {
   return (
-    <div className=" mt-4 mb-[10rem] lg:mt-0 lg:h-60 mx-auto">
+    <div className=" mt-4  mb-[3rem] lg:mt-0  mx-auto">
       <div className=" lg:z-30">
         <div className="grid grid-cols-1 lg:grid-cols-3 px-4 gap-4 lg:gap-0 lg:px-28">
           <FeatureCard
