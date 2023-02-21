@@ -29,7 +29,7 @@ const Sidebar = () => {
   return (
     <div className="bg-white shadow h-full min-h-screen px-2 py-4">
       <div className="relative h-16 w-16 mx-auto mb-4">
-        <Image src={Logo} alt="Azrah" layout="fill" objectFit="contain" />
+        <Image src={Logo} alt="Azra" layout="fill" objectFit="contain" />
       </div>
       <div className="flex flex-col space-y-4">
         {SIDEBAR_LINKS.map((link, index) => (

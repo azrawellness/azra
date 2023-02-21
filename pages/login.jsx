@@ -35,7 +35,7 @@ const Login = () => {
         <div className="relative h-16 w-16 mx-auto">
           <Image
             src={Logo}
-            alt="Azrah"
+            alt="Azra"
             className="p-10"
             layout="fill"
             objectFit="contain"
@@ -100,7 +100,7 @@ const Login = () => {
             </Link>
           </div>
         </div>
-        <div className="text-center">Azrah. {currentYear}</div>
+        <div className="text-center">Azra. {currentYear}</div>
       </div>
     </div>
   )

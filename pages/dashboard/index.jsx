@@ -9,8 +9,8 @@ const Dashboard = () => {
   return (
     <>
       <Head>
-        <title>Azrah - Dashbaord</title>
-        <meta name="description" content="Azrah Website" />
+        <title>Azra - Dashbaord</title>
+        <meta name="description" content="Azra Website" />
         <link rel="icon" href="/favicon.png" />
       </Head>
      

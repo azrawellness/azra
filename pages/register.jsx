@@ -9,8 +9,8 @@ const Register = () => {
   return (
     <>
       <Head>
-        <title>Azrah - Register</title>
-        <meta name="description" content="Azrah Website" />
+        <title>Azra - Register</title>
+        <meta name="description" content="Azra Website" />
       </Head>
      
       <div className="h-full min-h-screen flex items-center mx-auto text-white justify-center w-full">
@@ -18,7 +18,7 @@ const Register = () => {
           <div className="relative h-16 w-16 mx-auto">
             <Image
               src={Logo}
-              alt="Azrah"
+              alt="Azra"
               className="p-10 cursor-pointer"
               layout="fill"
               objectFit="contain"
@@ -81,7 +81,7 @@ const Register = () => {
                 </Link>
               </div>
             </div>
-            <div className="text-center">Azrah. {currentYear}</div>
+            <div className="text-center">Azra. {currentYear}</div>
           </div>
         </div>
       </div>

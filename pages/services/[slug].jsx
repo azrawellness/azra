@@ -33,10 +33,10 @@ const Service = () => {
   ) : (
     <>
       <Head>
-        <title>{service && service.title} - Azrah</title>
+        <title>{service && service.title} - Azra</title>
         <meta
           name="description"
-          content="Azrah Website"
+          content="Azra Website"
         />
       </Head>
      

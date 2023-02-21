@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="container mx-auto flex justify-center items-center h-full py-4">
           <div>
             <span>Copyright {currentYear} &#169;</span>
-            <span className="text-primary"> Azrah.</span>
+            <span className="text-primary"> Azra.</span>
             <span> All Rights Reserved.</span>
           </div>
         </div>

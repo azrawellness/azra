@@ -62,9 +62,9 @@ const Home = () => {
       {/* Why Choose Us Section */}
       <WhyChoseUs />
 
-      <div className="w-full flex justify-center ">
+      {/* <div className="w-full flex justify-center ">
         <EnquiryForm />
-      </div>
+      </div> */}
 
       {/* Our Results Speak - When They can, so can You ! */}
       <div className="bg-gray pt-20">
@@ -80,14 +80,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Pricing and Plans */}
-      <PricingAndPlans />
-
       {/* Testimonials Section */}
       <Testimonials />
 
       {/* CTA section */}
-      <div className="relative h-[80vh] md:h-[100vh] lg:h-[120vh] w-full">
+      {/* <div className="relative h-[80vh] md:h-[100vh] lg:h-[120vh] w-full">
         <div className="absolute z-30 top-10 lg:top-28 left-5 lg:left-28">
           <FontAwesomeIcon
             icon={faLeaf}
@@ -100,16 +97,18 @@ const Home = () => {
           <div className="mb-4">
             WhatsApp us or Chat with us - We respond immediately!
             <EnquiryFormNoBg />
-          </div>
+          </div> */}
           {/* <WhatsAppButton /> */}
-        </div>
+        {/* </div>
         <Image
           src={ctaImage}
           layout="fill"
           objectFit="cover"
           alt="We are excited to make you healthier"
         />
-      </div>
+      </div> */}
+      {/* Pricing and Plans */}
+      <PricingAndPlans />
     </div>
   );
 };
