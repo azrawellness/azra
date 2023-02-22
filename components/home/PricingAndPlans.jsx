@@ -56,7 +56,7 @@ const PricingAndPlans = () => {
             <div className="flex flex-col">
               <div className="font-title text-xl mb-4">Pricing:</div>
               <ul className="list-disc list-inside">
-                <li>Prices as low as Rs.1500 per week*</li>
+                <li>Prices as low as Rs.875 per week*</li>
                 <li>EMI payment options available</li>
                 <li>
                   Our plans are goal-oriented and customized to your needs.
@@ -79,7 +79,7 @@ const PricingAndPlans = () => {
             <div className="flex font-title text-2xl">
               For that, let’s talk on +91-9899-1919-36 or chat with us.
             </div>
-          </div>
+          {/* </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 border-t-2 border-gray mt-4 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-gray">
             <div className="flex p-4">
               <div className="w-1/6">
@@ -141,7 +141,7 @@ const PricingAndPlans = () => {
                   Access for Queries and Weekly Follow-ups
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="w-full h-full relative">

@@ -14,7 +14,7 @@ const Footer = () => {
             Links
           </div>
           <div className="flex flex-col">
-            <Link href="/">
+            {/* <Link href="/">
               <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
                 Home
               </a>
@@ -24,11 +24,11 @@ const Footer = () => {
                 Services
               </a>
             </Link>
-            {/* <Link href="/blog">
+            <Link href="/blog">
               <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
                 Blog
               </a>
-            </Link> */}
+            </Link>
             <Link href="/client-reviews">
               <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
                 Client Reviews
@@ -37,6 +37,16 @@ const Footer = () => {
             <Link href="/contact-us">
               <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
                 Contact Us
+              </a>
+            </Link> */}
+            <Link href="https://www.instagram.com/azrawellnessexpert/">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Instagram
+              </a>
+            </Link>
+            <Link href="https://www.facebook.com/AzraWellnessExpert/">
+              <a className="hover:border-b-2 border-primary transition cursor-pointer w-fit h-6">
+                Facebook
               </a>
             </Link>
           </div>
