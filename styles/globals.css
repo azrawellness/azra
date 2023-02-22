@@ -77,3 +77,9 @@ blockquote:before {
 .azra-content h2 {
   font-size: x-large;
 }
+.indexContainer :not(.popupform){
+filter: blur(2px);
+}
+.popupform{
+  filter: blur(0);
+}
