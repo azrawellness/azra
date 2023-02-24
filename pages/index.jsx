@@ -24,9 +24,20 @@ import {
   featuredOurResults,
   whatWeOffer,
 } from "../utils/data";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { HomeTongles } from "../components/home/HomeTongles";
 const Home = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, 10000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+  const ref = useRef();
   return (
     <div>
       {" "}
@@ -114,10 +125,11 @@ const Home = () => {
      />
    </div> */}
         {/* Pricing and Plans */}
-        <PricingAndPlans />
+        <PricingAndPlans  setref={ref}/>
         {/*Popupform*/}
       </div>
       {show && <PopupForm setShow={setShow} />}
+      <HomeTongles setref={ref} />
     </div>
   );
 };

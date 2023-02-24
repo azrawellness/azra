@@ -13,11 +13,11 @@ import { useState } from "react";
 import ContactForm from "../ContactForm";
 import AppointmentForm from "../AppointmentForm";
 
-const PricingAndPlans = () => {
+const PricingAndPlans = ({ setref }) => {
   const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
-    <div className="w-full bg-white lg:py-20 lg:px-28 px-4">
+    <div className="w-full bg-white lg:py-20 lg:px-28 px-4" ref={setref}>
       <div className="container mx-auto flex flex-col lg:flex-row space-y-6 lg:space-x-28">
         <div className="w-full h-full">
           <div className="flex items-center capitalize text-primary font-semibold space-x-2 mb-4">
@@ -79,7 +79,7 @@ const PricingAndPlans = () => {
             <div className="flex font-title text-2xl">
               For that, let’s talk on +91-9899-1919-36 or chat with us.
             </div>
-          {/* </div>
+            {/* </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 border-t-2 border-gray mt-4 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-gray">
             <div className="flex p-4">
               <div className="w-1/6">
