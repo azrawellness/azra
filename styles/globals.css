@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Raleway:wght@200;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Raleway:wght@200;300;400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -30,9 +30,9 @@
 }
 
 blockquote:before {
-  font-family: 'Prata';
+  font-family: "Prata";
   position: absolute;
-  content: '\201C';
+  content: "\201C";
   font-size: 4em;
   color: #ffffff;
   margin-left: -0.6em;
@@ -53,9 +53,9 @@ blockquote:before {
 }
 
 .azra-content blockquote:before {
-  font-family: 'Prata';
+  font-family: "Prata";
   position: absolute;
-  content: '\201C';
+  content: "\201C";
   font-size: 4em;
   color: #99c300;
   margin-left: -0.6em;
@@ -77,9 +77,18 @@ blockquote:before {
 .azra-content h2 {
   font-size: x-large;
 }
-.indexContainer :not(.popupform){
-filter: blur(2px);
+.indexContainer :not(.popupform) {
+  filter: blur(2px);
 }
-.popupform{
+.popupform {
   filter: blur(0);
+}
+.toggles {
+  translate: -16rem;
+  transition: 0.3s;
+}
+.toggles:hover {
+  translate: 0;
+  transition: 0.3s;
+  cursor: pointer;
 }
