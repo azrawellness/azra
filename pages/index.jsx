@@ -24,7 +24,7 @@ import {
   featuredOurResults,
   whatWeOffer,
 } from "../utils/data";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { HomeTongles } from "../components/home/HomeTongles";
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -37,7 +37,7 @@ const Home = () => {
       clearTimeout(timer);
     };
   }, []);
-  const ref = useRef();
+
   return (
     <div>
       {" "}
@@ -125,11 +125,12 @@ const Home = () => {
      />
    </div> */}
         {/* Pricing and Plans */}
-        <PricingAndPlans  setref={ref}/>
+        <PricingAndPlans />
+
         {/*Popupform*/}
       </div>
       {show && <PopupForm setShow={setShow} />}
-      <HomeTongles setref={ref} />
+      <HomeTongles />
     </div>
   );
 };
