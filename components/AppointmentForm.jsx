@@ -51,7 +51,7 @@ const AppointmentForm = ({ rounded = false }) => {
       </div>
       <div className="w-full bg-white rounded shadow max-w-3xl mx-auto flex flex-row space-x-6 px-6 py-10">
         <div className="w-full">
-          <form
+          <form 
             ref={formEl}
             onSubmit={handleSubmit}
             id="contact-form"
