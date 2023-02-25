@@ -34,7 +34,7 @@ const AppointmentForm = ({ rounded = false }) => {
   };
 
   return (
-    <div className=" text-black p-10 lg:m-[-3rem]">
+    <div className=" text-black p-10 lg:m-[-3rem] " >
       <div className="text-center  text-black">
         <h2 className="text-primary font-title text-4xl mb-10 lg:text-5xl font-bold">
           Book An Appointment

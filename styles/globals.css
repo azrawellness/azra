@@ -84,7 +84,7 @@ blockquote:before {
   filter: blur(0);
 }
 .toggles {
-  translate: -16rem;
+  translate:16rem;
   transition: 0.3s;
 }
 .toggles:hover {
