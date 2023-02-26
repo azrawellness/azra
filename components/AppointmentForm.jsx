@@ -34,7 +34,7 @@ const AppointmentForm = ({ rounded = false }) => {
   };
 
   return (
-    <div className=" text-black p-10 lg:m-[-3rem] " >
+    <div className=" text-black p-10 lg:m-[-3rem] ">
       <div className="text-center  text-black">
         <h2 className="text-primary font-title text-4xl mb-10 lg:text-5xl font-bold">
           Book An Appointment
@@ -51,7 +51,7 @@ const AppointmentForm = ({ rounded = false }) => {
       </div>
       <div className="w-full bg-white rounded shadow max-w-3xl mx-auto flex flex-row space-x-6 px-6 py-10">
         <div className="w-full">
-          <form 
+          <form
             ref={formEl}
             onSubmit={handleSubmit}
             id="contact-form"
