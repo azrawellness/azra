@@ -24,13 +24,16 @@ import {
   featuredOurResults,
   whatWeOffer,
 } from "../utils/data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HomeTongles } from "../components/home/HomeTongles";
 const Home = () => {
+  const ref = useRef();
   const [show, setShow] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
+      const y = window.pageYOffset;
+      ref.current.style.top = (y+40) + "px";
     }, 10000);
 
     return () => {
@@ -129,7 +132,7 @@ const Home = () => {
 
         {/*Popupform*/}
       </div>
-      {show && <PopupForm setShow={setShow} />}
+      <PopupForm refPopup={ref} setShow={setShow} />
       <HomeTongles />
     </div>
   );

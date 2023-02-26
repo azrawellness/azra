@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import bg from "../public/images/home/formbg.png";
-const PopupForm = ({ rounded = false, setShow }) => {
+const PopupForm = ({ rounded = false, refPopup, setShow }) => {
   const formEl = useRef(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -34,12 +34,15 @@ const PopupForm = ({ rounded = false, setShow }) => {
   };
 
   return (
-    <div className="popupform border-2 text-black  absolute lg:w-[50vw]  md:w-[70vw] w-[80vw]  top-60 left-[50%] translate-x-[-50%] z-[100] ">
+    <div
+      ref={refPopup}
+      className="top-[-100%] popupform border-2 text-black  absolute lg:w-[50vw]  md:w-[70vw] w-[80vw]  left-[50%] translate-x-[-50%] z-[100] "
+    >
       <div className="relative z-40 w-full h-5 bg-white ">
         {" "}
         <button
-          onClick={(e) => {
-            setShow(false);
+          onClick={() => {
+            (refPopup.current.style.top = "-100%"), setShow(false);
           }}
           className="bg-red p-1 px-3  absolute left-[97%] top-[-1.5rem] text-4xl text-white rounded-2xl "
         >
