@@ -32,8 +32,11 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
+      // if (setShow) {
+      //   document.body.style.overflow = "hidden";
+      // }
       const y = window.pageYOffset;
-      ref.current.style.top = (y+40) + "px";
+      ref.current.style.top = y + 40 + "px";
     }, 10000);
 
     return () => {
