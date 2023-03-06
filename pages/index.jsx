@@ -37,7 +37,7 @@ const Home = () => {
       // }
       const y = window.pageYOffset;
       ref.current.style.top = y + 40 + "px";
-    }, 10000);
+    }, 35000);
 
     return () => {
       clearTimeout(timer);
