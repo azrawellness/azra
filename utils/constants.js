@@ -27,11 +27,11 @@ export const NAVBAR_LINKS = [
   //   name: 'Services',
   //   match: true,
   // },
-  // {
-  //   href: '/blog',
-  //   name: 'Blog',
-  //   match: true,
-  // },
+  {
+    href: '/blog',
+    name: 'Blog',
+    match: true,
+  },
   // {
   //   href: '/client-reviews',
   //   name: 'Book a Free Consultation',
