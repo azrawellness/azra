@@ -28,7 +28,7 @@ export const NAVBAR_LINKS = [
   //   match: true,
   // },
   {
-    href: "/blog",
+    href: "/blog", 
     name: "Blog",
     match: true,
   },
