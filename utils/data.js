@@ -31,6 +31,37 @@ import ClientReviews27 from "../public/images/client-reviews/client_reviews_27.p
 import ClientReviews28 from "../public/images/client-reviews/client_reviews_28.png";
 import ClientReviews29 from "../public/images/client-reviews/client_reviews_29.png";
 
+import ClientReviews30 from "../public/images/client-reviews/client_reviews_30.jpeg";
+import ClientReviews31 from "../public/images/client-reviews/client_reviews_31.jpeg";
+import ClientReviews32 from "../public/images/client-reviews/client_reviews_32.jpeg";
+import ClientReviews33 from "../public/images/client-reviews/client_reviews_33.jpeg";
+import ClientReviews34 from "../public/images/client-reviews/client_reviews_34.jpeg";
+import ClientReviews35 from "../public/images/client-reviews/client_reviews_35.jpeg";
+import ClientReviews36 from "../public/images/client-reviews/client_reviews_36.jpeg";
+import ClientReviews37 from "../public/images/client-reviews/client_reviews_37.jpeg";
+import ClientReviews38 from "../public/images/client-reviews/client_reviews_38.jpeg";
+import ClientReviews39 from "../public/images/client-reviews/client_reviews_39.jpeg";
+import ClientReviews40 from "../public/images/client-reviews/client_reviews_40.jpeg";
+import ClientReviews41 from "../public/images/client-reviews/client_reviews_41.jpeg";
+import ClientReviews42 from "../public/images/client-reviews/client_reviews_42.jpeg";
+import ClientReviews43 from "../public/images/client-reviews/client_reviews_43.jpeg";
+// import ClientReviews44 from "../public/images/client-reviews/client_reviews_44.jpeg";
+// import ClientReviews45 from "../public/images/client-reviews/client_reviews_45.jpeg";
+import ClientReviews46 from "../public/images/client-reviews/client_reviews_46.jpeg";
+import ClientReviews47 from "../public/images/client-reviews/client_reviews_47.jpeg";
+import ClientReviews48 from "../public/images/client-reviews/client_reviews_48.jpeg";
+import ClientReviews49 from "../public/images/client-reviews/client_reviews_49.jpeg";
+import ClientReviews50 from "../public/images/client-reviews/client_reviews_50.jpeg";
+import ClientReviews51 from "../public/images/client-reviews/client_reviews_51.jpeg";
+import ClientReviews52 from "../public/images/client-reviews/client_reviews_52.jpeg";
+import ClientReviews53 from "../public/images/client-reviews/client_reviews_53.jpeg";
+import ClientReviews54 from "../public/images/client-reviews/client_reviews_54.jpeg";
+import ClientReviews55 from "../public/images/client-reviews/client_reviews_55.jpeg";
+import ClientReviews56 from "../public/images/client-reviews/client_reviews_56.jpeg";
+import ClientReviews57 from "../public/images/client-reviews/client_reviews_57.jpeg";
+import ClientReviews58 from "../public/images/client-reviews/client_reviews_58.jpeg";
+import ClientReviews59 from "../public/images/client-reviews/client_reviews_59.jpeg";
+
 import OurResults1 from "../public/images/our-results/our-results_1.jpeg";
 import OurResults2 from "../public/images/our-results/our-results_2.jpeg";
 import OurResults3 from "../public/images/our-results/our-results_3.jpeg";
@@ -184,6 +215,36 @@ export const featuredClients = [
   {
     link: ClientReviews29,
   },
+  { link: ClientReviews30 },
+  { link: ClientReviews31 },
+  { link: ClientReviews32 },
+  { link: ClientReviews33 },
+  { link: ClientReviews34 },
+  { link: ClientReviews35 },
+  { link: ClientReviews36 },
+  { link: ClientReviews37 },
+  { link: ClientReviews38 },
+  { link: ClientReviews39 },
+  { link: ClientReviews40 },
+  { link: ClientReviews41 },
+  { link: ClientReviews42 },
+  { link: ClientReviews43 },
+  // { link: ClientReviews44 },
+  // { link: ClientReviews45 },
+  { link: ClientReviews46 },
+  { link: ClientReviews47 },
+  { link: ClientReviews48 },
+  { link: ClientReviews49 },
+  { link: ClientReviews50 },
+  { link: ClientReviews51 },
+  { link: ClientReviews52 },
+  { link: ClientReviews53 },
+  { link: ClientReviews54 },
+  { link: ClientReviews55 },
+  { link: ClientReviews56 },
+  { link: ClientReviews57 },
+  { link: ClientReviews58 },
+  { link: ClientReviews59 },
 ];
 
 export const featuredOurResults = [
