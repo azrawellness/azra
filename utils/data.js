@@ -7,29 +7,29 @@ import ClientReviews6 from "../public/images/client-reviews/client_reviews_6.jpe
 import ClientReviews7 from "../public/images/client-reviews/client_reviews_7.jpeg";
 import ClientReviews8 from "../public/images/client-reviews/client_reviews_8.jpeg";
 import ClientReviews9 from "../public/images/client-reviews/client_reviews_9.jpeg";
-import ClientReviews10 from "../public/images/client-reviews/client_reviews_10.jpg";
-import ClientReviews11 from "../public/images/client-reviews/client_reviews_11.jpg";
-import ClientReviews12 from "../public/images/client-reviews/client_reviews_12.jpg";
-import ClientReviews13 from "../public/images/client-reviews/client_reviews_13.jpg";
-import ClientReviews14 from "../public/images/client-reviews/client_reviews_14.jpg";
-import ClientReviews15 from "../public/images/client-reviews/client_reviews_15.jpg";
-import ClientReviews16 from "../public/images/client-reviews/client_reviews_16.jpg";
-import ClientReviews17 from "../public/images/client-reviews/client_reviews_17.jpg";
-import ClientReviews18 from "../public/images/client-reviews/client_reviews_18.jpg";
-import ClientReviews19 from "../public/images/client-reviews/client_reviews_19.jpg";
-import ClientReviews20 from "../public/images/client-reviews/client_reviews_20.jpg";
-import ClientReviews21 from "../public/images/client-reviews/client_reviews_21.jpg";
-import ClientReviews22 from "../public/images/client-reviews/client_reviews_22.jpg";
-import ClientReviews23 from "../public/images/client-reviews/client_reviews_23.jpg";
+// import ClientReviews10 from "../public/images/client-reviews/client_reviews_10.jpg";
+// import ClientReviews11 from "../public/images/client-reviews/client_reviews_11.jpg";
+// import ClientReviews12 from "../public/images/client-reviews/client_reviews_12.jpg";
+// import ClientReviews13 from "../public/images/client-reviews/client_reviews_13.jpg";
+// import ClientReviews14 from "../public/images/client-reviews/client_reviews_14.jpg";
+// import ClientReviews15 from "../public/images/client-reviews/client_reviews_15.jpg";
+// import ClientReviews16 from "../public/images/client-reviews/client_reviews_16.jpg";
+// import ClientReviews17 from "../public/images/client-reviews/client_reviews_17.jpg";
+// import ClientReviews18 from "../public/images/client-reviews/client_reviews_18.jpg";
+// import ClientReviews19 from "../public/images/client-reviews/client_reviews_19.jpg";
+// import ClientReviews20 from "../public/images/client-reviews/client_reviews_20.jpg";
+// import ClientReviews21 from "../public/images/client-reviews/client_reviews_21.jpg";
+// import ClientReviews22 from "../public/images/client-reviews/client_reviews_22.jpg";
+// import ClientReviews23 from "../public/images/client-reviews/client_reviews_23.jpg";
 
-import ClientReviews24 from "../public/images/client-reviews/client_reviews_24.jpg";
+// import ClientReviews24 from "../public/images/client-reviews/client_reviews_24.jpg";
 
-import ClientReviews25 from "../public/images/client-reviews/client_reviews_25.jpg";
+// import ClientReviews25 from "../public/images/client-reviews/client_reviews_25.jpg";
 
-import ClientReviews26 from "../public/images/client-reviews/client_reviews_26.jpg";
-import ClientReviews27 from "../public/images/client-reviews/client_reviews_27.png";
-import ClientReviews28 from "../public/images/client-reviews/client_reviews_28.png";
-import ClientReviews29 from "../public/images/client-reviews/client_reviews_29.png";
+// import ClientReviews26 from "../public/images/client-reviews/client_reviews_26.jpg";
+// import ClientReviews27 from "../public/images/client-reviews/client_reviews_27.png";
+// import ClientReviews28 from "../public/images/client-reviews/client_reviews_28.png";
+// import ClientReviews29 from "../public/images/client-reviews/client_reviews_29.png";
 
 import ClientReviews30 from "../public/images/client-reviews/client_reviews_30.jpeg";
 import ClientReviews31 from "../public/images/client-reviews/client_reviews_31.jpeg";
@@ -155,66 +155,66 @@ export const featuredClients = [
   {
     link: ClientReviews6,
   },
-  {
-    link: ClientReviews10,
-  },
-  {
-    link: ClientReviews11,
-  },
-  {
-    link: ClientReviews12,
-  },
-  {
-    link: ClientReviews13,
-  },
-  {
-    link: ClientReviews14,
-  },
-  {
-    link: ClientReviews15,
-  },
-  {
-    link: ClientReviews16,
-  },
-  {
-    link: ClientReviews17,
-  },
-  {
-    link: ClientReviews18,
-  },
-  {
-    link: ClientReviews19,
-  },
-  {
-    link: ClientReviews20,
-  },
-  {
-    link: ClientReviews21,
-  },
-  {
-    link: ClientReviews22,
-  },
-  {
-    link: ClientReviews23,
-  },
-  {
-    link: ClientReviews24,
-  },
-  {
-    link: ClientReviews25,
-  },
-  {
-    link: ClientReviews26,
-  },
-  {
-    link: ClientReviews27,
-  },
-  {
-    link: ClientReviews28,
-  },
-  {
-    link: ClientReviews29,
-  },
+  // {
+  //   link: ClientReviews10,
+  // },
+  // {
+  //   link: ClientReviews11,
+  // },
+  // {
+  //   link: ClientReviews12,
+  // },
+  // {
+  //   link: ClientReviews13,
+  // },
+  // {
+  //   link: ClientReviews14,
+  // },
+  // {
+  //   link: ClientReviews15,
+  // },
+  // {
+  //   link: ClientReviews16,
+  // },
+  // {
+  //   link: ClientReviews17,
+  // },
+  // {
+  //   link: ClientReviews18,
+  // },
+  // {
+  //   link: ClientReviews19,
+  // },
+  // {
+  //   link: ClientReviews20,
+  // },
+  // {
+  //   link: ClientReviews21,
+  // },
+  // {
+  //   link: ClientReviews22,
+  // },
+  // {
+  //   link: ClientReviews23,
+  // },
+  // {
+  //   link: ClientReviews24,
+  // },
+  // {
+  //   link: ClientReviews25,
+  // },
+  // {
+  //   link: ClientReviews26,
+  // },
+  // {
+  //   link: ClientReviews27,
+  // },
+  // {
+  //   link: ClientReviews28,
+  // },
+  // {
+  //   link: ClientReviews29,
+  // },
   { link: ClientReviews30 },
   { link: ClientReviews31 },
   { link: ClientReviews32 },
