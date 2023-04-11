@@ -17,21 +17,21 @@ export const NAVBAR_LINKS = [
   //   name: 'Schedule Free Consultation',
   //   match: true,
   // },
-  {
-    href: '/yoga',
-    name: 'Yoga Live Online Classes',
-    match: true,
-  },
+  // {
+  //   href: '/yoga',
+  //   name: 'Yoga Live Online Classes',
+  //   match: true,
+  // },
   // {
   //   href: '/services',
   //   name: 'Services',
   //   match: true,
   // },
-  {
-    href: "/blog", 
-    name: "Blog",
-    match: true,
-  },
+  // {
+  //   href: "/blog", 
+  //   name: "Blog",
+  //   match: true,
+  // },
   // {
   //   href: '/client-reviews',
   //   name: 'Book a Free Consultation',
