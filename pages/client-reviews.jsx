@@ -31,7 +31,7 @@ const ClientReviews = () => {
   
   return (
     <div className="bg-gray text-black">
-      <Header title="Book a Free Consultation" />
+      <Header title="Client Reviews" />
 
       <InlineWidget className="calendly" url="https://calendly.com/azrawellnessexpert/30min" />
     
