@@ -46,7 +46,7 @@ const Testimonials = () => {
               height={500}
               layout="responsive"
               lazyBoundary="1000px"
-              objectFit="cover"
+              objectFit="fill"
               src={testimonialImage}
               alt="Testimonials Image"
             />

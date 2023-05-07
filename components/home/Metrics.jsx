@@ -15,7 +15,7 @@ export const Metrics = () => {
           <FontAwesomeIcon className="text-primary" size="2x" icon={faPerson} />
         </div>
         <div className="w-5/6">
-          <div className="font-title text-3xl">674</div>
+          <div className="font-title text-3xl">830+</div>
           <div className="font-title text-2xl">
             Successfully Managed PCOS Cases
           </div>
@@ -30,7 +30,7 @@ export const Metrics = () => {
           />
         </div>
         <div className="w-5/6">
-          <div className="font-title text-3xl">2700</div>
+          <div className="font-title text-3xl">5600</div>
           <div className="font-title text-2xl">
             Successfully Managed Hypertension, Thyroid & Diabetes Cases
           </div>

@@ -94,7 +94,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
             </div>
-            <div className="form-control flex flex-col py-4">
+            {/* <div className="form-control flex flex-col py-4">
               <label htmlFor="location" className="text-black text-xl">
                 Your Location & Preferred Time to Speak
               </label>
@@ -105,8 +105,8 @@ const AppointmentForm = ({ rounded = false }) => {
                 name="location"
                 className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
-            </div>
-            <div className="form-control flex flex-col py-4">
+            </div> */}
+            {/* <div className="form-control flex flex-col py-4">
               <label htmlFor="goals" className="text-black text-xl">
                 Add goal you wish to achieve
               </label>
@@ -117,7 +117,7 @@ const AppointmentForm = ({ rounded = false }) => {
                 name="goals"
                 className="text-2xl  border-primary border-2 dark:bg-alternate  dark:text-primary focus:outline-none rounded p-2 shadow-sm"
               />
-            </div>
+            </div> */}
 
             {/* <div className="form-control flex flex-col py-4">
               <label htmlFor="email" className="text-black text-xl">

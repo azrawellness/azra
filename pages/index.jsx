@@ -29,20 +29,20 @@ import { HomeTongles } from "../components/home/HomeTongles";
 const Home = () => {
   const ref = useRef();
   const [show, setShow] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(true);
-      // if (setShow) {
-      //   document.body.style.overflow = "hidden";
-      // }
-      const y = window.pageYOffset;
-      ref.current.style.top = y + 40 + "px";
-    }, 35000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShow(true);
+  //     // if (setShow) {
+  //     //   document.body.style.overflow = "hidden";
+  //     // }
+  //     const y = window.pageYOffset;
+  //     ref.current.style.top = y + 40 + "px";
+  //   }, 35000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
 
   return (
     <div>
@@ -135,7 +135,7 @@ const Home = () => {
 
         {/*Popupform*/}
       </div>
-      <PopupForm refPopup={ref} setShow={setShow} />
+      {/* <PopupForm refPopup={ref} setShow={setShow} /> */}
       <HomeTongles />
     </div>
   );
