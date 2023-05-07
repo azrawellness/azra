@@ -28,20 +28,20 @@ export const NAVBAR_LINKS = [
   //   match: true,
   // },
   // {
-  //   href: "/blog", 
+  //   href: "/blog",
   //   name: "Blog",
   //   match: true,
   // },
-  {
-    href: '/client-reviews',
-    name: 'Client Reviews',
-    match: false,
-  },
-  {
-    href: "/contact-us",
-    name: "Contact Us",
-    match: false,
-  },
+  // {
+  //   href: '/client-reviews',
+  //   name: 'Client Reviews',
+  //   match: false,
+  // },
+  // {
+  //   href: "/contact-us",
+  //   name: "Contact Us",
+  //   match: false,
+  // },
 ];
 
 export const SIDEBAR_LINKS = [

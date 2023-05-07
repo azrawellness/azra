@@ -69,7 +69,7 @@ const AboutAzra = () => {
       </div>
       <div className="w-full lg:w-1/2 relative lg:shadow-custom shadow-primary">
         <div className="absolute bottom-5 lg:bottom-10 border-l-8 border-primary left-5 lg:left-10 z-40 bg-black py-4 pl-4 pr-10 lg:pr-16 text-gray">
-          <div className="text-xl lg:text-3xl font-title">15 Years</div>
+          <div className="text-xl lg:text-3xl font-title">18+ Years</div>
           <div>Experience</div>
         </div>
         <Image
